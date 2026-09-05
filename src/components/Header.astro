@@ -1,8 +1,8 @@
 <header
   data-header
-  class="fixed inset-x-2 top-[calc(50%-10vh)] text-[10vw] leading-none z-20 pointer-events-none select-none"
+  class="fixed inset-x-0 px-4 sm:px-6 top-[calc(50%-10vh)] text-[clamp(2.5rem,11vw,7.5rem)] leading-none z-20 pointer-events-none select-none flex justify-center"
 >
-  <h1 class="text-center font-semibold tracking-tight">
+  <h1 class="w-full max-w-full text-center font-semibold tracking-tight">
     <span 
       data-title 
       class="inline-block whitespace-nowrap" 
@@ -12,7 +12,7 @@
     </span>
     <span 
       data-subtitle 
-      class="block text-xs sm:text-sm lg:text-base font-light tracking-[0.28em] sm:tracking-[0.32em] text-white/90 uppercase mt-4"
+      class="block text-[clamp(0.7rem,1.8vw,1rem)] font-light tracking-[0.25em] sm:tracking-[0.32em] text-white/90 uppercase mt-3 sm:mt-4 max-w-xl mx-auto"
     >
       technologie przesyłu cieczy
     </span>
@@ -44,6 +44,7 @@
           start: 'top top',
           end: 'bottom 25%',
           scrub: true,
+          invalidateOnRefresh: true,
         },
         fontSize: '1.75rem',
         top: '1.25rem',
