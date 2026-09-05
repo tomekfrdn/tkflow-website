@@ -3,17 +3,19 @@
   class="fixed inset-x-2 top-[calc(50%-10vh)] text-[10vw] leading-none z-20 pointer-events-none select-none"
 >
   <h1 class="text-center font-semibold tracking-tight">
-    <!-- Klikalny tytuł po zadokowaniu na górze -->
-    <a 
-      href="#" 
+    <!-- Tytuł z klasą do animacji GSAP -->
+    <span 
       data-title 
-      class="inline-block whitespace-nowrap text-[#041A2F] pointer-events-auto cursor-pointer"
+      class="inline-block whitespace-nowrap" 
+      style="color: #041A2F;"
     >
       TK Flow
-    </a>
+    </span>
+    <!-- Podtytuł ze sztywną bielą -->
     <span 
       data-subtitle 
-      class="block text-[0.28em] font-normal tracking-wider text-slate-300 uppercase mt-2 will-change-transform"
+      class="block text-[0.28em] font-normal tracking-wider uppercase mt-2" 
+      style="color: #ffffff;"
     >
       technologie przesyłu cieczy
     </span>
@@ -34,56 +36,48 @@
     const subtitle = header?.querySelector('[data-subtitle]') as HTMLElement
 
     if (hero && header) {
-      const tl = gsap.timeline({
+      // 1. Zmniejszanie nagłówka do górnej belki
+      gsap.to(header, {
         scrollTrigger: {
           trigger: hero,
           start: 'top top',
           end: 'bottom 25%',
-          scrub: 0.5, // Delikatne wygładzenie bez szarpnięć
+          scrub: true,
         },
+        fontSize: '1.75rem',
+        top: '1.25rem',
+        ease: 'none',
       })
 
-      // 1. Płynne skalowanie i dokowanie nagłówka do góry
-      tl.to(
-        header,
-        {
-          fontSize: '1.75rem',
-          top: '1.25rem',
-          ease: 'power1.out',
-        },
-        0
-      )
-
-      // 2. Czyste wygaszenie podtytułu na początku scrolla
+      // 2. Wygaszenie podtytułu podczas scrollowania
       if (subtitle) {
-        tl.to(
-          subtitle,
-          {
-            opacity: 0,
-            y: -12,
-            height: 0,
-            marginTop: 0,
-            ease: 'power1.out',
+        gsap.to(subtitle, {
+          scrollTrigger: {
+            trigger: hero,
+            start: 'top top',
+            end: 'center top',
+            scrub: true,
           },
-          0
-        )
+          opacity: 0,
+          y: -10,
+          ease: 'none',
+        })
       }
 
-      // 3. Adaptacja koloru:
-      // Gdy Twoje sekcje poniżej Hero wymagają innego koloru (np. bieli na sekcji Projects/About),
-      // odkomentuj poniższy fragment i dopasuj kolor docelowy:
-      /*
+      // 3. Zmiana koloru TK Flow z granatu (#041A2F) na czystą biel (#FFFFFF),
+      // gdy nagłówek opuszcza Hero i wjeżdża na ciemne tło kolejnej sekcji
       if (title) {
-        tl.to(
-          title,
-          {
-            color: '#FFFFFF',
-            ease: 'none',
+        gsap.to(title, {
+          scrollTrigger: {
+            trigger: hero,
+            start: 'center top',
+            end: 'bottom top',
+            scrub: true,
           },
-          0.3
-        )
+          color: '#ffffff',
+          ease: 'none',
+        })
       }
-      */
     }
   })
 </script>
