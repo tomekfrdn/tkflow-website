@@ -17,13 +17,28 @@ import TextReveal from '@/components/TextReveal.astro'
 </section>
 
 <script>
+  import { gsap } from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
   import { DOMLoaded } from '../ts/events'
-  import { fadeOut } from '../ts/animations'
 
   DOMLoaded(() => {
-    const trigger = document.querySelector('[data-about]') as HTMLElement
-    const target = trigger.querySelector('p') as HTMLElement
+    gsap.registerPlugin(ScrollTrigger)
 
-    fadeOut(trigger, target)
+    const trigger = document.querySelector('[data-about]') as HTMLElement
+    const target = trigger?.querySelector('p') as HTMLElement
+
+    if (trigger && target) {
+      // Płynne, opóźnione wygaszanie tekstu z kontrolą tempa
+      gsap.to(target, {
+        opacity: 0.15, // Tekst nie znika do zera, zachowuje minimalną widoczność
+        scrollTrigger: {
+          trigger: trigger,
+          start: 'center center', // Zaczyna blednąć dopiero, gdy środek sekcji minie środek ekranu
+          end: 'bottom 15%',      // Kończy blednąć tuż przed wejściem kolejnej sekcji
+          scrub: true,
+        },
+        ease: 'none',
+      })
+    }
   })
 </script>
