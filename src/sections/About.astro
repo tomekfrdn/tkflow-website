@@ -28,14 +28,15 @@ import TextReveal from '@/components/TextReveal.astro'
     const target = trigger?.querySelector('p') as HTMLElement
 
     if (trigger && target) {
-      // Płynne, opóźnione wygaszanie tekstu z kontrolą tempa
+      // Płynne, responsywne wygaszanie tekstu powiązane z wysokością ekranu
       gsap.to(target, {
-        opacity: 0.15, // Tekst nie znika do zera, zachowuje minimalną widoczność
+        opacity: 0.15,
         scrollTrigger: {
-          trigger: trigger,
-          start: 'top 35%', // Zaczyna blednąć dopiero, gdy środek sekcji minie środek ekranu
-          end: 'bottom 10%',      // Kończy blednąć tuż przed wejściem kolejnej sekcji
-          scrub: 1,
+          trigger: target, // Śledzimy bezpośrednio blok tekstu
+          start: 'top 25%',
+          end: () => `+=${window.innerHeight * 0.85}`, // 85% wysokości ekranu użytkownika
+          scrub: 1.2,
+          invalidateOnRefresh: true, // Przelicza dystans po zmianie rozmiaru okna/ekranu
         },
         ease: 'none',
       })
