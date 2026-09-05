@@ -12,8 +12,7 @@
     </span>
     <span 
       data-subtitle 
-      class="block text-[0.28em] font-normal tracking-wider uppercase mt-2" 
-      style="color: #ffffff;"
+      class="block text-xs sm:text-sm lg:text-base font-light tracking-[0.28em] sm:tracking-[0.32em] text-white/90 uppercase mt-4"
     >
       technologie przesyłu cieczy
     </span>
@@ -38,7 +37,7 @@
     const contactSection = document.querySelector('[data-contact]') as HTMLElement
 
     if (hero && header) {
-      // 1. Zmniejszanie i dokowanie logo do górnej krawędzi
+      // 1. Skalowanie i dokowanie do paska u góry
       gsap.to(header, {
         scrollTrigger: {
           trigger: hero,
@@ -51,7 +50,7 @@
         ease: 'none',
       })
 
-      // 2. Wygaszenie podtytułu podczas zjeżdżania z Hero
+      // 2. Czyste wygaszenie podtytułu podczas scrollowania
       if (subtitle) {
         gsap.to(subtitle, {
           scrollTrigger: {
@@ -67,20 +66,18 @@
       }
     }
 
-    // 3. Bezzwłoczne (skokowe) przełączanie kolorów logo w punktach przecięcia sekcji
+    // 3. Bezzwłoczne przełączanie kolorów na stykach sekcji
     if (title) {
-      // Przejście Hero -> About: natychmiastowy przeskok z granatu na czystą biel
       if (aboutSection) {
         ScrollTrigger.create({
           trigger: aboutSection,
-          start: 'top 40px', // Punkt, w którym sekcja styka się z zadokowanym logo
+          start: 'top 40px',
           end: 'bottom 40px',
           onEnter: () => gsap.set(title, { color: '#ffffff' }),
           onLeaveBack: () => gsap.set(title, { color: '#041A2F' }),
         })
       }
 
-      // Przejście About -> Projects: natychmiastowy powrót do granatu na jasnym tle
       if (projectsSection) {
         ScrollTrigger.create({
           trigger: projectsSection,
@@ -91,7 +88,6 @@
         })
       }
 
-      // Przejście Projects -> Contact: natychmiastowy powrót do bieli
       if (contactSection) {
         ScrollTrigger.create({
           trigger: contactSection,
