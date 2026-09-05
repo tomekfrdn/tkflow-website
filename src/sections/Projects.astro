@@ -2,23 +2,25 @@
 import Card from '@/components/Card.astro'
 import projectOne from '@/images/project-1.png'
 import projectTwo from '@/images/project-2.png'
-import projectThree from '@/images/project-3.png'
-import projectFour from '@/images/project-4.png'
 ---
 
 <section
   data-projects
-  class="bg-light-gray text-steel-blue flex flex-col gap-10 lg:gap-12 py-32 lg:pb-40 2xl:py-48 px-8 overflow-clip"
+  class="bg-light-gray text-steel-blue flex flex-col gap-12 lg:gap-16 py-28 lg:py-36 2xl:py-44 px-6 sm:px-8 overflow-hidden"
 >
   <h2
-    class="w-full max-w-2xl mx-auto text-dark-blue text-3xl lg:text-4xl 2xl:text-5xl text-center font-semibold"
+    data-projects-heading
+    class="w-full max-w-4xl mx-auto text-dark-blue text-3xl lg:text-4xl 2xl:text-5xl text-center font-semibold"
   >
     Marki specjalistyczne
   </h2>
 
-  <div data-projects-wrapper class="w-full max-w-2xl mx-auto">
-    <ul data-projects-list class="flex gap-8 lg:gap-16 w-max">
-      <li>
+  <div class="w-full max-w-4xl mx-auto">
+    <ul
+      data-projects-grid
+      class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch"
+    >
+      <li data-project-card class="h-full">
         <Card
           image={projectOne}
           title="sercemyjni.pl"
@@ -26,32 +28,14 @@ import projectFour from '@/images/project-4.png'
           link="https://sercemyjni.pl"
         />
       </li>
-      <li>
+      <li data-project-card class="h-full">
         <Card
-        image={projectTwo}
+          image={projectTwo}
           title="rurape.pl"
           description="Rury PE do nawadniania i przesyłu wody w rolnictwie."
           link="https://rurape.pl"
         />
       </li>
-      <!--
-      <li>
-        <Card
-          image={projectThree}
-          title="Blog Platform"
-          description="A lightweight blog platform built with modern frameworks, highlighting my ability to create scalable, maintainable, and user-friendly web applications."
-          link="#"
-        />
-      </li>
-      <li>
-        <Card
-          image={projectFour}
-          title="Interactive Data Visualization"
-          description="A tool that turns complex datasets into intuitive charts and graphs, demonstrating my skill in data-driven visualization and user engagement."
-          link="#"
-        />
-      </li>
-      -->
     </ul>
   </div>
 </section>
@@ -63,24 +47,40 @@ import projectFour from '@/images/project-4.png'
 
   DOMLoaded(() => {
     gsap.registerPlugin(ScrollTrigger)
-    const projects = document.querySelector('[data-projects]') as HTMLElement
-    const projectsWrapper = projects.querySelector(
-      '[data-projects-wrapper]'
-    ) as HTMLElement
-    const projectsList = projects.querySelector(
-      '[data-projects-list]'
-    ) as HTMLElement
-    const width = projectsList.clientWidth - projectsWrapper.clientWidth
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: projects,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-        pin: true,
-      },
-    })
 
-    tl.fromTo(projectsList, { x: 0 }, { x: -width, duration: 1 })
+    const projectsSection = document.querySelector('[data-projects]') as HTMLElement
+    const heading = projectsSection?.querySelector('[data-projects-heading]') as HTMLElement
+    const cards = projectsSection?.querySelectorAll('[data-project-card]')
+
+    if (projectsSection && cards.length) {
+      // 1. Subtelne wejście nagłówka
+      if (heading) {
+        gsap.from(heading, {
+          scrollTrigger: {
+            trigger: heading,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse',
+          },
+          y: 20,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+        })
+      }
+
+      // 2. Równoczesny najazd i wyostrzenie kafelków z delikatnym opóźnieniem (stagger)
+      gsap.from(cards, {
+        scrollTrigger: {
+          trigger: '[data-projects-grid]',
+          start: 'top 80%',
+          toggleActions: 'play none none reverse',
+        },
+        y: 45,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.18,
+        ease: 'power3.out',
+      })
+    }
   })
 </script>
