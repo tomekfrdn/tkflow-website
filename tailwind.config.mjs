@@ -32,7 +32,7 @@ export default {
 
     fontFamily: {
 
-      sans: ['Sora', 'sans-serif'],
+      sans: ['Plus Jakarta Sans', 'sans-serif'],
 
     },
 
