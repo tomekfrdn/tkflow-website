@@ -8,10 +8,10 @@ export default {
       black: '#000',
       white: '#fff',
       'dark-blue': '#123CBE',
-      'light-blue': '#1648E4',
+      'light-blue': '#fafafa',
       'dark-gray': '#1b1e22',
       'light-gray': '#fafafa',
-      'steel-blue': '#0E3098',
+      'steel-blue': '#BE123C',
       'slate-gray': '#323539',
     },
     fontFamily: {
