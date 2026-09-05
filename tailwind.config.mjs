@@ -9,10 +9,10 @@ export default {
       white: '#fff',
       'dark-blue': '#3e12be',
       'light-blue': '#f0effe',
-      'dark-gray': '#20066e',
+      'dark-gray': '#3e12be',
       'light-gray': '#f0effe',
       'steel-blue': '#f0effe',
-      'slate-gray': '#20066e',
+      'slate-gray': '#3e12be',
     },
     fontFamily: {
       sans: ['Sora', 'sans-serif'],
