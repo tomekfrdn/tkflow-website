@@ -1,6 +1,8 @@
-<section data-hero class="relative w-full h-screen bg-brand-water overflow-clip select-none">
-  <!-- Warstwa wideo z animacją GSAP -->
-  <div class="absolute inset-0 bg-brand-water mix-blend-multiply pointer-events-none"></div>
+<section
+  data-hero
+  class="relative w-full h-screen bg-brand-water overflow-clip select-none"
+>
+  <div class="absolute inset-0 overflow-clip">
     <video
       data-hero-video
       class="w-full h-full object-cover"
@@ -12,10 +14,6 @@
       <source src="/images/hero-bg.mp4" type="video/mp4" />
     </video>
   </div>
-
-  <!-- Bezpieczna nakładka tonująca wideo do Hydro Cyan bez blokowania interakcji -->
-  <div class="absolute inset-0 bg-gradient-to-b from-brand-water/40 via-brand-water/20 to-dark-blue/80 pointer-events-none"></div>
-
 </section>
 
 <script>
