@@ -1,17 +1,73 @@
 ---
+const currentYear = new Date().getFullYear()
 ---
 
 <section
   data-contact
-  class="bg-light-blue text-steel-blue py-40 lg:py-52 xl:py-60 px-8"
+  class="bg-light-blue text-steel-blue py-32 lg:py-44 px-6 sm:px-8 border-t border-white/5"
 >
-  <div class="flex flex-col gap-8 max-w-2xl mx-auto">
+  <div class="flex flex-col gap-16 max-w-4xl mx-auto">
+    <!-- Nagłówek sekcji -->
     <div class="flex flex-col gap-4">
-      <h2 class="text-white text-3xl lg:text-4xl 2xl:text-5xl font-semibold">
+      <h2 class="text-white text-3xl lg:text-4xl 2xl:text-5xl font-semibold tracking-tight">
         Poznaj marki TK Flow
       </h2>
+      <p class="text-base sm:text-lg text-steel-blue/90 max-w-xl">
+        Znajdź dedykowane rozwiązania dla myjni samochodowych oraz systemów nawadniania w rolnictwie.
+      </p>
+    </div>
 
-      <p class="text-lg">Znajdź rozwiązania dla myjni samochodowych i nawadniania w rolnictwie.</p>
+    <!-- Moduł danych firmowych i kontaktu -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 pt-10 border-t border-white/10">
+      
+      <!-- Kolumna 1: Dane rejestrowe -->
+      <div class="flex flex-col gap-3">
+        <span class="text-xs uppercase tracking-[0.25em] text-white/50 font-medium">
+          Dane rejestrowe
+        </span>
+        <div class="text-sm leading-relaxed">
+          <p class="text-white font-semibold text-base mb-1">Pełna Nazwa Firmy</p>
+          <p class="text-steel-blue">ul. Przykładowa 12/34</p>
+          <p class="text-steel-blue">00-000 Miejscowość</p>
+          <p class="mt-3 text-steel-blue">
+            NIP: <span class="text-white font-mono tracking-wide">0000000000</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Kolumna 2: Kontakt bezpośredni -->
+      <div class="flex flex-col gap-3">
+        <span class="text-xs uppercase tracking-[0.25em] text-white/50 font-medium">
+          Kontakt bezpośredni
+        </span>
+        <div class="flex flex-col gap-3 text-sm">
+          <div>
+            <span class="block text-xs text-white/40 mb-0.5">Telefon:</span>
+            <a
+              href="tel:+48000000000"
+              class="text-white hover:text-dark-blue transition-colors font-medium text-base tracking-wide"
+            >
+              +48 000 000 000
+            </a>
+          </div>
+          <div>
+            <span class="block text-xs text-white/40 mb-0.5">Poczta elektroniczna:</span>
+            <a
+              href="mailto:kontakt@tkflow.pl"
+              class="text-white hover:text-dark-blue transition-colors font-medium tracking-wide"
+            >
+              kontakt@tkflow.pl
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stopka praw autorskich -->
+    <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/40">
+      <p>© {currentYear} TK Flow. Wszelkie prawa zastrzeżone.</p>
+      <p class="tracking-widest uppercase text-[10px] text-white/30">Technologie przesyłu cieczy</p>
     </div>
   </div>
 </section>
@@ -22,8 +78,10 @@
 
   DOMLoaded(() => {
     const trigger = document.querySelector('[data-contact]') as HTMLElement
-    const target = trigger.querySelector(':scope > div') as HTMLElement
+    const target = trigger?.querySelector(':scope > div') as HTMLElement
 
-    fadeIn(trigger, target)
+    if (trigger && target) {
+      fadeIn(trigger, target)
+    }
   })
 </script>
