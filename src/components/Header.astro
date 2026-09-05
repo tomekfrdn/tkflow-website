@@ -3,7 +3,6 @@
   class="fixed inset-x-2 top-[calc(50%-10vh)] text-[10vw] leading-none z-20 pointer-events-none select-none"
 >
   <h1 class="text-center font-semibold tracking-tight">
-    <!-- Tytuł z klasą do animacji GSAP -->
     <span 
       data-title 
       class="inline-block whitespace-nowrap" 
@@ -11,7 +10,6 @@
     >
       TK Flow
     </span>
-    <!-- Podtytuł ze sztywną bielą -->
     <span 
       data-subtitle 
       class="block text-[0.28em] font-normal tracking-wider uppercase mt-2" 
@@ -29,14 +27,18 @@
 
   DOMLoaded(() => {
     gsap.registerPlugin(ScrollTrigger)
-    
+
     const hero = document.querySelector('[data-hero]') as HTMLElement
     const header = document.querySelector('[data-header]') as HTMLElement
     const title = header?.querySelector('[data-title]') as HTMLElement
     const subtitle = header?.querySelector('[data-subtitle]') as HTMLElement
 
+    const aboutSection = document.querySelector('[data-about]') as HTMLElement
+    const projectsSection = document.querySelector('[data-projects]') as HTMLElement
+    const contactSection = document.querySelector('[data-contact]') as HTMLElement
+
     if (hero && header) {
-      // 1. Zmniejszanie nagłówka do górnej belki
+      // 1. Zmniejszanie i dokowanie logo do górnej krawędzi
       gsap.to(header, {
         scrollTrigger: {
           trigger: hero,
@@ -49,7 +51,7 @@
         ease: 'none',
       })
 
-      // 2. Wygaszenie podtytułu podczas scrollowania
+      // 2. Wygaszenie podtytułu podczas zjeżdżania z Hero
       if (subtitle) {
         gsap.to(subtitle, {
           scrollTrigger: {
@@ -63,19 +65,40 @@
           ease: 'none',
         })
       }
+    }
 
-      // 3. Zmiana koloru TK Flow z granatu (#041A2F) na czystą biel (#FFFFFF),
-      // gdy nagłówek opuszcza Hero i wjeżdża na ciemne tło kolejnej sekcji
-      if (title) {
-        gsap.to(title, {
-          scrollTrigger: {
-            trigger: hero,
-            start: 'center top',
-            end: 'bottom top',
-            scrub: true,
-          },
-          color: '#ffffff',
-          ease: 'none',
+    // 3. Bezzwłoczne (skokowe) przełączanie kolorów logo w punktach przecięcia sekcji
+    if (title) {
+      // Przejście Hero -> About: natychmiastowy przeskok z granatu na czystą biel
+      if (aboutSection) {
+        ScrollTrigger.create({
+          trigger: aboutSection,
+          start: 'top 40px', // Punkt, w którym sekcja styka się z zadokowanym logo
+          end: 'bottom 40px',
+          onEnter: () => gsap.set(title, { color: '#ffffff' }),
+          onLeaveBack: () => gsap.set(title, { color: '#041A2F' }),
+        })
+      }
+
+      // Przejście About -> Projects: natychmiastowy powrót do granatu na jasnym tle
+      if (projectsSection) {
+        ScrollTrigger.create({
+          trigger: projectsSection,
+          start: 'top 40px',
+          end: 'bottom 40px',
+          onEnter: () => gsap.set(title, { color: '#041A2F' }),
+          onLeaveBack: () => gsap.set(title, { color: '#ffffff' }),
+        })
+      }
+
+      // Przejście Projects -> Contact: natychmiastowy powrót do bieli
+      if (contactSection) {
+        ScrollTrigger.create({
+          trigger: contactSection,
+          start: 'top 40px',
+          end: 'bottom 40px',
+          onEnter: () => gsap.set(title, { color: '#ffffff' }),
+          onLeaveBack: () => gsap.set(title, { color: '#041A2F' }),
         })
       }
     }
