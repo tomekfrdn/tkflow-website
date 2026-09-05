@@ -15,26 +15,30 @@ import projectTwo from '@/images/project-2.png'
     Marki specjalistyczne
   </h2>
 
-  <div class="w-full max-w-4xl mx-auto">
+  <div class="w-full max-w-5xl mx-auto">
     <ul
       data-projects-grid
-      class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch"
+      class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-stretch"
     >
-      <li data-project-card class="h-full">
-        <Card
-          image={projectOne}
-          title="sercemyjni.pl"
-          description="Pompy wysokociśnieniowe do myjni samochodowych."
-          link="https://sercemyjni.pl"
-        />
+      <li data-project-card class="w-full flex justify-center">
+        <div class="w-full max-w-md">
+          <Card
+            image={projectOne}
+            title="sercemyjni.pl"
+            description="Pompy wysokociśnieniowe do myjni samochodowych."
+            link="https://sercemyjni.pl"
+          />
+        </div>
       </li>
-      <li data-project-card class="h-full">
-        <Card
-          image={projectTwo}
-          title="rurape.pl"
-          description="Rury PE do nawadniania i przesyłu wody w rolnictwie."
-          link="https://rurape.pl"
-        />
+      <li data-project-card class="w-full flex justify-center">
+        <div class="w-full max-w-md">
+          <Card
+            image={projectTwo}
+            title="rurape.pl"
+            description="Rury PE do nawadniania i przesyłu wody w rolnictwie."
+            link="https://rurape.pl"
+          />
+        </div>
       </li>
     </ul>
   </div>
@@ -53,7 +57,6 @@ import projectTwo from '@/images/project-2.png'
     const cards = projectsSection?.querySelectorAll('[data-project-card]')
 
     if (projectsSection && cards.length) {
-      // 1. Subtelne wejście nagłówka
       if (heading) {
         gsap.from(heading, {
           scrollTrigger: {
@@ -68,7 +71,6 @@ import projectTwo from '@/images/project-2.png'
         })
       }
 
-      // 2. Równoczesny najazd i wyostrzenie kafelków z delikatnym opóźnieniem (stagger)
       gsap.from(cards, {
         scrollTrigger: {
           trigger: '[data-projects-grid]',
