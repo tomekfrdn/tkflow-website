@@ -1,10 +1,20 @@
 <header
   data-header
-  class="fixed inset-x-2 top-[calc(50%-10vh)] text-[10vw] leading-none z-20"
+  class="fixed inset-x-2 top-[calc(50%-10vh)] text-[10vw] leading-none z-20 pointer-events-none select-none"
 >
   <h1 class="text-center font-semibold tracking-tight">
-    <span class="block whitespace-nowrap text-[#041A2F]">TK Flow</span>
-    <span class="block text-[0.28em] font-normal tracking-wider text-white uppercase mt-2">
+    <!-- Klikalny tytuł po zadokowaniu na górze -->
+    <a 
+      href="#" 
+      data-title 
+      class="inline-block whitespace-nowrap text-[#041A2F] pointer-events-auto cursor-pointer"
+    >
+      TK Flow
+    </a>
+    <span 
+      data-subtitle 
+      class="block text-[0.28em] font-normal tracking-wider text-slate-300 uppercase mt-2 will-change-transform"
+    >
       technologie przesyłu cieczy
     </span>
   </h1>
@@ -17,29 +27,63 @@
 
   DOMLoaded(() => {
     gsap.registerPlugin(ScrollTrigger)
+    
     const hero = document.querySelector('[data-hero]') as HTMLElement
-    const projects = document.querySelector('[data-projects]') as HTMLElement
     const header = document.querySelector('[data-header]') as HTMLElement
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: hero,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-      },
-    })
+    const title = header?.querySelector('[data-title]') as HTMLElement
+    const subtitle = header?.querySelector('[data-subtitle]') as HTMLElement
 
-    const tl2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: projects,
-        start: 'top 5%',
-        end: 'top -5%',
-        scrub: true,
-      },
-    })
+    if (hero && header) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: hero,
+          start: 'top top',
+          end: 'bottom 25%',
+          scrub: 0.5, // Delikatne wygładzenie bez szarpnięć
+        },
+      })
 
-    tl.to(header, { fontSize: '1.5rem', top: '1.25rem', duration: 1 })
+      // 1. Płynne skalowanie i dokowanie nagłówka do góry
+      tl.to(
+        header,
+        {
+          fontSize: '1.75rem',
+          top: '1.25rem',
+          ease: 'power1.out',
+        },
+        0
+      )
 
-    tl2.to(header, { color: '#022859', duration: 1 })
+      // 2. Czyste wygaszenie podtytułu na początku scrolla
+      if (subtitle) {
+        tl.to(
+          subtitle,
+          {
+            opacity: 0,
+            y: -12,
+            height: 0,
+            marginTop: 0,
+            ease: 'power1.out',
+          },
+          0
+        )
+      }
+
+      // 3. Adaptacja koloru:
+      // Gdy Twoje sekcje poniżej Hero wymagają innego koloru (np. bieli na sekcji Projects/About),
+      // odkomentuj poniższy fragment i dopasuj kolor docelowy:
+      /*
+      if (title) {
+        tl.to(
+          title,
+          {
+            color: '#FFFFFF',
+            ease: 'none',
+          },
+          0.3
+        )
+      }
+      */
+    }
   })
 </script>
