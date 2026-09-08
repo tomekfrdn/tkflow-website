@@ -1,55 +1,55 @@
-<!-- Główny dokujący pasek nawigacyjny o smukłej wysokości -->
+<!-- Główny dokujący pasek nawigacyjny -->
 <header
   data-navbar
-  class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 transition-colors duration-300 pointer-events-none flex items-center justify-between px-4 sm:px-8 border-b border-transparent"
+  class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 pointer-events-none flex items-center justify-between px-4 sm:px-8 border-b border-transparent transition-colors duration-300"
 >
-  <!-- Pusty kontener lewy dla zachowania idealnego wycentrowania napisu środkowego -->
-  <div class="w-24 sm:w-48 hidden md:block"></div>
-
-  <!-- Centralny blok tytułowy dokujący do paska -->
-  <div
-    data-header-center
-    class="fixed inset-x-0 px-4 sm:px-6 top-[calc(50%-8vh)] text-[clamp(2.25rem,7vw,5rem)] leading-none z-20 pointer-events-none select-none flex justify-center"
-  >
-    <h1 class="w-full max-w-full text-center font-semibold tracking-tight">
-      <span
-        data-title
-        class="inline-block whitespace-nowrap"
-        style="color: #041A2F;"
-      >
-        TK Flow
-      </span>
-      <span
-        data-subtitle
-        class="block text-[clamp(0.75rem,1.2vw,0.875rem)] font-light tracking-[0.25em] sm:tracking-[0.3em] text-white/90 uppercase mt-3 sm:mt-4 max-w-md mx-auto"
-      >
-        technologie przesyłu cieczy
-      </span>
-    </h1>
+  <!-- Lewy slot: tutaj zadokuje napis TK Flow -->
+  <div data-navbar-left class="flex items-center z-30">
+    <!-- Kontener pozycjonujący nagłówek -->
+    <div
+      data-header-container
+      class="fixed inset-x-0 top-[calc(50%-8vh)] px-4 sm:px-8 text-[clamp(2.25rem,7vw,5rem)] leading-none z-20 pointer-events-none select-none flex justify-center"
+    >
+      <h1 class="w-full text-center font-semibold tracking-tight">
+        <span
+          data-title
+          class="inline-block whitespace-nowrap"
+          style="color: #041A2F;"
+        >
+          TK Flow
+        </span>
+        <span
+          data-subtitle
+          class="block text-[clamp(0.75rem,1.2vw,0.875rem)] font-light tracking-[0.25em] sm:tracking-[0.3em] text-white/90 uppercase mt-3 sm:mt-4 max-w-md mx-auto"
+        >
+          technologie przesyłu cieczy
+        </span>
+      </h1>
+    </div>
   </div>
 
-  <!-- Prawy róg: Button telefonu ze stałym tłem #041A2F i zaokrągleniem kart rounded-2xl -->
-  <div class="pointer-events-auto ml-auto md:ml-0 z-30">
+  <!-- Prawy róg: Button zoptymalizowany pod kątem mniejszego odstępu wewnętrznego -->
+  <div class="pointer-events-auto ml-auto z-30">
     <a
       data-phone-btn
       href="tel:+48000000000"
       style="background-color: #041A2F;"
-      class="group inline-flex items-center gap-2.5 rounded-2xl px-3.5 py-2 sm:px-4 sm:py-2.5 text-white transition-transform duration-200 hover:scale-[1.02] active:scale-95 shadow-md border border-white/10"
+      class="group inline-flex items-center gap-1.5 sm:gap-2 rounded-2xl px-3 py-1.5 sm:px-4 sm:py-2 text-white transition-transform duration-200 hover:scale-[1.02] active:scale-95 shadow-md border border-white/10"
       aria-label="Zadzwoń do TK Flow"
     >
-      <!-- Etykieta ZADZWOŃ po lewej stronie -->
+      <!-- Etykieta ZADZWOŃ -->
       <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white/80 group-hover:text-white transition-colors">
         Zadzwoń
       </span>
 
       <!-- Dioda statusu live -->
-      <span class="relative flex h-2 w-2">
+      <span class="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+        <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-emerald-400"></span>
       </span>
 
       <!-- Numer telefonu -->
-      <span class="font-mono text-xs sm:text-sm font-medium tracking-tight text-white pl-0.5">
+      <span class="font-mono text-xs sm:text-sm font-medium tracking-tight text-white">
         +48 000 000 000
       </span>
     </a>
@@ -65,44 +65,73 @@
     gsap.registerPlugin(ScrollTrigger)
 
     const hero = document.querySelector('[data-hero]') as HTMLElement
+    const about = document.querySelector('[data-about]') as HTMLElement
     const navbar = document.querySelector('[data-navbar]') as HTMLElement
-    const headerCenter = document.querySelector('[data-header-center]') as HTMLElement
-    const subtitle = headerCenter?.querySelector('[data-subtitle]') as HTMLElement
+    const headerContainer = document.querySelector('[data-header-container]') as HTMLElement
+    const h1 = headerContainer?.querySelector('h1') as HTMLElement
+    const subtitle = headerContainer?.querySelector('[data-subtitle]') as HTMLElement
 
-    if (hero && headerCenter && navbar) {
-      const scrollTl = gsap.timeline({
+    if (hero && headerContainer && navbar) {
+      // 1. Animacja skalowania i przemieszczenia napisu ze środka na lewą stronę paska
+      const heroTl = gsap.timeline({
         scrollTrigger: {
           trigger: hero,
           start: 'top top',
-          end: 'bottom 25%',
+          end: 'bottom top',
           scrub: true,
           invalidateOnRefresh: true,
         },
       })
 
-      // 1. Płynne skalowanie i dokowanie napisu TK Flow (kolor #041A2F pozostaje bez zmian)
-      scrollTl.to(headerCenter, {
+      // Skalowanie fontu do kompaktowego rozmiaru
+      heroTl.to(headerContainer, {
         fontSize: '1.25rem',
         top: '1.15rem',
         ease: 'none',
       }, 0)
 
-      // 2. Wygaszenie podtytułu podczas scrollowania
+      // Przejście wyrównania tekstu ze środka do lewej krawędzi belki
+      if (h1) {
+        heroTl.to(h1, {
+          textAlign: 'left',
+          ease: 'none',
+        }, 0)
+      }
+
+      // Wygaszenie podtytułu w trakcie scrollowania pierwszej sekcji
       if (subtitle) {
-        scrollTl.to(subtitle, {
+        heroTl.to(subtitle, {
           opacity: 0,
           y: -8,
           ease: 'none',
         }, 0)
       }
 
-      // 3. Aktywacja tła paska o odcieniu #00a3e0
-      scrollTl.to(navbar, {
-        backgroundColor: 'rgba(0, 163, 224, 0.95)',
-        backdropFilter: 'blur(12px)',
-        borderColor: 'rgba(255, 255, 255, 0.15)',
-        ease: 'none',
-      }, 0)
+      // 2. Aktywacja tła paska #00a3e0 DOPIERO po zjechaniu do sekcji About
+      if (about) {
+        ScrollTrigger.create({
+          trigger: about,
+          start: 'top 60px',
+          onEnter: () => {
+            gsap.to(navbar, {
+              backgroundColor: 'rgba(0, 163, 224, 0.95)',
+              backdropFilter: 'blur(12px)',
+              borderColor: 'rgba(255, 255, 255, 0.15)',
+              duration: 0.25,
+              ease: 'power1.out',
+            })
+          },
+          onLeaveBack: () => {
+            gsap.to(navbar, {
+              backgroundColor: 'rgba(0, 163, 224, 0)',
+              backdropFilter: 'blur(0px)',
+              borderColor: 'rgba(255, 255, 255, 0)',
+              duration: 0.25,
+              ease: 'power1.out',
+            })
+          },
+        })
+      }
     }
   })
 </script>
