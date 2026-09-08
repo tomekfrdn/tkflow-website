@@ -1,17 +1,17 @@
 <!-- Główny pasek nawigacyjny: h-14 na mobile / h-16 na desktopie -->
 <header
   data-navbar
-  class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 flex items-center justify-between px-4 sm:px-8 pointer-events-none select-none overflow-hidden"
+  class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 flex items-center justify-between px-4 sm:px-8 border-b border-transparent pointer-events-none select-none"
 >
-  <!-- Niezależna, akcelerowana sprzętowo warstwa tła (eliminuje mruganie warstw GPU) -->
+  <!-- Niezależna warstwa tła (eliminuje mruganie GPU, zaokrąglona do spodu paska) -->
   <div
     data-navbar-bg
     class="absolute inset-0 bg-[#00a3e0]/95 backdrop-blur-md border-b border-white/15 opacity-0 pointer-events-none will-change-[opacity]"
   ></div>
 
-  <!-- Lewy slot: napis TK Flow wraz z podtytułem -->
+  <!-- Lewy slot: semantyczny nagłówek H1 z kinetycznym ruchem i podtytułem -->
   <div data-brand-anchor class="relative flex items-center z-30">
-    <div data-brand-group class="relative flex flex-col items-start justify-center will-change-transform">
+    <h1 data-brand-group class="relative flex flex-col items-start justify-center will-change-transform m-0 p-0">
       <span
         data-brand-title
         class="inline-block font-semibold tracking-tight whitespace-nowrap leading-none origin-left"
@@ -20,17 +20,17 @@
         TK Flow
       </span>
       
-      <!-- Podtytuł poza przepływem pionowym -->
+      <!-- Podtytuł wycentrowany pod napisem w widoku Hero -->
       <span
         data-brand-subtitle
         class="absolute top-full left-1/2 -translate-x-1/2 block text-[clamp(0.75rem,1.2vw,0.875rem)] font-light tracking-[0.25em] sm:tracking-[0.3em] text-white/90 uppercase mt-3 whitespace-nowrap pointer-events-none"
       >
         technologie przesyłu cieczy
       </span>
-    </div>
+    </h1>
   </div>
 
-  <!-- Prawy róg: Button telefonu -->
+  <!-- Prawy róg: Button szybkiego kontaktu z wyważonym odstępem -->
   <div class="pointer-events-auto ml-auto z-30 flex items-center">
     <a
       data-phone-btn
@@ -81,7 +81,7 @@
 
       let offsets = calculateOffsets()
 
-      // Wyjściowa pozycja w Hero
+      // Ustawienie początkowej pozycji centralnej na środku Hero
       gsap.set(brandGroup, {
         x: offsets.targetX,
         y: offsets.targetY,
@@ -102,7 +102,7 @@
         },
       })
 
-      // 1. Wygaszenie podtytułu
+      // 1. Szybkie wygaszenie podtytułu
       if (brandSubtitle) {
         heroTl.to(brandSubtitle, {
           opacity: 0,
@@ -112,14 +112,14 @@
         }, 0)
       }
 
-      // 2. Skalowanie fontu do docelowego rozmiaru 1.25rem (20px)
+      // 2. Skalowanie fontu do docelowych 1.25rem (20px)
       heroTl.to(brandTitle, {
         fontSize: '1.25rem',
         duration: 0.8,
         ease: 'power1.inOut',
       }, 0)
 
-      // 3. Płynne dojście do lewego rogu
+      // 3. Płynny powrót z pozycji środka (offsets) do lewego slotu paska (x: 0, y: 0)
       heroTl.to(brandGroup, {
         x: 0,
         y: 0,
@@ -127,7 +127,7 @@
         ease: 'power1.inOut',
       }, 0)
 
-      // 4. Aksamitne wyłonienie tła w końcówce Hero bez zmiany warstw GPU
+      // 4. Płynne wyłonienie tła belki w końcówce Hero bez mrugania GPU
       heroTl.to(
         navbarBg,
         {
