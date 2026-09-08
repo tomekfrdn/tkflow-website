@@ -1,11 +1,17 @@
-<!-- Główny pasek nawigacyjny: h-14 na mobile / h-16 na desktopie, perfekcyjne centrowanie pionowe -->
+<!-- Główny pasek nawigacyjny: h-14 na mobile / h-16 na desktopie -->
 <header
   data-navbar
-  class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 flex items-center justify-between px-4 sm:px-8 border-b border-transparent pointer-events-none select-none"
+  class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 flex items-center justify-between px-4 sm:px-8 pointer-events-none select-none overflow-hidden"
 >
+  <!-- Niezależna, akcelerowana sprzętowo warstwa tła (eliminuje mruganie warstw GPU) -->
+  <div
+    data-navbar-bg
+    class="absolute inset-0 bg-[#00a3e0]/95 backdrop-blur-md border-b border-white/15 opacity-0 pointer-events-none will-change-[opacity]"
+  ></div>
+
   <!-- Lewy slot: napis TK Flow wraz z podtytułem -->
   <div data-brand-anchor class="relative flex items-center z-30">
-    <div data-brand-group class="relative flex flex-col items-start justify-center">
+    <div data-brand-group class="relative flex flex-col items-start justify-center will-change-transform">
       <span
         data-brand-title
         class="inline-block font-semibold tracking-tight whitespace-nowrap leading-none origin-left"
@@ -14,7 +20,7 @@
         TK Flow
       </span>
       
-      <!-- Podtytuł zdefiniowany poza przepływem pionowym (absolute), by nie psuć osi pionowej paska -->
+      <!-- Podtytuł poza przepływem pionowym -->
       <span
         data-brand-subtitle
         class="absolute top-full left-1/2 -translate-x-1/2 block text-[clamp(0.75rem,1.2vw,0.875rem)] font-light tracking-[0.25em] sm:tracking-[0.3em] text-white/90 uppercase mt-3 whitespace-nowrap pointer-events-none"
@@ -24,7 +30,7 @@
     </div>
   </div>
 
-  <!-- Prawy róg: Nowoczesny przycisk szybkiego telefonu -->
+  <!-- Prawy róg: Button telefonu -->
   <div class="pointer-events-auto ml-auto z-30 flex items-center">
     <a
       data-phone-btn
@@ -56,13 +62,12 @@
     gsap.registerPlugin(ScrollTrigger)
 
     const hero = document.querySelector('[data-hero]') as HTMLElement
-    const navbar = document.querySelector('[data-navbar]') as HTMLElement
+    const navbarBg = document.querySelector('[data-navbar-bg]') as HTMLElement
     const brandGroup = document.querySelector('[data-brand-group]') as HTMLElement
     const brandTitle = document.querySelector('[data-brand-title]') as HTMLElement
     const brandSubtitle = document.querySelector('[data-brand-subtitle]') as HTMLElement
 
-    if (hero && navbar && brandGroup && brandTitle) {
-      // Obliczenie wektora przesunięcia ze środka ekranu do lewego slotu paska
+    if (hero && navbarBg && brandGroup && brandTitle) {
       const calculateOffsets = () => {
         const startFontSize = Math.min(Math.max(window.innerWidth * 0.07, 36), 80)
         gsap.set(brandTitle, { fontSize: `${startFontSize}px` })
@@ -76,19 +81,20 @@
 
       let offsets = calculateOffsets()
 
-      // Stan wyjściowy: tytuł i podtytuł wycentrowane w widoku Hero
+      // Wyjściowa pozycja w Hero
       gsap.set(brandGroup, {
         x: offsets.targetX,
         y: offsets.targetY,
       })
 
-      // Jedna zsynchronizowana oś czasu na całą sekcję Hero
       const heroTl = gsap.timeline({
         scrollTrigger: {
           trigger: hero,
           start: 'top top',
           end: 'bottom top',
           scrub: true,
+          fastScrollEnd: true,
+          preventOverlaps: true,
           invalidateOnRefresh: true,
           onRefresh: () => {
             offsets = calculateOffsets()
@@ -96,7 +102,7 @@
         },
       })
 
-      // 1. Wygaszenie podtytułu (0% -> 30% scrolla)
+      // 1. Wygaszenie podtytułu
       if (brandSubtitle) {
         heroTl.to(brandSubtitle, {
           opacity: 0,
@@ -106,14 +112,14 @@
         }, 0)
       }
 
-      // 2. Skalowanie fontu do docelowych 20px (1.25rem) (0% -> 80% scrolla)
+      // 2. Skalowanie fontu do docelowego rozmiaru 1.25rem (20px)
       heroTl.to(brandTitle, {
         fontSize: '1.25rem',
         duration: 0.8,
         ease: 'power1.inOut',
       }, 0)
 
-      // 3. Płynne wejście w lewy slot paska (0% -> 80% scrolla)
+      // 3. Płynne dojście do lewego rogu
       heroTl.to(brandGroup, {
         x: 0,
         y: 0,
@@ -121,23 +127,15 @@
         ease: 'power1.inOut',
       }, 0)
 
-      // 4. PŁYNNE WYŁONIENIE TŁA W SAMEJ KOŃCÓWCE HERO (88% -> 100% scrolla)
-      // Odpala się dopiero, gdy napis jest już w lewym rogu, a sekcja About jest tuż pod krawędzią
-      heroTl.fromTo(
-        navbar,
+      // 4. Aksamitne wyłonienie tła w końcówce Hero bez zmiany warstw GPU
+      heroTl.to(
+        navbarBg,
         {
-          backgroundColor: 'rgba(0, 163, 224, 0)',
-          borderBottomColor: 'rgba(255, 255, 255, 0)',
-          backdropFilter: 'blur(0px)',
-        },
-        {
-          backgroundColor: 'rgba(0, 163, 224, 0.95)',
-          borderBottomColor: 'rgba(255, 255, 255, 0.15)',
-          backdropFilter: 'blur(12px)',
-          duration: 0.12, // ostatnie 12% scrollowania sekcji pierwszej
+          opacity: 1,
+          duration: 0.15,
           ease: 'power1.inOut',
         },
-        0.88
+        0.85
       )
     }
   })
