@@ -11,10 +11,10 @@
 
   <!-- Lewy slot: semantyczny nagłówek H1 z kinetycznym ruchem i podtytułem -->
   <div data-brand-anchor class="relative flex items-center z-30">
-    <h1 data-brand-group class="relative flex flex-col items-start justify-center will-change-transform m-0 p-0">
+    <h1 data-brand-group class="relative flex flex-col items-start justify-center m-0 p-0 origin-left">
       <span
         data-brand-title
-        class="inline-block font-semibold tracking-tight whitespace-nowrap leading-none origin-left"
+        class="inline-block font-semibold tracking-tight whitespace-nowrap leading-none origin-left antialiased subpixel-antialiased [transform:translateZ(0)]"
         style="color: #041A2F;"
       >
         TK Flow
@@ -30,7 +30,7 @@
     </h1>
   </div>
 
-  <!-- Środek na desktopie: Editorial Navigation (Wariant 3: czysta typografia, bez cyfr) -->
+  <!-- Środek na desktopie: Editorial Navigation -->
   <nav
     data-navbar-nav
     class="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 items-center gap-10 z-30 pointer-events-auto opacity-0"
@@ -52,7 +52,7 @@
     </a>
   </nav>
 
-  <!-- Prawy róg: Button szybkiego kontaktu z wycentrowanym pionem -->
+  <!-- Prawy róg: Button szybkiego kontaktu -->
   <div class="pointer-events-auto ml-auto z-30 flex items-center">
     <a
       data-phone-btn
@@ -108,10 +108,11 @@
 
       let offsets = calculateOffsets()
 
-      // Stan wyjściowy w Hero
+      // Stan początkowy w Hero
       gsap.set(brandGroup, {
         x: offsets.targetX,
         y: offsets.targetY,
+        force3D: true,
       })
 
       const heroTl = gsap.timeline({
@@ -124,11 +125,19 @@
           preventOverlaps: true,
           invalidateOnRefresh: true,
           onRefresh: () => {
-            // Przeliczamy geometrię tylko wtedy, gdy jesteśmy u góry strony
             if (window.scrollY < 10) {
               offsets = calculateOffsets()
             }
           },
+          // Gdy animacja dojdzie do końca (lewy róg), zdejmujemy transformację 3D
+          // Wymusza to na przeglądarce natychmiastowe przerysowanie czystego tekstu wektorowego
+          onLeave: () => {
+            gsap.set(brandGroup, { clearProps: 'transform' })
+          },
+          onEnterBack: () => {
+            // Gdy wracamy w górę do Hero, przywracamy współrzędne animacji
+            gsap.set(brandGroup, { x: 0, y: 0 })
+          }
         },
       })
 
@@ -181,11 +190,11 @@
         )
       }
 
-      // KLUCZOWY FIX: Natychmiastowa synchronizacja po odświeżeniu strony
-      // Jeśli strona odświeża się poza sekcją Hero, wymuszamy ukończenie osi czasu
+      // Synchronizacja po odświeżeniu
       const currentScroll = window.scrollY || document.documentElement.scrollTop
       if (currentScroll >= (hero.offsetHeight || 500)) {
         heroTl.progress(1)
+        gsap.set(brandGroup, { clearProps: 'transform' })
       } else {
         ScrollTrigger.refresh()
       }
