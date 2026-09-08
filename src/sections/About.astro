@@ -17,7 +17,7 @@ import TextReveal from '@/components/TextReveal.astro'
       W&nbsp;TK Flow łączę zaplecze czołowych producentów z&nbsp;partnerskim doradztwem. Dbam o&nbsp;to, by&nbsp;instalacje pracowały bezawaryjnie, oszczędzając Twój czas i&nbsp;pieniądze.
     </TextReveal>
 
-    <!-- Sygnatura autorska z bezpośrednią ścieżką z roota -->
+    <!-- Sygnatura autorska -->
     <div class="mt-12 sm:mt-16 pt-8 border-t border-white/10 flex items-center gap-5 sm:gap-6">
       <div class="relative shrink-0 w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full overflow-hidden ring-2 ring-white/20 shadow-lg bg-[#041A2F]">
         <img
@@ -49,13 +49,14 @@ import TextReveal from '@/components/TextReveal.astro'
   import { DOMLoaded } from '../ts/events'
 
   DOMLoaded(() => {
+    if (typeof window === 'undefined') return
+
     gsap.registerPlugin(ScrollTrigger)
 
     const trigger = document.querySelector('[data-about]') as HTMLElement
     const target = trigger?.querySelector('p') as HTMLElement
 
     if (trigger && target) {
-      // Izolujemy animację i opóźniamy odświeżenie o 1 klatkę, aby nie blokować Headera
       requestAnimationFrame(() => {
         gsap.to(target, {
           opacity: 0.15,

@@ -1,4 +1,4 @@
-<!-- Główny pasek nawigacyjny -->
+<!-- Główny pasek nawigacyjny: h-14 na mobile / h-16 na desktopie -->
 <header
   data-navbar
   class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 flex items-center justify-between px-4 sm:px-8 border-b border-transparent pointer-events-none select-none"
@@ -29,7 +29,7 @@
     </h1>
   </div>
 
-  <!-- Środek na desktopie -->
+  <!-- Środek na desktopie: Editorial Navigation -->
   <nav
     data-navbar-nav
     class="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 items-center gap-10 z-30 pointer-events-auto opacity-0"
@@ -82,6 +82,8 @@
   import { DOMLoaded } from '@/ts/events'
 
   DOMLoaded(() => {
+    if (typeof window === 'undefined') return
+
     gsap.registerPlugin(ScrollTrigger)
 
     const hero = document.querySelector('[data-hero]') as HTMLElement
@@ -91,17 +93,15 @@
     const brandSubtitle = document.querySelector('[data-brand-subtitle]') as HTMLElement
 
     if (hero && navbarBg && brandGroup) {
-      // Wyliczanie wektora powrotu do środka ekranu przy załadowaniu od scrollY = 0
       const getHeroVector = () => {
         const titleRect = brandGroup.getBoundingClientRect()
         const scaleFactor = Math.min(Math.max(window.innerWidth / 360, 2), 3.2)
-        
-        // Obliczamy pozycję względem okna z uwzględnieniem obecnego scrolla
+
         const currentBrandX = titleRect.left
-        const currentBrandY = titleRect.top + window.scrollY
+        const currentBrandY = titleRect.top + (window.scrollY || 0)
 
         const targetCenterX = (window.innerWidth / 2) - ((titleRect.width * scaleFactor) / 2)
-        const targetCenterY = (window.innerHeight * 0.42)
+        const targetCenterY = window.innerHeight * 0.42
 
         return {
           x: targetCenterX - currentBrandX,
@@ -110,9 +110,9 @@
         }
       }
 
-      // Jeśli strona odświeżyła się już w sekcji About (scrollY > hero.offsetHeight):
-      // Zostawiamy stan docelowy paska (mały, w lewym rogu) i pokazujemy tło
-      if (window.scrollY >= hero.offsetHeight) {
+      // Bezpieczna synchronizacja stanu początkowego przy odświeżeniu
+      const scrollPos = window.scrollY || document.documentElement.scrollTop
+      if (scrollPos >= hero.offsetHeight) {
         gsap.set(brandGroup, { x: 0, y: 0, scale: 1 })
         gsap.set(navbarBg, { opacity: 1 })
         if (navbarNav) gsap.set(navbarNav, { opacity: 1 })
@@ -126,12 +126,11 @@
           end: 'bottom top',
           scrub: true,
           fastScrollEnd: true,
-          preventOverlaps: 'heroNavbar',
+          preventOverlaps: true,
           invalidateOnRefresh: true,
         },
       })
 
-      // Animujemy z wyliczonego środka Hero do lewego górnego rogu
       heroTl.fromTo(
         brandGroup,
         {
@@ -158,18 +157,10 @@
         )
       }
 
-      heroTl.to(
-        navbarBg,
-        { opacity: 1, duration: 0.15, ease: 'none' },
-        0.85
-      )
+      heroTl.to(navbarBg, { opacity: 1, duration: 0.15, ease: 'none' }, 0.85)
 
       if (navbarNav) {
-        heroTl.to(
-          navbarNav,
-          { opacity: 1, duration: 0.15, ease: 'none' },
-          0.85
-        )
+        heroTl.to(navbarNav, { opacity: 1, duration: 0.15, ease: 'none' }, 0.85)
       }
     }
   })
