@@ -1,5 +1,7 @@
 ---
 import TextReveal from '@/components/TextReveal.astro'
+// Importujemy plik bezpośrednio z katalogu public/ lub assets/
+import authorPhoto from '/public/tomasz-kulpa-tk-flow.jpg'
 ---
 
 <section
@@ -7,7 +9,7 @@ import TextReveal from '@/components/TextReveal.astro'
   class="bg-light-blue text-steel-blue py-24 md:py-32 lg:py-40 px-6 sm:px-8"
 >
   <div class="mx-auto max-w-3xl text-left">
-    <!-- Główny tekst z efektem TextReveal i dedykowanym wygaszaniem -->
+    <!-- Główny tekst -->
     <TextReveal
       class="text-xl sm:text-2xl lg:text-3xl font-sans font-medium leading-[1.75] sm:leading-[1.8] tracking-normal"
       color="bg-gradient-to-r from-white to-white text-white/50"
@@ -17,19 +19,19 @@ import TextReveal from '@/components/TextReveal.astro'
       W&nbsp;TK Flow łączę zaplecze czołowych producentów z&nbsp;partnerskim doradztwem. Dbam o&nbsp;to, by&nbsp;instalacje pracowały bezawaryjnie, oszczędzając Twój czas i&nbsp;pieniądze.
     </TextReveal>
 
-    <!-- Wizualna sygnatura (Author Byline) z powiększonym, wyrazistym portretem -->
+    <!-- Sygnatura autorska -->
     <div class="mt-12 sm:mt-16 pt-8 border-t border-white/10 flex items-center gap-5 sm:gap-6">
-      <div class="relative shrink-0">
+      <div class="relative shrink-0 w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full overflow-hidden ring-2 ring-white/20 shadow-lg bg-[#041A2F]">
         <img
-          src="/tomasz-kulpa-tk-flow.jpg"
+          src={authorPhoto.src || '/tomasz-kulpa-tk-flow.jpg'}
           alt="Tomasz Kulpa"
-          width="72"
-          height="72"
-          class="w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full object-cover ring-2 ring-white/20 shadow-lg"
+          class="w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
         />
       </div>
 
-      <!-- Podpis: dopasowana skala typografii i inżynieryjny tracking -->
+      <!-- Podpis -->
       <div class="flex flex-col justify-center">
         <span class="font-sans text-lg sm:text-xl font-semibold tracking-tight text-white leading-tight">
           Tomasz Kulpa
@@ -51,7 +53,6 @@ import TextReveal from '@/components/TextReveal.astro'
     gsap.registerPlugin(ScrollTrigger)
 
     const trigger = document.querySelector('[data-about]') as HTMLElement
-    // Precyzyjne wskazanie p wewnątrz TextReveal izoluje sygnaturę ze zdjęciem
     const target = trigger?.querySelector('p') as HTMLElement
 
     if (trigger && target) {
