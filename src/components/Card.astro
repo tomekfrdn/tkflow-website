@@ -6,8 +6,8 @@ interface Props {
   title: string
   description: string
   link: string
-  badge?: string
-  accentColor?: string
+  badge: string
+  accentColor: string
 }
 
 const {
@@ -15,17 +15,17 @@ const {
   title,
   description,
   link,
-  badge = 'Dedykowany serwis',
+  badge,
   accentColor = '#00a3e0'
 } = Astro.props
 ---
 
 <article
-  class="group relative flex flex-col w-full max-w-[24rem] sm:max-w-[26rem] lg:max-w-[28rem] bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-dark-blue/10 hover:-translate-y-1"
+  class="group relative flex flex-col w-full max-w-[24rem] sm:max-w-[26rem] lg:max-w-[28rem] bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-[#041A2F]/10 hover:-translate-y-1.5"
 >
   <!-- Górna krawędź akcentująca markę -->
   <div
-    class="h-1 w-full transition-opacity duration-300 opacity-70 group-hover:opacity-100"
+    class="h-1.5 w-full transition-all duration-300 opacity-90 group-hover:opacity-100"
     style={`background-color: ${accentColor};`}
   ></div>
 
@@ -33,7 +33,7 @@ const {
     <!-- Kontener obrazu w dokładnych proporcjach 1200/895 -->
     <div class="relative overflow-hidden aspect-[1200/895] bg-slate-100">
       <Image
-        class="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+        class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
         src={image}
         alt={`Prezentacja produktów ${title}`}
         loading="lazy"
@@ -41,12 +41,15 @@ const {
       />
 
       <!-- Pływający chip ze strzałką kierunkową (External link) -->
-      <div class="absolute top-3.5 right-3.5 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-800 shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:bg-white">
+      <div 
+        class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/95 backdrop-blur-md flex items-center justify-center text-[#041A2F] shadow-md border border-slate-100 transition-all duration-300 group-hover:scale-110 group-hover:text-white"
+        style={`--accent: ${accentColor};`}
+      >
         <svg
           class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           fill="none"
           stroke="currentColor"
-          stroke-width="2"
+          stroke-width="2.2"
           viewBox="0 0 24 24"
           aria-hidden="true"
         >
@@ -55,28 +58,43 @@ const {
       </div>
     </div>
 
-    <!-- Treść karty -->
-    <figcaption class="flex flex-col flex-1 justify-between p-6 sm:p-7 gap-6">
-      <div class="flex flex-col gap-2.5">
-        <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-400">
-          {badge}
-        </span>
-        <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 transition-colors duration-200 group-hover:text-dark-blue">
+    <!-- Treść karty o wysokim kontraście -->
+    <figcaption class="flex flex-col flex-1 justify-between p-6 sm:p-8 gap-6">
+      <div class="flex flex-col gap-3">
+        <!-- Brand Pill Badge ze wskaźnikiem statusu w kolorze marki -->
+        <div class="inline-flex items-center gap-2 self-start px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase border border-slate-200/60 bg-slate-50">
+          <span
+            class="w-2 h-2 rounded-full shrink-0"
+            style={`background-color: ${accentColor};`}
+          ></span>
+          <span class="text-[#041A2F] font-mono text-[11px]">
+            {badge}
+          </span>
+        </div>
+
+        <!-- Tytuł z mocnym, głębokim kolorem -->
+        <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#041A2F] transition-colors duration-200 group-hover:opacity-90">
           {title}
         </h3>
-        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+
+        <!-- Opis o podwyższonej czytelności (zamiast mdłego szarego) -->
+        <p class="text-sm sm:text-base font-normal text-[#2b3a4a] leading-relaxed">
           {description}
         </p>
       </div>
 
-      <!-- Dolny link z animowaną strzałką w kolorze akcentu -->
-      <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-800 pt-4 border-t border-slate-100">
-        <span>Przejdź do platformy</span>
+      <!-- Dolny link CTA z wyrazistym akcentem marki -->
+      <div class="inline-flex items-center justify-between pt-5 border-t border-slate-100 text-sm font-semibold tracking-wide text-[#041A2F]">
+        <span class="group-hover:translate-x-0.5 transition-transform duration-200">
+          Przejdź na stronę
+        </span>
         <span
-          class="inline-block transition-transform duration-300 group-hover:translate-x-1"
+          class="inline-flex items-center justify-center w-7 h-7 rounded-full transition-transform duration-300 group-hover:translate-x-1"
           style={`color: ${accentColor};`}
         >
-          &rarr;
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
         </span>
       </div>
     </figcaption>
@@ -88,8 +106,14 @@ const {
     target="_blank"
     rel="noopener noreferrer"
     class="absolute inset-0 z-20"
-    aria-label={`Odwiedź serwis ${title}`}
+    aria-label={`Odwiedź stronę ${title}`}
   >
     <span class="sr-only">Odwiedź stronę {title}</span>
   </a>
 </article>
+
+<style>
+  .group:hover [style*="--accent"] {
+    background-color: var(--accent);
+  }
+</style>
