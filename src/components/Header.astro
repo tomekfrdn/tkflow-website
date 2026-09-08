@@ -1,10 +1,10 @@
-<!-- Główny dokujący pasek nawigacyjny o smukłej wysokości (h-14 na mobile / h-16 na desktopie) -->
+<!-- Główny dokujący pasek nawigacyjny o smukłej wysokości -->
 <header
   data-navbar
   class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 transition-colors duration-300 pointer-events-none flex items-center justify-between px-4 sm:px-8 border-b border-transparent"
 >
-  <!-- Pusty kontener lewy dla zachowania idealnego wycentrowania dokującego napisu TK Flow -->
-  <div class="w-24 sm:w-44 hidden md:block"></div>
+  <!-- Pusty kontener lewy dla zachowania idealnego wycentrowania napisu środkowego -->
+  <div class="w-24 sm:w-48 hidden md:block"></div>
 
   <!-- Centralny blok tytułowy dokujący do paska -->
   <div
@@ -28,12 +28,13 @@
     </h1>
   </div>
 
-  <!-- Prawy róg: Nowoczesny przycisk szybkiego połączenia (ZADZWOŃ po lewej) -->
+  <!-- Prawy róg: Button telefonu ze stałym tłem #041A2F i zaokrągleniem kart rounded-2xl -->
   <div class="pointer-events-auto ml-auto md:ml-0 z-30">
     <a
       data-phone-btn
       href="tel:+48000000000"
-      class="group inline-flex items-center gap-2 sm:gap-2.5 rounded-full bg-white/10 hover:bg-white/20 active:scale-95 backdrop-blur-md border border-white/25 px-3 py-1.5 sm:px-4 sm:py-2 text-white transition-all duration-300 shadow-sm"
+      style="background-color: #041A2F;"
+      class="group inline-flex items-center gap-2.5 rounded-2xl px-3.5 py-2 sm:px-4 sm:py-2.5 text-white transition-transform duration-200 hover:scale-[1.02] active:scale-95 shadow-md border border-white/10"
       aria-label="Zadzwoń do TK Flow"
     >
       <!-- Etykieta ZADZWOŃ po lewej stronie -->
@@ -41,7 +42,7 @@
         Zadzwoń
       </span>
 
-      <!-- Dioda statusu aktywności handlowej -->
+      <!-- Dioda statusu live -->
       <span class="relative flex h-2 w-2">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
@@ -66,9 +67,7 @@
     const hero = document.querySelector('[data-hero]') as HTMLElement
     const navbar = document.querySelector('[data-navbar]') as HTMLElement
     const headerCenter = document.querySelector('[data-header-center]') as HTMLElement
-    const title = headerCenter?.querySelector('[data-title]') as HTMLElement
     const subtitle = headerCenter?.querySelector('[data-subtitle]') as HTMLElement
-    const phoneBtn = document.querySelector('[data-phone-btn]') as HTMLElement
 
     if (hero && headerCenter && navbar) {
       const scrollTl = gsap.timeline({
@@ -81,22 +80,14 @@
         },
       })
 
-      // 1. Zmniejszenie i precyzyjne dokowanie napisu TK Flow w osi paska
+      // 1. Płynne skalowanie i dokowanie napisu TK Flow (kolor #041A2F pozostaje bez zmian)
       scrollTl.to(headerCenter, {
-        fontSize: '1.25rem', // 20px - dopasowane do wysokości paska
-        top: '1.15rem',      // idealne wyśrodkowanie w pionie dla h-14 / h-16
+        fontSize: '1.25rem',
+        top: '1.15rem',
         ease: 'none',
       }, 0)
 
-      // 2. Przejście koloru napisu TK Flow z granatu na biel po wjeździe na pasek #00a3e0
-      if (title) {
-        scrollTl.to(title, {
-          color: '#ffffff',
-          ease: 'none',
-        }, 0)
-      }
-
-      // 3. Wygaszenie podtytułu podczas scrolla
+      // 2. Wygaszenie podtytułu podczas scrollowania
       if (subtitle) {
         scrollTl.to(subtitle, {
           opacity: 0,
@@ -105,22 +96,13 @@
         }, 0)
       }
 
-      // 4. Płynna aktywacja tła paska o wskazanym kolorze #00a3e0
+      // 3. Aktywacja tła paska o odcieniu #00a3e0
       scrollTl.to(navbar, {
-        backgroundColor: 'rgba(0, 163, 224, 0.92)', // #00a3e0 z subtelnym nasyceniem
+        backgroundColor: 'rgba(0, 163, 224, 0.95)',
         backdropFilter: 'blur(12px)',
         borderColor: 'rgba(255, 255, 255, 0.15)',
         ease: 'none',
       }, 0)
-
-      // 5. Dopasowanie obramowania przycisku na zadokowanym pasku
-      if (phoneBtn) {
-        scrollTl.to(phoneBtn, {
-          backgroundColor: 'rgba(255, 255, 255, 0.15)',
-          borderColor: 'rgba(255, 255, 255, 0.3)',
-          ease: 'none',
-        }, 0)
-      }
     }
   })
 </script>
