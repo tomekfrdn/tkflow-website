@@ -1,47 +1,87 @@
 ---
-import TextReveal from '@/components/TextReveal.astro'
+const currentYear = new Date().getFullYear()
 ---
 
 <section
-  data-about
-  class="bg-light-blue text-steel-blue py-24 md:py-32 lg:py-40 px-6 sm:px-8"
+  data-contact
+  class="bg-light-blue text-steel-blue py-24 md:py-32 lg:py-40 px-6 sm:px-8 border-t border-white/5"
 >
-  <div class="mx-auto max-w-3xl text-left">
-    <TextReveal
-      class="text-xl sm:text-2xl lg:text-3xl font-sans font-medium leading-[1.75] sm:leading-[1.8] tracking-normal"
-      color="bg-gradient-to-r from-white to-white text-white/50"
-    >
-      Nazywam się Tomasz Kulpa. Wspieram inwestorów i&nbsp;wykonawców w&nbsp;doborze oraz zaopatrzeniu w&nbsp;kluczowe komponenty do&nbsp;przesyłu wody i&nbsp;systemów wysokociśnieniowych.
-      <br /><br />
-      W&nbsp;TK Flow łączę zaplecze czołowych producentów z&nbsp;partnerskim doradztwem. Dbam o&nbsp;to, by&nbsp;instalacje pracowały bezawaryjnie, oszczędzając Twój czas i&nbsp;pieniądze.
-    </TextReveal>
+  <div class="flex flex-col gap-14 max-w-4xl mx-auto">
+    <!-- Nagłówek sekcji -->
+    <div class="flex flex-col gap-3">
+      <h2 class="text-white text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
+        Poznaj marki TK Flow
+      </h2>
+      <p class="text-base sm:text-lg text-steel-blue/90 max-w-2xl leading-relaxed text-pretty">
+        Znajdź dedykowane rozwiązania dla myjni samochodowych oraz systemów nawadniania w&nbsp;rolnictwie.
+      </p>
+    </div>
+
+    <!-- Moduł danych firmowych i kontaktu -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 pt-10 border-t border-white/10">
+      
+      <!-- Kolumna 1: Dane rejestrowe -->
+      <div class="flex flex-col gap-3">
+        <span class="text-xs uppercase tracking-[0.25em] text-white/50 font-medium">
+          Dane rejestrowe
+        </span>
+        <div class="text-sm leading-relaxed space-y-1">
+          <p class="text-dark-blue font-semibold text-base mb-1">TK Flow</p>
+          <p class="text-steel-blue">ul. Przykładowa 12/34</p>
+          <p class="text-steel-blue">00-000 Miejscowość</p>
+          <p class="text-steel-blue pt-1">
+            NIP: <span class="text-white font-mono tracking-wide">0000000000</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Kolumna 2: Kontakt bezpośredni -->
+      <div class="flex flex-col gap-3">
+        <span class="text-xs uppercase tracking-[0.25em] text-white/50 font-medium">
+          Kontakt bezpośredni
+        </span>
+        <div class="flex flex-col gap-4 text-sm">
+          <div>
+            <span class="block text-xs text-white/40 mb-1">Telefon:</span>
+            <a
+              href="tel:+48000000000"
+              class="text-white hover:text-dark-blue transition-colors font-medium text-base tracking-wide"
+            >
+              +48 000 000 000
+            </a>
+          </div>
+          <div>
+            <span class="block text-xs text-white/40 mb-1">E-mail:</span>
+            <a
+              href="mailto:kontakt@tkflow.pl"
+              class="text-white hover:text-dark-blue transition-colors font-medium text-base tracking-wide"
+            >
+              kontakt@tkflow.pl
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stopka praw autorskich -->
+    <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/40">
+      <p>© {currentYear} TK Flow Tomasz Kulpa</p>
+      <p class="tracking-widest uppercase text-[10px] text-white/30">Technologie przesyłu cieczy</p>
+    </div>
   </div>
 </section>
 
 <script>
-  import { gsap } from 'gsap'
-  import { ScrollTrigger } from 'gsap/ScrollTrigger'
   import { DOMLoaded } from '../ts/events'
+  import { fadeIn } from '../ts/animations'
 
   DOMLoaded(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
-    const trigger = document.querySelector('[data-about]') as HTMLElement
-    const target = trigger?.querySelector('p') as HTMLElement
+    const trigger = document.querySelector('[data-contact]') as HTMLElement
+    const target = trigger?.querySelector(':scope > div') as HTMLElement
 
     if (trigger && target) {
-      // Płynne, responsywne wygaszanie tekstu powiązane z wysokością ekranu
-      gsap.to(target, {
-        opacity: 0.15,
-        scrollTrigger: {
-          trigger: target, // Śledzimy bezpośrednio blok tekstu
-          start: 'top 30%',
-          end: () => `+=${window.innerHeight * 0.75}`,
-          scrub: 1.2,
-          invalidateOnRefresh: true, // Przelicza dystans po zmianie rozmiaru okna/ekranu
-        },
-        ease: 'none',
-      })
+      fadeIn(trigger, target)
     }
   })
 </script>
