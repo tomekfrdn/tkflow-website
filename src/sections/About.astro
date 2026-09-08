@@ -1,6 +1,5 @@
 ---
 import TextReveal from '@/components/TextReveal.astro'
-const photoSrc = `${import.meta.env.BASE_URL}tomasz-kulpa-tk-flow.jpg`.replace('//', '/')
 ---
 
 <section
@@ -18,17 +17,16 @@ const photoSrc = `${import.meta.env.BASE_URL}tomasz-kulpa-tk-flow.jpg`.replace('
       W&nbsp;TK Flow łączę zaplecze czołowych producentów z&nbsp;partnerskim doradztwem. Dbam o&nbsp;to, by&nbsp;instalacje pracowały bezawaryjnie, oszczędzając Twój czas i&nbsp;pieniądze.
     </TextReveal>
 
-    <!-- Sygnatura autorska ze zdjęciem z public/ -->
+    <!-- Sygnatura autorska z bezpośrednią ścieżką z roota -->
     <div class="mt-12 sm:mt-16 pt-8 border-t border-white/10 flex items-center gap-5 sm:gap-6">
       <div class="relative shrink-0 w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full overflow-hidden ring-2 ring-white/20 shadow-lg bg-[#041A2F]">
         <img
-          src={photoSrc}
+          src="/tomasz-kulpa-tk-flow.jpg"
           alt="Tomasz Kulpa"
           width="72"
           height="72"
           class="block w-full h-full object-cover"
           loading="eager"
-          decoding="async"
         />
       </div>
 
@@ -57,16 +55,20 @@ const photoSrc = `${import.meta.env.BASE_URL}tomasz-kulpa-tk-flow.jpg`.replace('
     const target = trigger?.querySelector('p') as HTMLElement
 
     if (trigger && target) {
-      gsap.to(target, {
-        opacity: 0.15,
-        scrollTrigger: {
-          trigger: target,
-          start: 'top 30%',
-          end: () => `+=${window.innerHeight * 0.75}`,
-          scrub: 1.2,
-          invalidateOnRefresh: true,
-        },
-        ease: 'none',
+      // Izolujemy animację i opóźniamy odświeżenie o 1 klatkę, aby nie blokować Headera
+      requestAnimationFrame(() => {
+        gsap.to(target, {
+          opacity: 0.15,
+          scrollTrigger: {
+            id: 'about-fade',
+            trigger: target,
+            start: 'top 30%',
+            end: () => `+=${window.innerHeight * 0.75}`,
+            scrub: 1.2,
+            invalidateOnRefresh: true,
+          },
+          ease: 'none',
+        })
       })
     }
   })
