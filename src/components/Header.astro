@@ -3,7 +3,7 @@
   data-navbar
   class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 flex items-center justify-between px-4 sm:px-8 border-b border-transparent pointer-events-none select-none"
 >
-  <!-- Niezależna warstwa tła (eliminuje mruganie GPU, zaokrąglona do spodu paska) -->
+  <!-- Niezależna warstwa tła (eliminuje mruganie GPU) -->
   <div
     data-navbar-bg
     class="absolute inset-0 bg-[#00a3e0]/95 backdrop-blur-md border-b border-white/15 opacity-0 pointer-events-none will-change-[opacity]"
@@ -30,7 +30,27 @@
     </h1>
   </div>
 
-  <!-- Prawy róg: Button szybkiego kontaktu z wyważonym odstępem -->
+  <!-- Środek na desktopie: odnośniki produktowe wycentrowane w osi belki -->
+  <nav
+    data-navbar-nav
+    class="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 items-center gap-8 z-30 pointer-events-auto opacity-0"
+  >
+    <a
+      href="#pompy-do-myjni"
+      class="text-sm font-medium text-white/90 hover:text-white transition-colors duration-200 tracking-tight"
+    >
+      Pompy do myjni
+    </a>
+    <span class="w-1 h-1 rounded-full bg-white/30" aria-hidden="true"></span>
+    <a
+      href="#rury-pe"
+      class="text-sm font-medium text-white/90 hover:text-white transition-colors duration-200 tracking-tight"
+    >
+      Rury PE do nawadniania
+    </a>
+  </nav>
+
+  <!-- Prawy róg: Button szybkiego kontaktu -->
   <div class="pointer-events-auto ml-auto z-30 flex items-center">
     <a
       data-phone-btn
@@ -63,6 +83,7 @@
 
     const hero = document.querySelector('[data-hero]') as HTMLElement
     const navbarBg = document.querySelector('[data-navbar-bg]') as HTMLElement
+    const navbarNav = document.querySelector('[data-navbar-nav]') as HTMLElement
     const brandGroup = document.querySelector('[data-brand-group]') as HTMLElement
     const brandTitle = document.querySelector('[data-brand-title]') as HTMLElement
     const brandSubtitle = document.querySelector('[data-brand-subtitle]') as HTMLElement
@@ -81,7 +102,6 @@
 
       let offsets = calculateOffsets()
 
-      // Ustawienie początkowej pozycji centralnej na środku Hero
       gsap.set(brandGroup, {
         x: offsets.targetX,
         y: offsets.targetY,
@@ -102,7 +122,7 @@
         },
       })
 
-      // 1. Szybkie wygaszenie podtytułu
+      // 1. Wygaszenie podtytułu
       if (brandSubtitle) {
         heroTl.to(brandSubtitle, {
           opacity: 0,
@@ -112,14 +132,14 @@
         }, 0)
       }
 
-      // 2. Skalowanie fontu do docelowych 1.25rem (20px)
+      // 2. Skalowanie fontu do 1.25rem
       heroTl.to(brandTitle, {
         fontSize: '1.25rem',
         duration: 0.8,
         ease: 'power1.inOut',
       }, 0)
 
-      // 3. Płynny powrót z pozycji środka (offsets) do lewego slotu paska (x: 0, y: 0)
+      // 3. Zjazd logotypu do lewego slotu paska
       heroTl.to(brandGroup, {
         x: 0,
         y: 0,
@@ -127,7 +147,7 @@
         ease: 'power1.inOut',
       }, 0)
 
-      // 4. Płynne wyłonienie tła belki w końcówce Hero bez mrugania GPU
+      // 4. Płynne wyłonienie tła belki
       heroTl.to(
         navbarBg,
         {
@@ -137,6 +157,19 @@
         },
         0.85
       )
+
+      // 5. Płynne pojawienie się centralnych linków desktopowych razem z tłem
+      if (navbarNav) {
+        heroTl.to(
+          navbarNav,
+          {
+            opacity: 1,
+            duration: 0.15,
+            ease: 'power1.inOut',
+          },
+          0.85
+        )
+      }
     }
   })
 </script>
