@@ -30,30 +30,31 @@
     </h1>
   </div>
 
-  <!-- Środek na desktopie: inżynieryjna pigułka segmentowa (bez kropki, spójna z rounded-2xl) -->
+  <!-- Środek na desktopie: Editorial Navigation w stylu Awwwards (czysta typografia bez zbędnych teł) -->
   <nav
     data-navbar-nav
-    class="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 items-center p-1 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 z-30 pointer-events-auto opacity-0 shadow-sm"
+    class="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 items-center gap-10 z-30 pointer-events-auto opacity-0"
   >
     <a
       href="#pompy-do-myjni"
-      class="px-4 py-1.5 rounded-xl text-xs sm:text-sm font-medium text-white/85 hover:text-white hover:bg-white/15 active:scale-95 transition-all duration-200 tracking-tight leading-none"
+      class="group relative py-1 flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-white transition-opacity duration-200"
     >
-      Pompy do myjni
+      <span class="font-mono text-[10px] text-white/50 group-hover:text-white transition-colors">01</span>
+      <span>Pompy do myjni</span>
+      <span class="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
     </a>
-
-    <!-- Cienki pionowy separator zamiast kropki -->
-    <div class="h-3.5 w-px bg-white/20 mx-0.5" aria-hidden="true"></div>
 
     <a
       href="#rury-pe"
-      class="px-4 py-1.5 rounded-xl text-xs sm:text-sm font-medium text-white/85 hover:text-white hover:bg-white/15 active:scale-95 transition-all duration-200 tracking-tight leading-none"
+      class="group relative py-1 flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-medium text-white transition-opacity duration-200"
     >
-      Rury PE do nawadniania
+      <span class="font-mono text-[10px] text-white/50 group-hover:text-white transition-colors">02</span>
+      <span>Rury PE do nawadniania</span>
+      <span class="absolute bottom-0 left-0 w-0 h-px bg-white transition-all duration-300 ease-out group-hover:w-full"></span>
     </a>
   </nav>
 
-  <!-- Prawy róg: Button szybkiego kontaktu z idealnym wycentrowaniem pionowym na mobile -->
+  <!-- Prawy róg: Button szybkiego kontaktu -->
   <div class="pointer-events-auto ml-auto z-30 flex items-center">
     <a
       data-phone-btn
@@ -62,18 +63,15 @@
       class="group inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-2xl px-3 py-2 sm:px-4 sm:py-2.5 text-white transition-transform duration-200 hover:scale-[1.02] active:scale-95 shadow-md border border-white/10"
       aria-label="Zadzwoń do TK Flow"
     >
-      <!-- Etykieta ZADZWOŃ: spięta leading-none i optycznie wycentrowana -->
       <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white/80 group-hover:text-white transition-colors leading-none flex items-center">
         Zadzwoń
       </span>
 
-      <!-- Dioda statusu live wyśrodkowana w osi tekstu -->
       <span class="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2 shrink-0 self-center">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
         <span class="relative inline-flex rounded-full h-1.5 w-1.5 sm:h-2 sm:w-2 bg-emerald-400"></span>
       </span>
 
-      <!-- Numer telefonu: ujednolicona wysokość linii leading-none -->
       <span class="font-mono text-xs sm:text-sm font-medium tracking-tight text-white leading-none flex items-center">
         +48 000 000 000
       </span>
@@ -110,7 +108,7 @@
 
       let offsets = calculateOffsets()
 
-      // Stan wyjściowy: nagłówek wycentrowany w widoku Hero
+      // Stan wyjściowy: wycentrowanie w Hero
       gsap.set(brandGroup, {
         x: offsets.targetX,
         y: offsets.targetY,
@@ -141,14 +139,14 @@
         }, 0)
       }
 
-      // 2. Skalowanie fontu do docelowych 20px (1.25rem)
+      // 2. Skalowanie fontu do 1.25rem (20px)
       heroTl.to(brandTitle, {
         fontSize: '1.25rem',
         duration: 0.8,
         ease: 'power1.inOut',
       }, 0)
 
-      // 3. Płynne przemieszczenie do lewego slotu paska
+      // 3. Płynne dojście do lewego rogu
       heroTl.to(brandGroup, {
         x: 0,
         y: 0,
@@ -156,7 +154,7 @@
         ease: 'power1.inOut',
       }, 0)
 
-      // 4. Płynne wyłonienie tła belki w końcówce Hero bez mrugania GPU
+      // 4. Aksamitne wyłonienie tła w samej końcówce Hero
       heroTl.to(
         navbarBg,
         {
@@ -167,7 +165,7 @@
         0.85
       )
 
-      // 5. Płynne wejście desktopowej pigułki nawigacyjnej
+      // 5. Płynne pojawienie się centralnej nawigacji
       if (navbarNav) {
         heroTl.to(
           navbarNav,
