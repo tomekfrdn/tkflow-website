@@ -11,7 +11,7 @@
 
   <!-- Lewy slot: napis TK Flow -->
   <div data-brand-anchor class="relative flex items-center z-30">
-    <h1 data-brand-group class="relative flex flex-col items-start justify-center will-change-transform m-0 p-0 origin-left">
+    <h1 data-brand-group class="relative flex flex-col items-start justify-center will-change-transform m-0 p-0 origin-top-left">
       <span
         data-brand-title
         class="inline-block font-semibold tracking-tight whitespace-nowrap leading-none text-xl sm:text-2xl"
@@ -22,7 +22,7 @@
       
       <span
         data-brand-subtitle
-        class="absolute top-full left-0 block text-[11px] sm:text-xs font-light tracking-[0.25em] text-white/90 uppercase mt-2 whitespace-nowrap pointer-events-none origin-left"
+        class="absolute top-full left-0 block text-[11px] sm:text-xs font-light tracking-[0.25em] text-white/90 uppercase mt-2 whitespace-nowrap pointer-events-none origin-top-left"
       >
         technologie przesyłu cieczy
       </span>
@@ -93,30 +93,19 @@
     const brandSubtitle = document.querySelector('[data-brand-subtitle]') as HTMLElement
 
     if (hero && navbarBg && brandGroup) {
-      const getHeroVector = () => {
+      // Precyzyjne obliczenie wektora na bazie okna (stałego dla fixed header)
+      const calculateHeroVector = () => {
         const titleRect = brandGroup.getBoundingClientRect()
         const scaleFactor = Math.min(Math.max(window.innerWidth / 360, 2), 3.2)
-
-        const currentBrandX = titleRect.left
-        const currentBrandY = titleRect.top + (window.scrollY || 0)
 
         const targetCenterX = (window.innerWidth / 2) - ((titleRect.width * scaleFactor) / 2)
         const targetCenterY = window.innerHeight * 0.42
 
         return {
-          x: targetCenterX - currentBrandX,
-          y: targetCenterY - currentBrandY,
+          x: targetCenterX - titleRect.left,
+          y: targetCenterY - titleRect.top,
           scale: scaleFactor,
         }
-      }
-
-      // Bezpieczna synchronizacja stanu początkowego przy odświeżeniu
-      const scrollPos = window.scrollY || document.documentElement.scrollTop
-      if (scrollPos >= hero.offsetHeight) {
-        gsap.set(brandGroup, { x: 0, y: 0, scale: 1 })
-        gsap.set(navbarBg, { opacity: 1 })
-        if (navbarNav) gsap.set(navbarNav, { opacity: 1 })
-        if (brandSubtitle) gsap.set(brandSubtitle, { opacity: 0 })
       }
 
       const heroTl = gsap.timeline({
@@ -131,12 +120,13 @@
         },
       })
 
+      // Animacja powrotu: z pozycji w Hero do (0, 0, scale: 1)
       heroTl.fromTo(
         brandGroup,
         {
-          x: () => getHeroVector().x,
-          y: () => getHeroVector().y,
-          scale: () => getHeroVector().scale,
+          x: () => calculateHeroVector().x,
+          y: () => calculateHeroVector().y,
+          scale: () => calculateHeroVector().scale,
         },
         {
           x: 0,
@@ -144,6 +134,7 @@
           scale: 1,
           duration: 0.8,
           ease: 'none',
+          immediateRender: false,
         },
         0
       )
@@ -152,7 +143,7 @@
         heroTl.fromTo(
           brandSubtitle,
           { opacity: 1, scale: 1 },
-          { opacity: 0, scale: 0.8, duration: 0.3, ease: 'none' },
+          { opacity: 0, scale: 0.8, duration: 0.3, ease: 'none', immediateRender: false },
           0
         )
       }
@@ -162,6 +153,9 @@
       if (navbarNav) {
         heroTl.to(navbarNav, { opacity: 1, duration: 0.15, ease: 'none' }, 0.85)
       }
+
+      // Wymuszenie aktualizacji pozycji zaraz po starcie
+      ScrollTrigger.refresh()
     }
   })
 </script>
