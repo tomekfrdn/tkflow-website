@@ -4,16 +4,18 @@ import TextReveal from '@/components/TextReveal.astro'
 
 <section
   data-about
-  class="bg-light-blue text-steel-blue py-40 lg:py-52 xl:py-60 px-8"
+  class="bg-light-blue text-steel-blue py-24 md:py-32 lg:py-40 px-6 sm:px-8"
 >
-  <TextReveal
-    class="text-3xl lg:text-4xl 2xl:text-5xl font-sans font-semibold max-w-[30ch] leading-normal lg:leading-normal 2xl:leading-normal mx-auto"
-    color="bg-gradient-to-r from-white to-white text-white/50"
-  >
+  <div class="mx-auto max-w-3xl text-center">
+    <TextReveal
+      class="text-xl sm:text-2xl lg:text-3xl font-sans font-medium leading-relaxed sm:leading-relaxed lg:leading-relaxed"
+      color="bg-gradient-to-r from-white to-white text-white/50"
+    >
       Nazywam się Tomasz Kulpa. Wspieram inwestorów i wykonawców w doborze oraz zaopatrzeniu w kluczowe komponenty do przesyłu wody i systemów wysokociśnieniowych.
-    <br /><br />
+      <br /><br />
       W TK Flow łączę zaplecze czołowych producentów z partnerskim doradztwem. Dbam o to, by instalacje pracowały bezawaryjnie, oszczędzając Twój czas i pieniądze.
-  </TextReveal>
+    </TextReveal>
+  </div>
 </section>
 
 <script>
@@ -33,8 +35,8 @@ import TextReveal from '@/components/TextReveal.astro'
         opacity: 0.15,
         scrollTrigger: {
           trigger: target, // Śledzimy bezpośrednio blok tekstu
-          start: 'top 25%',
-          end: () => `+=${window.innerHeight * 0.85}`, // 85% wysokości ekranu użytkownika
+          start: 'top 30%',
+          end: () => `+=${window.innerHeight * 0.75}`, // Skrócony dystans dopasowany do mniejszej wysokości bloku
           scrub: 1.2,
           invalidateOnRefresh: true, // Przelicza dystans po zmianie rozmiaru okna/ekranu
         },
