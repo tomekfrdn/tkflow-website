@@ -1,4 +1,4 @@
-<section data-hero class="relative w-full h-[100dvh] bg-brand-water text-white">
+<section data-hero class="relative w-full h-[100svh] bg-brand-water text-white">
   <div class="absolute inset-0 overflow-clip">
     <video
       data-hero-video
@@ -13,7 +13,7 @@
   </div>
   <div class="absolute inset-0 bg-dark-blue/75"></div>
 
-  <!-- Minimalistyczna strzałka w dół (zawsze w widocznym oknie 100dvh) -->
+  <!-- Minimalistyczna strzałka w dół -->
   <div
     data-scroll-hint
     class="absolute bottom-6 pb-[env(safe-area-inset-bottom)] sm:bottom-12 inset-x-0 z-20 flex justify-center pointer-events-auto"
@@ -46,6 +46,10 @@
 
   DOMLoaded(() => {
     gsap.registerPlugin(ScrollTrigger)
+
+    // Zapobiega gwałtownemu przeliczaniu triggerów podczas chowania się pasków mobilnych
+    ScrollTrigger.config({ ignoreMobileResize: true })
+
     const hero = document.querySelector('[data-hero]') as HTMLElement
     const heroVideo = document.querySelector(
       '[data-hero-video]'
@@ -61,18 +65,18 @@
           start: 'top top',
           end: 'bottom top',
           scrub: true,
+          fastScrollEnd: true,
+          preventOverlaps: true,
         },
       })
 
       tl.to(heroVideo, { y: '50%', duration: 1 })
 
-      // Szybkie wygaszenie strzałki
       if (scrollHint) {
         tl.to(scrollHint, { opacity: 0, y: 10, duration: 0.15 }, 0)
       }
     }
 
-    // Płynne przewijanie do sekcji About po kliknięciu
     if (scrollHint) {
       const link = scrollHint.querySelector('a')
       link?.addEventListener('click', (e) => {
