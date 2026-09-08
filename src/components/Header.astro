@@ -1,10 +1,31 @@
-<!-- Główny dokujący pasek nawigacyjny -->
+<!-- Główny pasek nawigacyjny: jedna stała wysokość i perfekcyjne centrowanie pionowe items-center -->
 <header
   data-navbar
-  class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 pointer-events-none flex items-center justify-between px-4 sm:px-8 border-b border-transparent transition-colors duration-300"
+  class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 flex items-center justify-between px-4 sm:px-8 border-b border-transparent pointer-events-none select-none"
 >
-  <!-- Prawy róg: Button telefonu (idealnie wyśrodkowany w pionie dzięki items-center w header) -->
-  <div class="pointer-events-auto ml-auto z-30">
+  <!-- Lewy slot: napis TK Flow wraz z podtytułem -->
+  <div data-brand-anchor class="relative flex items-center z-30">
+    <div data-brand-group class="relative flex flex-col items-start justify-center">
+      <span
+        data-brand-title
+        class="inline-block font-semibold tracking-tight whitespace-nowrap leading-none origin-left"
+        style="color: #041A2F;"
+      >
+        TK Flow
+      </span>
+      
+      <!-- Podtytuł wyjęty z przepływu pionowego (absolute), aby nie wypychał napisu z osi pionowej paska -->
+      <span
+        data-brand-subtitle
+        class="absolute top-full left-1/2 -translate-x-1/2 block text-[clamp(0.75rem,1.2vw,0.875rem)] font-light tracking-[0.25em] sm:tracking-[0.3em] text-white/90 uppercase mt-3 whitespace-nowrap pointer-events-none"
+      >
+        technologie przesyłu cieczy
+      </span>
+    </div>
+  </div>
+
+  <!-- Prawy róg: Button telefonu -->
+  <div class="pointer-events-auto ml-auto z-30 flex items-center">
     <a
       data-phone-btn
       href="tel:+48000000000"
@@ -26,28 +47,6 @@
   </div>
 </header>
 
-<!-- Kinetyczny element TK Flow: stała wysokość h-14/h-16 i flex items-center dla idealnego wyśrodkowania w pionie -->
-<div
-  data-brand-wrap
-  class="fixed top-0 inset-x-0 h-14 sm:h-16 px-4 sm:px-8 z-50 pointer-events-none select-none flex items-center justify-center"
->
-  <div data-brand-inner class="flex flex-col items-center justify-center text-center">
-    <span
-      data-brand-title
-      class="inline-block font-semibold tracking-tight whitespace-nowrap text-[clamp(2.25rem,7vw,5rem)] leading-none"
-      style="color: #041A2F;"
-    >
-      TK Flow
-    </span>
-    <span
-      data-brand-subtitle
-      class="block text-[clamp(0.75rem,1.2vw,0.875rem)] font-light tracking-[0.25em] sm:tracking-[0.3em] text-white/90 uppercase mt-3 sm:mt-4 max-w-md"
-    >
-      technologie przesyłu cieczy
-    </span>
-  </div>
-</div>
-
 <script>
   import { gsap } from 'gsap'
   import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -57,91 +56,88 @@
     gsap.registerPlugin(ScrollTrigger)
 
     const hero = document.querySelector('[data-hero]') as HTMLElement
-    const about = document.querySelector('[data-about]') as HTMLElement
     const navbar = document.querySelector('[data-navbar]') as HTMLElement
-    const brandWrap = document.querySelector('[data-brand-wrap]') as HTMLElement
-    const brandInner = document.querySelector('[data-brand-inner]') as HTMLElement
+    const brandGroup = document.querySelector('[data-brand-group]') as HTMLElement
     const brandTitle = document.querySelector('[data-brand-title]') as HTMLElement
     const brandSubtitle = document.querySelector('[data-brand-subtitle]') as HTMLElement
 
-    if (hero && brandWrap && brandTitle && navbar && brandInner) {
-      // Ustawienie początkowej pozycji centralnej w widoku Hero
-      gsap.set(brandInner, {
-        y: () => window.innerHeight * 0.42,
+    if (hero && navbar && brandGroup && brandTitle) {
+      // Obliczenie wektora przesunięcia: ze środka ekranu do lewego slotu paska
+      const calculateOffsets = () => {
+        const startFontSize = Math.min(Math.max(window.innerWidth * 0.07, 36), 80)
+        gsap.set(brandTitle, { fontSize: `${startFontSize}px` })
+
+        const rect = brandTitle.getBoundingClientRect()
+        const targetX = (window.innerWidth / 2) - (rect.width / 2) - rect.left
+        const targetY = (window.innerHeight * 0.42) - rect.top
+
+        return { targetX, targetY }
+      }
+
+      let offsets = calculateOffsets()
+
+      // Stan wyjściowy: tytuł i podtytuł wycentrowane w widoku Hero
+      gsap.set(brandGroup, {
+        x: offsets.targetX,
+        y: offsets.targetY,
       })
 
-      const heroTl = gsap.timeline({
+      // Jedna spójna oś czasu – zero konfliktów ScrollTriggera i zero mrugania
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: hero,
           start: 'top top',
           end: 'bottom top',
           scrub: true,
           invalidateOnRefresh: true,
+          onRefresh: () => {
+            offsets = calculateOffsets()
+          },
         },
       })
 
-      // Etap 1: Wygaszenie podtytułu
+      // 1. Wygaszenie podtytułu (0% -> 30% przewijania Hero)
       if (brandSubtitle) {
-        heroTl.to(brandSubtitle, {
+        tl.to(brandSubtitle, {
           opacity: 0,
-          y: -10,
-          duration: 0.35,
+          scale: 0.9,
+          duration: 0.3,
           ease: 'power1.out',
         }, 0)
       }
 
-      // Etap 1: Płynne podjechanie w osi pionowej do środka wysokości belki h-14/h-16
-      heroTl.to(brandInner, {
-        y: 0,
-        duration: 0.7,
-        ease: 'power1.inOut',
-      }, 0)
-
-      heroTl.to(brandTitle, {
+      // 2. Skalowanie fontu do docelowych 20px (1.25rem)
+      tl.to(brandTitle, {
         fontSize: '1.25rem',
-        duration: 0.7,
+        duration: 0.8,
         ease: 'power1.inOut',
       }, 0)
 
-      // Etap 2: Przemieszczenie na lewą stronę dopiero po wygaszeniu podtytułu
-      heroTl.to(brandWrap, {
-        justifyContent: 'flex-start',
-        duration: 0.3,
-        ease: 'power2.out',
-      }, 0.7)
+      // 3. Płynny zjazd do pozycji zerowej (lewy slot paska, idealny środek pionowy)
+      tl.to(brandGroup, {
+        x: 0,
+        y: 0,
+        duration: 0.8,
+        ease: 'power1.inOut',
+      }, 0)
 
-      heroTl.to(brandInner, {
-        alignItems: 'flex-start',
-        textAlign: 'left',
-        duration: 0.3,
-        ease: 'power2.out',
-      }, 0.7)
-
-      // 2. Aktywacja tła paska #00a3e0 DOPIERO na wejściu sekcji About
-      if (about) {
-        ScrollTrigger.create({
-          trigger: about,
-          start: 'top 56px', // dokładnie gdy sekcja styka się ze spodem paska
-          onEnter: () => {
-            gsap.to(navbar, {
-              backgroundColor: 'rgba(0, 163, 224, 0.95)',
-              backdropFilter: 'blur(12px)',
-              borderColor: 'rgba(255, 255, 255, 0.15)',
-              duration: 0.25,
-              ease: 'power1.out',
-            })
-          },
-          onLeaveBack: () => {
-            gsap.to(navbar, {
-              backgroundColor: 'rgba(0, 163, 224, 0)',
-              backdropFilter: 'blur(0px)',
-              borderColor: 'rgba(255, 255, 255, 0)',
-              duration: 0.25,
-              ease: 'power1.out',
-            })
-          },
-        })
-      }
+      // 4. Płynne włączenie tła belki #00a3e0 dokładnie w momencie opuszczania Hero (bez przeskoku)
+      tl.fromTo(
+        navbar,
+        {
+          backgroundColor: 'rgba(0, 163, 224, 0)',
+          borderBottomColor: 'rgba(255, 255, 255, 0)',
+          backdropFilter: 'blur(0px)',
+        },
+        {
+          backgroundColor: 'rgba(0, 163, 224, 0.95)',
+          borderBottomColor: 'rgba(255, 255, 255, 0.15)',
+          backdropFilter: 'blur(12px)',
+          duration: 0.2,
+          ease: 'none',
+        },
+        0.8 // odpala się dokładnie w przedziale 80%-100% zjazdu z Hero
+      )
     }
   })
 </script>
