@@ -1,7 +1,7 @@
 ---
 import Card from '@/components/Card.astro'
-import projectOne from '@/images/project-1.png'
-import projectTwo from '@/images/project-2.png'
+import pompyImg from '@/images/pompy-do-myjni.webp'
+import ruryImg from '@/images/rury-pe.webp'
 ---
 
 <section
@@ -15,32 +15,35 @@ import projectTwo from '@/images/project-2.png'
     >
       Dedykowane serwisy produktowe
     </h2>
+    <p class="text-slate-600 text-base sm:text-lg max-w-xl leading-relaxed">
+      Specjalistyczne platformy zaopatrzeniowe z bezpośrednim doborem komponentów.
+    </p>
   </div>
 
   <div class="w-full max-w-5xl mx-auto flex justify-center">
     <ul
       data-projects-grid
-      class="w-full max-w-md md:max-w-none m-0 p-0 list-none grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 justify-items-center"
+      class="w-full m-0 p-0 list-none grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 justify-items-center"
     >
       <li data-project-card class="w-full flex justify-center">
-        <div class="w-full max-w-sm sm:max-w-md flex justify-center">
-          <Card
-            image={projectOne}
-            title="sercemyjni.pl"
-            description="Pompy wysokociśnieniowe do myjni samochodowych."
-            link="https://sercemyjni.pl"
-          />
-        </div>
+        <Card
+          image={pompyImg}
+          title="sercemyjni.pl"
+          description="Pompy wysokociśnieniowe i podzespoły do bezdotykowych myjni samochodowych."
+          link="https://sercemyjni.pl"
+          badge="Technika Myjąca"
+          accentColor="#be123c"
+        />
       </li>
       <li data-project-card class="w-full flex justify-center">
-        <div class="w-full max-w-sm sm:max-w-md flex justify-center">
-          <Card
-            image={projectTwo}
-            title="rurape.pl"
-            description="Rury PE do nawadniania i przesyłu wody w rolnictwie."
-            link="https://rurape.pl"
-          />
-        </div>
+        <Card
+          image={ruryImg}
+          title="rurape.pl"
+          description="Rury polietylenowe PE do instalacji nawadniających oraz przesyłu wody w rolnictwie."
+          link="https://rurape.pl"
+          badge="Nawadnianie & Rolnictwo"
+          accentColor="#059669"
+        />
       </li>
     </ul>
   </div>

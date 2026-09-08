@@ -6,30 +6,90 @@ interface Props {
   title: string
   description: string
   link: string
+  badge?: string
+  accentColor?: string
 }
 
-const { image, title, description, link } = Astro.props
+const {
+  image,
+  title,
+  description,
+  link,
+  badge = 'Dedykowany serwis',
+  accentColor = '#00a3e0'
+} = Astro.props
 ---
 
 <article
-  class="relative w-80 sm:w-96 md:w-[25rem] lg:w-[28rem] 2xl:w-[30rem] h-full bg-white rounded-2xl overflow-clip group hover:shadow-lg hover:shadow-dark-blue/5 transition-shadow duration-300"
+  class="group relative flex flex-col w-full max-w-[24rem] sm:max-w-[26rem] lg:max-w-[28rem] bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-xl hover:shadow-dark-blue/10 hover:-translate-y-1"
 >
-  <figure class="flex flex-col">
-    <div class="overflow-clip">
+  <!-- Górna krawędź akcentująca markę -->
+  <div
+    class="h-1 w-full transition-opacity duration-300 opacity-70 group-hover:opacity-100"
+    style={`background-color: ${accentColor};`}
+  ></div>
+
+  <figure class="flex flex-col flex-1 m-0">
+    <!-- Kontener obrazu w dokładnych proporcjach 1200/895 -->
+    <div class="relative overflow-hidden aspect-[1200/895] bg-slate-100">
       <Image
-        class="aspect-[5/3] w-full object-cover object-top group-hover:scale-110 transition-transform duration-300"
+        class="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
         src={image}
-        alt="Project"
+        alt={`Prezentacja produktów ${title}`}
+        loading="lazy"
+        decoding="async"
       />
+
+      <!-- Pływający chip ze strzałką kierunkową (External link) -->
+      <div class="absolute top-3.5 right-3.5 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-800 shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:bg-white">
+        <svg
+          class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </div>
     </div>
-    <figcaption class="flex flex-col gap-4 p-6 lg:p-8">
-      <h3 class="text-slate-gray text-xl font-semibold">{title}</h3>
-      <p class="text-dark-gray">
-        {description}
-      </p>
+
+    <!-- Treść karty -->
+    <figcaption class="flex flex-col flex-1 justify-between p-6 sm:p-7 gap-6">
+      <div class="flex flex-col gap-2.5">
+        <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-slate-400">
+          {badge}
+        </span>
+        <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 transition-colors duration-200 group-hover:text-dark-blue">
+          {title}
+        </h3>
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          {description}
+        </p>
+      </div>
+
+      <!-- Dolny link z animowaną strzałką w kolorze akcentu -->
+      <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-800 pt-4 border-t border-slate-100">
+        <span>Przejdź do platformy</span>
+        <span
+          class="inline-block transition-transform duration-300 group-hover:translate-x-1"
+          style={`color: ${accentColor};`}
+        >
+          &rarr;
+        </span>
+      </div>
     </figcaption>
   </figure>
 
-  <a class="absolute inset-0" href={link} target="_blank" title="View Project"
-  ></a>
+  <!-- Niewidoczna warstwa linku obejmująca całą kartę -->
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="absolute inset-0 z-20"
+    aria-label={`Odwiedź serwis ${title}`}
+  >
+    <span class="sr-only">Odwiedź stronę {title}</span>
+  </a>
 </article>
