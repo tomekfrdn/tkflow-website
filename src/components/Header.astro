@@ -1,4 +1,4 @@
-<!-- Główny pasek nawigacyjny: jedna stała wysokość i perfekcyjne centrowanie pionowe items-center -->
+<!-- Główny pasek nawigacyjny: h-14 na mobile / h-16 na desktopie, perfekcyjne centrowanie pionowe -->
 <header
   data-navbar
   class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 flex items-center justify-between px-4 sm:px-8 border-b border-transparent pointer-events-none select-none"
@@ -14,7 +14,7 @@
         TK Flow
       </span>
       
-      <!-- Podtytuł wyjęty z przepływu pionowego (absolute), aby nie wypychał napisu z osi pionowej paska -->
+      <!-- Podtytuł zdefiniowany poza przepływem pionowym (absolute), by nie psuć osi pionowej paska -->
       <span
         data-brand-subtitle
         class="absolute top-full left-1/2 -translate-x-1/2 block text-[clamp(0.75rem,1.2vw,0.875rem)] font-light tracking-[0.25em] sm:tracking-[0.3em] text-white/90 uppercase mt-3 whitespace-nowrap pointer-events-none"
@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <!-- Prawy róg: Button telefonu -->
+  <!-- Prawy róg: Nowoczesny przycisk szybkiego telefonu -->
   <div class="pointer-events-auto ml-auto z-30 flex items-center">
     <a
       data-phone-btn
@@ -56,14 +56,13 @@
     gsap.registerPlugin(ScrollTrigger)
 
     const hero = document.querySelector('[data-hero]') as HTMLElement
-    const about = document.querySelector('[data-about]') as HTMLElement
     const navbar = document.querySelector('[data-navbar]') as HTMLElement
     const brandGroup = document.querySelector('[data-brand-group]') as HTMLElement
     const brandTitle = document.querySelector('[data-brand-title]') as HTMLElement
     const brandSubtitle = document.querySelector('[data-brand-subtitle]') as HTMLElement
 
     if (hero && navbar && brandGroup && brandTitle) {
-      // Obliczenie wektora przesunięcia: ze środka ekranu do lewego slotu paska
+      // Obliczenie wektora przesunięcia ze środka ekranu do lewego slotu paska
       const calculateOffsets = () => {
         const startFontSize = Math.min(Math.max(window.innerWidth * 0.07, 36), 80)
         gsap.set(brandTitle, { fontSize: `${startFontSize}px` })
@@ -83,7 +82,7 @@
         y: offsets.targetY,
       })
 
-      // 1. OŚ CZASU DLA HERO: Ruch napisu i wygaszenie podtytułu (zero zmian w tle paska)
+      // Jedna zsynchronizowana oś czasu na całą sekcję Hero
       const heroTl = gsap.timeline({
         scrollTrigger: {
           trigger: hero,
@@ -97,7 +96,7 @@
         },
       })
 
-      // Wygaszenie podtytułu (0% -> 30% scrolla Hero)
+      // 1. Wygaszenie podtytułu (0% -> 30% scrolla)
       if (brandSubtitle) {
         heroTl.to(brandSubtitle, {
           opacity: 0,
@@ -107,44 +106,39 @@
         }, 0)
       }
 
-      // Skalowanie fontu do docelowych 1.25rem (20px)
+      // 2. Skalowanie fontu do docelowych 20px (1.25rem) (0% -> 80% scrolla)
       heroTl.to(brandTitle, {
         fontSize: '1.25rem',
-        duration: 0.85,
+        duration: 0.8,
         ease: 'power1.inOut',
       }, 0)
 
-      // Płynny zjazd do lewego slotu paska
+      // 3. Płynne wejście w lewy slot paska (0% -> 80% scrolla)
       heroTl.to(brandGroup, {
         x: 0,
         y: 0,
-        duration: 0.85,
+        duration: 0.8,
         ease: 'power1.inOut',
       }, 0)
 
-      // 2. TŁO BELKI: Pojawia się dopiero, gdy sekcja Hero całkowicie opuści ekran
-      if (about) {
-        gsap.fromTo(
-          navbar,
-          {
-            backgroundColor: 'rgba(0, 163, 224, 0)',
-            borderBottomColor: 'rgba(255, 255, 255, 0)',
-            backdropFilter: 'blur(0px)',
-          },
-          {
-            backgroundColor: 'rgba(0, 163, 224, 0.95)',
-            borderBottomColor: 'rgba(255, 255, 255, 0.15)',
-            backdropFilter: 'blur(12px)',
-            ease: 'none',
-            scrollTrigger: {
-              trigger: about,
-              start: 'top top',
-              end: '+=40',
-              scrub: true,
-            },
-          }
-        )
-      }
+      // 4. PŁYNNE WYŁONIENIE TŁA W SAMEJ KOŃCÓWCE HERO (88% -> 100% scrolla)
+      // Odpala się dopiero, gdy napis jest już w lewym rogu, a sekcja About jest tuż pod krawędzią
+      heroTl.fromTo(
+        navbar,
+        {
+          backgroundColor: 'rgba(0, 163, 224, 0)',
+          borderBottomColor: 'rgba(255, 255, 255, 0)',
+          backdropFilter: 'blur(0px)',
+        },
+        {
+          backgroundColor: 'rgba(0, 163, 224, 0.95)',
+          borderBottomColor: 'rgba(255, 255, 255, 0.15)',
+          backdropFilter: 'blur(12px)',
+          duration: 0.12, // ostatnie 12% scrollowania sekcji pierwszej
+          ease: 'power1.inOut',
+        },
+        0.88
+      )
     }
   })
 </script>
