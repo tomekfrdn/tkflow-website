@@ -29,7 +29,7 @@ import TextReveal from '@/components/TextReveal.astro'
         />
       </div>
 
-      <!-- Podpis: skalowana typografia dopasowana do większego kadru -->
+      <!-- Podpis: dopasowana skala typografii i inżynieryjny tracking -->
       <div class="flex flex-col justify-center">
         <span class="font-sans text-lg sm:text-xl font-semibold tracking-tight text-white leading-tight">
           Tomasz Kulpa
@@ -51,7 +51,7 @@ import TextReveal from '@/components/TextReveal.astro'
     gsap.registerPlugin(ScrollTrigger)
 
     const trigger = document.querySelector('[data-about]') as HTMLElement
-    // Precyzyjny target p wewnątrz TextReveal izoluje podpis przed wygaszeniem
+    // Precyzyjne wskazanie p wewnątrz TextReveal izoluje sygnaturę ze zdjęciem
     const target = trigger?.querySelector('p') as HTMLElement
 
     if (trigger && target) {
