@@ -12,6 +12,31 @@
     </video>
   </div>
   <div class="absolute inset-0 bg-dark-blue/75"></div>
+
+  <!-- Minimalistyczna strzałka w dół -->
+  <div
+    data-scroll-hint
+    class="absolute bottom-8 sm:bottom-12 inset-x-0 z-20 flex justify-center pointer-events-auto"
+  >
+    <a
+      href="#about"
+      class="p-2 text-white/50 hover:text-white transition-colors duration-300"
+      aria-label="Przewiń w dół do sekcji o marce"
+    >
+      <svg
+        class="w-6 h-6 animate-bounce stroke-[1.5]"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+        />
+      </svg>
+    </a>
+  </div>
 </section>
 
 <script>
@@ -25,6 +50,9 @@
     const heroVideo = document.querySelector(
       '[data-hero-video]'
     ) as HTMLVideoElement
+    const scrollHint = document.querySelector(
+      '[data-scroll-hint]'
+    ) as HTMLElement
 
     if (hero && heroVideo) {
       const tl = gsap.timeline({
@@ -37,6 +65,21 @@
       })
 
       tl.to(heroVideo, { y: '50%', duration: 1 })
+
+      // Szybkie, płynne wygaszenie strzałki na samym początku scrollowania
+      if (scrollHint) {
+        tl.to(scrollHint, { opacity: 0, y: 10, duration: 0.15 }, 0)
+      }
+    }
+
+    // Płynne przewijanie do sekcji About po kliknięciu
+    if (scrollHint) {
+      const link = scrollHint.querySelector('a')
+      link?.addEventListener('click', (e) => {
+        e.preventDefault()
+        const target = document.querySelector('[data-about]')
+        target?.scrollIntoView({ behavior: 'smooth' })
+      })
     }
   })
 </script>
