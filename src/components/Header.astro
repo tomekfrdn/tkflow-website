@@ -1,22 +1,52 @@
+<!-- Główny dokujący pasek nawigacyjny -->
 <header
-  data-header
-  class="fixed inset-x-0 px-4 sm:px-6 top-[calc(50%-8vh)] text-[clamp(2.25rem,7vw,5rem)] leading-none z-20 pointer-events-none select-none flex justify-center"
+  data-navbar
+  class="fixed top-0 inset-x-0 z-40 h-20 transition-colors duration-300 pointer-events-none flex items-center justify-between px-6 sm:px-8 border-b border-transparent"
 >
-  <h1 class="w-full max-w-full text-center font-semibold tracking-tight">
-    <span 
-      data-title 
-      class="inline-block whitespace-nowrap" 
-      style="color: #041A2F;"
+  <!-- Pusty kontener lewy dla zachowania idealnego wycentrowania napisu środkowego -->
+  <div class="w-32 hidden sm:block"></div>
+
+  <!-- Centralny blok tytułowy dokujący do paska -->
+  <div
+    data-header-center
+    class="fixed inset-x-0 px-4 sm:px-6 top-[calc(50%-8vh)] text-[clamp(2.25rem,7vw,5rem)] leading-none z-20 pointer-events-none select-none flex justify-center"
+  >
+    <h1 class="w-full max-w-full text-center font-semibold tracking-tight">
+      <span
+        data-title
+        class="inline-block whitespace-nowrap text-white"
+      >
+        TK Flow
+      </span>
+      <span
+        data-subtitle
+        class="block text-[clamp(0.75rem,1.2vw,0.875rem)] font-light tracking-[0.25em] sm:tracking-[0.3em] text-white/90 uppercase mt-3 sm:mt-4 max-w-md mx-auto"
+      >
+        technologie przesyłu cieczy
+      </span>
+    </h1>
+  </div>
+
+  <!-- Prawy róg: Pływający przycisk szybkiego telefonu -->
+  <div class="pointer-events-auto ml-auto sm:ml-0 z-30">
+    <a
+      data-phone-btn
+      href="tel:+48000000000"
+      class="inline-flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 px-3.5 py-1.5 sm:px-4 sm:py-2 text-white text-xs sm:text-sm font-medium transition-all duration-300 shadow-md group"
+      aria-label="Zadzwoń do działu doradztwa technicznego"
     >
-      TK Flow
-    </span>
-    <span 
-      data-subtitle 
-      class="block text-[clamp(0.75rem,1.2vw,0.875rem)] font-light tracking-[0.25em] sm:tracking-[0.3em] text-white/90 uppercase mt-3 sm:mt-4 max-w-md mx-auto"
-    >
-      technologie przesyłu cieczy
-    </span>
-  </h1>
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      <span class="tracking-wide text-white group-hover:text-white/90 font-mono text-xs sm:text-sm">
+        +48 000 000 000
+      </span>
+      <span class="hidden md:inline text-white/40 text-[11px] uppercase tracking-wider pl-1.5 border-l border-white/20">
+        Zadzwoń
+      </span>
+    </a>
+  </div>
 </header>
 
 <script>
@@ -28,17 +58,14 @@
     gsap.registerPlugin(ScrollTrigger)
 
     const hero = document.querySelector('[data-hero]') as HTMLElement
-    const header = document.querySelector('[data-header]') as HTMLElement
-    const title = header?.querySelector('[data-title]') as HTMLElement
-    const subtitle = header?.querySelector('[data-subtitle]') as HTMLElement
+    const navbar = document.querySelector('[data-navbar]') as HTMLElement
+    const headerCenter = document.querySelector('[data-header-center]') as HTMLElement
+    const subtitle = headerCenter?.querySelector('[data-subtitle]') as HTMLElement
+    const phoneBtn = document.querySelector('[data-phone-btn]') as HTMLElement
 
-    const aboutSection = document.querySelector('[data-about]') as HTMLElement
-    const projectsSection = document.querySelector('[data-projects]') as HTMLElement
-    const contactSection = document.querySelector('[data-contact]') as HTMLElement
-
-    if (hero && header) {
-      // 1. Skalowanie i dokowanie do paska u góry w zbalansowanym rozmiarze (1.25rem = 20px)
-      gsap.to(header, {
+    if (hero && headerCenter && navbar) {
+      // Oś czasu zsynchronizowana z przewijaniem Hero
+      const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: hero,
           start: 'top top',
@@ -46,57 +73,39 @@
           scrub: true,
           invalidateOnRefresh: true,
         },
-        fontSize: '1.25rem',
-        top: '1.25rem',
-        ease: 'none',
       })
 
-      // 2. Wygaszenie podtytułu podczas scrollowania
+      // 1. Zmniejszenie i dokowanie napisu TK Flow do poziomu paska nawigacyjnego
+      scrollTl.to(headerCenter, {
+        fontSize: '1.25rem', // Idealna skala 20px dopasowana do wysokości belki
+        top: '1.5rem',       // Wyśrodkowanie wewnątrz paska h-20 (80px)
+        ease: 'none',
+      }, 0)
+
+      // 2. Czyste wygaszenie podtytułu
       if (subtitle) {
-        gsap.to(subtitle, {
-          scrollTrigger: {
-            trigger: hero,
-            start: 'top top',
-            end: 'center top',
-            scrub: true,
-          },
+        scrollTl.to(subtitle, {
           opacity: 0,
           y: -8,
           ease: 'none',
-        })
-      }
-    }
-
-    // 3. Przełączanie kolorów na stykach sekcji
-    if (title) {
-      if (aboutSection) {
-        ScrollTrigger.create({
-          trigger: aboutSection,
-          start: 'top 40px',
-          end: 'bottom 40px',
-          onEnter: () => gsap.set(title, { color: '#ffffff' }),
-          onLeaveBack: () => gsap.set(title, { color: '#041A2F' }),
-        })
+        }, 0)
       }
 
-      if (projectsSection) {
-        ScrollTrigger.create({
-          trigger: projectsSection,
-          start: 'top 40px',
-          end: 'bottom 40px',
-          onEnter: () => gsap.set(title, { color: '#041A2F' }),
-          onLeaveBack: () => gsap.set(title, { color: '#ffffff' }),
-        })
-      }
+      // 3. Aktywacja tła dark-blue na pasku nawigacji podczas scrollowania
+      scrollTl.to(navbar, {
+        backgroundColor: 'rgba(4, 26, 47, 0.92)', // kolor dark-blue z delikatnym nasyceniem
+        backdropFilter: 'blur(12px)',
+        borderColor: 'rgba(255, 255, 255, 0.1)',
+        ease: 'none',
+      }, 0)
 
-      if (contactSection) {
-        ScrollTrigger.create({
-          trigger: contactSection,
-          start: 'top 40px',
-          end: 'bottom 40px',
-          onEnter: () => gsap.set(title, { color: '#ffffff' }),
-          onLeaveBack: () => gsap.set(title, { color: '#041A2F' }),
-        })
+      // 4. Subtelna redukcja paddingu przycisku w zadokowanym pasku
+      if (phoneBtn) {
+        scrollTl.to(phoneBtn, {
+          backgroundColor: 'rgba(255, 255, 255, 0.08)',
+          borderColor: 'rgba(255, 255, 255, 0.15)',
+          ease: 'none',
+        }, 0)
       }
     }
   })
