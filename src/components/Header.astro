@@ -56,6 +56,7 @@
     gsap.registerPlugin(ScrollTrigger)
 
     const hero = document.querySelector('[data-hero]') as HTMLElement
+    const about = document.querySelector('[data-about]') as HTMLElement
     const navbar = document.querySelector('[data-navbar]') as HTMLElement
     const brandGroup = document.querySelector('[data-brand-group]') as HTMLElement
     const brandTitle = document.querySelector('[data-brand-title]') as HTMLElement
@@ -82,8 +83,8 @@
         y: offsets.targetY,
       })
 
-      // Jedna spójna oś czasu – zero konfliktów ScrollTriggera i zero mrugania
-      const tl = gsap.timeline({
+      // 1. OŚ CZASU DLA HERO: Ruch napisu i wygaszenie podtytułu (zero zmian w tle paska)
+      const heroTl = gsap.timeline({
         scrollTrigger: {
           trigger: hero,
           start: 'top top',
@@ -96,9 +97,9 @@
         },
       })
 
-      // 1. Wygaszenie podtytułu (0% -> 30% przewijania Hero)
+      // Wygaszenie podtytułu (0% -> 30% scrolla Hero)
       if (brandSubtitle) {
-        tl.to(brandSubtitle, {
+        heroTl.to(brandSubtitle, {
           opacity: 0,
           scale: 0.9,
           duration: 0.3,
@@ -106,38 +107,44 @@
         }, 0)
       }
 
-      // 2. Skalowanie fontu do docelowych 20px (1.25rem)
-      tl.to(brandTitle, {
+      // Skalowanie fontu do docelowych 1.25rem (20px)
+      heroTl.to(brandTitle, {
         fontSize: '1.25rem',
-        duration: 0.8,
+        duration: 0.85,
         ease: 'power1.inOut',
       }, 0)
 
-      // 3. Płynny zjazd do pozycji zerowej (lewy slot paska, idealny środek pionowy)
-      tl.to(brandGroup, {
+      // Płynny zjazd do lewego slotu paska
+      heroTl.to(brandGroup, {
         x: 0,
         y: 0,
-        duration: 0.8,
+        duration: 0.85,
         ease: 'power1.inOut',
       }, 0)
 
-      // 4. Płynne włączenie tła belki #00a3e0 dokładnie w momencie opuszczania Hero (bez przeskoku)
-      tl.fromTo(
-        navbar,
-        {
-          backgroundColor: 'rgba(0, 163, 224, 0)',
-          borderBottomColor: 'rgba(255, 255, 255, 0)',
-          backdropFilter: 'blur(0px)',
-        },
-        {
-          backgroundColor: 'rgba(0, 163, 224, 0.95)',
-          borderBottomColor: 'rgba(255, 255, 255, 0.15)',
-          backdropFilter: 'blur(12px)',
-          duration: 0.2,
-          ease: 'none',
-        },
-        0.8 // odpala się dokładnie w przedziale 80%-100% zjazdu z Hero
-      )
+      // 2. TŁO BELKI: Pojawia się dopiero, gdy sekcja Hero całkowicie opuści ekran
+      if (about) {
+        gsap.fromTo(
+          navbar,
+          {
+            backgroundColor: 'rgba(0, 163, 224, 0)',
+            borderBottomColor: 'rgba(255, 255, 255, 0)',
+            backdropFilter: 'blur(0px)',
+          },
+          {
+            backgroundColor: 'rgba(0, 163, 224, 0.95)',
+            borderBottomColor: 'rgba(255, 255, 255, 0.15)',
+            backdropFilter: 'blur(12px)',
+            ease: 'none',
+            scrollTrigger: {
+              trigger: about,
+              start: 'top top',
+              end: '+=40',
+              scrub: true,
+            },
+          }
+        )
+      }
     }
   })
 </script>
