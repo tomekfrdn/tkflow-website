@@ -3,33 +3,34 @@
   data-navbar
   class="fixed top-0 inset-x-0 z-40 h-14 sm:h-16 flex items-center justify-between px-4 sm:px-8 border-b border-transparent pointer-events-none select-none"
 >
-  <!-- Niezależna warstwa tła -->
+  <!-- Niezależna warstwa tła (eliminuje mruganie GPU) -->
   <div
     data-navbar-bg
     class="absolute inset-0 bg-[#00a3e0]/95 backdrop-blur-md border-b border-white/15 opacity-0 pointer-events-none will-change-[opacity]"
   ></div>
 
-  <!-- Lewy slot: napis TK Flow -->
+  <!-- Lewy slot: semantyczny nagłówek H1 z kinetycznym ruchem i podtytułem -->
   <div data-brand-anchor class="relative flex items-center z-30">
-    <h1 data-brand-group class="relative flex flex-col items-start justify-center will-change-transform m-0 p-0 origin-top-left">
+    <h1 data-brand-group class="relative flex flex-col items-start justify-center will-change-transform m-0 p-0">
       <span
         data-brand-title
-        class="inline-block font-semibold tracking-tight whitespace-nowrap leading-none text-xl sm:text-2xl"
+        class="inline-block font-semibold tracking-tight whitespace-nowrap leading-none origin-left"
         style="color: #041A2F;"
       >
         TK Flow
       </span>
       
+      <!-- Podtytuł wycentrowany pod napisem w widoku Hero -->
       <span
         data-brand-subtitle
-        class="absolute top-full left-0 block text-[11px] sm:text-xs font-light tracking-[0.25em] text-white/90 uppercase mt-2 whitespace-nowrap pointer-events-none origin-top-left"
+        class="absolute top-full left-1/2 -translate-x-1/2 block text-[clamp(0.75rem,1.2vw,0.875rem)] font-light tracking-[0.25em] sm:tracking-[0.3em] text-white/90 uppercase mt-3 whitespace-nowrap pointer-events-none"
       >
         technologie przesyłu cieczy
       </span>
     </h1>
   </div>
 
-  <!-- Środek na desktopie: Editorial Navigation -->
+  <!-- Środek na desktopie: Editorial Navigation (Wariant 3: czysta typografia, bez cyfr) -->
   <nav
     data-navbar-nav
     class="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 items-center gap-10 z-30 pointer-events-auto opacity-0"
@@ -51,7 +52,7 @@
     </a>
   </nav>
 
-  <!-- Prawy róg: Button telefonu -->
+  <!-- Prawy róg: Button szybkiego kontaktu z wycentrowanym pionem -->
   <div class="pointer-events-auto ml-auto z-30 flex items-center">
     <a
       data-phone-btn
@@ -90,23 +91,28 @@
     const navbarBg = document.querySelector('[data-navbar-bg]') as HTMLElement
     const navbarNav = document.querySelector('[data-navbar-nav]') as HTMLElement
     const brandGroup = document.querySelector('[data-brand-group]') as HTMLElement
+    const brandTitle = document.querySelector('[data-brand-title]') as HTMLElement
     const brandSubtitle = document.querySelector('[data-brand-subtitle]') as HTMLElement
 
-    if (hero && navbarBg && brandGroup) {
-      // Precyzyjne obliczenie wektora na bazie okna (stałego dla fixed header)
-      const calculateHeroVector = () => {
-        const titleRect = brandGroup.getBoundingClientRect()
-        const scaleFactor = Math.min(Math.max(window.innerWidth / 360, 2), 3.2)
+    if (hero && navbarBg && brandGroup && brandTitle) {
+      const calculateOffsets = () => {
+        const startFontSize = Math.min(Math.max(window.innerWidth * 0.07, 36), 80)
+        gsap.set(brandTitle, { fontSize: `${startFontSize}px` })
 
-        const targetCenterX = (window.innerWidth / 2) - ((titleRect.width * scaleFactor) / 2)
-        const targetCenterY = window.innerHeight * 0.42
+        const rect = brandTitle.getBoundingClientRect()
+        const targetX = (window.innerWidth / 2) - (rect.width / 2) - rect.left
+        const targetY = (window.innerHeight * 0.42) - rect.top
 
-        return {
-          x: targetCenterX - titleRect.left,
-          y: targetCenterY - titleRect.top,
-          scale: scaleFactor,
-        }
+        return { targetX, targetY }
       }
+
+      let offsets = calculateOffsets()
+
+      // Stan wyjściowy w Hero
+      gsap.set(brandGroup, {
+        x: offsets.targetX,
+        y: offsets.targetY,
+      })
 
       const heroTl = gsap.timeline({
         scrollTrigger: {
@@ -117,45 +123,72 @@
           fastScrollEnd: true,
           preventOverlaps: true,
           invalidateOnRefresh: true,
+          onRefresh: () => {
+            // Przeliczamy geometrię tylko wtedy, gdy jesteśmy u góry strony
+            if (window.scrollY < 10) {
+              offsets = calculateOffsets()
+            }
+          },
         },
       })
 
-      // Animacja powrotu: z pozycji w Hero do (0, 0, scale: 1)
-      heroTl.fromTo(
-        brandGroup,
+      // 1. Wygaszenie podtytułu
+      if (brandSubtitle) {
+        heroTl.to(brandSubtitle, {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.3,
+          ease: 'power1.out',
+        }, 0)
+      }
+
+      // 2. Skalowanie fontu do belki
+      heroTl.to(brandTitle, {
+        fontSize: '1.25rem',
+        duration: 0.8,
+        ease: 'power1.inOut',
+      }, 0)
+
+      // 3. Dojście do lewego rogu
+      heroTl.to(brandGroup, {
+        x: 0,
+        y: 0,
+        duration: 0.8,
+        ease: 'power1.inOut',
+      }, 0)
+
+      // 4. Pokazanie tła paska
+      heroTl.to(
+        navbarBg,
         {
-          x: () => calculateHeroVector().x,
-          y: () => calculateHeroVector().y,
-          scale: () => calculateHeroVector().scale,
+          opacity: 1,
+          duration: 0.15,
+          ease: 'power1.inOut',
         },
-        {
-          x: 0,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: 'none',
-          immediateRender: false,
-        },
-        0
+        0.85
       )
 
-      if (brandSubtitle) {
-        heroTl.fromTo(
-          brandSubtitle,
-          { opacity: 1, scale: 1 },
-          { opacity: 0, scale: 0.8, duration: 0.3, ease: 'none', immediateRender: false },
-          0
+      // 5. Pokazanie środkowej nawigacji
+      if (navbarNav) {
+        heroTl.to(
+          navbarNav,
+          {
+            opacity: 1,
+            duration: 0.15,
+            ease: 'power1.inOut',
+          },
+          0.85
         )
       }
 
-      heroTl.to(navbarBg, { opacity: 1, duration: 0.15, ease: 'none' }, 0.85)
-
-      if (navbarNav) {
-        heroTl.to(navbarNav, { opacity: 1, duration: 0.15, ease: 'none' }, 0.85)
+      // KLUCZOWY FIX: Natychmiastowa synchronizacja po odświeżeniu strony
+      // Jeśli strona odświeża się poza sekcją Hero, wymuszamy ukończenie osi czasu
+      const currentScroll = window.scrollY || document.documentElement.scrollTop
+      if (currentScroll >= (hero.offsetHeight || 500)) {
+        heroTl.progress(1)
+      } else {
+        ScrollTrigger.refresh()
       }
-
-      // Wymuszenie aktualizacji pozycji zaraz po starcie
-      ScrollTrigger.refresh()
     }
   })
 </script>
