@@ -1,16 +1,17 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import Hero from '@/sections/Hero.astro'
-import About from '@/sections/About.astro'
 import Projects from '@/sections/Projects.astro'
+import About from '@/sections/About.astro'
 import Contact from '@/sections/Contact.astro'
 ---
 
-<Layout title="TK Flow — Technologie Przesyłu Cieczy | Tomasz Kulpa">
-  <main class="w-full bg-[#0D0F12] overflow-x-hidden">
+<Layout title="TK Flow | Centrala Przesyłu Wody">
+  <!-- W architekturze typu Northvolt rezygnujemy z niepotrzebnego owijania, sekcje leżą czysto jedna pod drugą -->
+  <main class="w-full bg-white overflow-x-hidden">
     <Hero />
-    <About />
     <Projects />
+    <About />
     <Contact />
   </main>
 </Layout>

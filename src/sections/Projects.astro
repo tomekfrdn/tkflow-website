@@ -1,112 +1,90 @@
 ---
-// Projects.astro — Prezentacja obu marek w surowej siatce
+// Projects.astro — The Split Flow (Rozdzielenie strumieni a'la Northvolt)
 ---
 
-<section
-  id="projects"
-  class="bg-[#0D0F12] text-white py-24 sm:py-32 px-6 md:px-12 border-b border-white/10"
->
-  <div class="max-w-6xl">
-    <span class="block text-xs uppercase tracking-[0.25em] text-[#9AA1A9] mb-6 font-medium">
-      Ekosystem Marek
-    </span>
-
-    <h2 class="text-3xl sm:text-4xl font-normal tracking-tight text-white mb-16 max-w-2xl">
-      Dedykowane serwisy produktowe dla poszczególnych sektorów.
+<section id="ekosystem" class="relative w-full bg-white pt-24 pb-12">
+  <div class="px-6 md:px-12 mb-16 max-w-5xl">
+    <h2 class="text-3xl sm:text-5xl font-normal tracking-tight text-black mb-6">
+      Dwa stany skupienia. <br/>Dwie wyspecjalizowane platformy.
     </h2>
+    <p class="text-[#717171] text-lg">
+      Wybierz dedykowany portal handlowy dopasowany do specyfiki Twojej instalacji.
+    </p>
+  </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      
-      <!-- rurape.pl -->
-      <div class="border border-white/10 p-8 sm:p-12 flex flex-col justify-between hover:border-white/30 transition-colors">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 md:px-12">
+    
+    <!-- ================= OBSZAR 1: AGRO / NAWADNIANIE ================= -->
+    <div class="group relative w-full h-[600px] lg:h-[700px] bg-black overflow-hidden">
+      <!-- Fotografia w tle: Skala rolnictwa / Woda w naturze -->
+      <div 
+        class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 opacity-80"
+        style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb22509?auto=format&fit=crop&w=1200&q=80');"
+      ></div>
+
+      <!-- Biały box z treścią (Wyrównany do lewego dolnego rogu) -->
+      <div class="absolute bottom-6 left-6 right-6 lg:bottom-10 lg:left-10 lg:right-10 bg-white p-8 lg:p-10 shadow-xl flex flex-col justify-between">
         <div>
-          <div class="flex items-center justify-between text-xs tracking-widest text-[#9AA1A9] uppercase mb-6">
-            <span>Rolnictwo &middot; Sadownictwo</span>
-            <span>rurape.pl</span>
-          </div>
-
-          <h3 class="text-2xl sm:text-3xl font-normal text-white mb-4">
-            rurape.pl — Rury do Nawadniania
+          <span class="block text-[10px] uppercase tracking-widest text-[#717171] font-bold mb-4">
+            Strumień Objętościowy // Agro
+          </span>
+          <h3 class="text-3xl lg:text-4xl font-normal text-black mb-4">
+            Rury PE do Nawadniania
           </h3>
-
-          <p class="text-sm sm:text-base text-[#9AA1A9] font-light leading-relaxed mb-8">
-            Dystrybucja rur polietylenowych wysokiej gęstości dedykowanych systemom zraszania i nawadniania kropelkowego w uprawach polowych, sadach i pod osłonami.
+          <p class="text-[#222222] text-sm leading-relaxed mb-6 border-b border-black/10 pb-6">
+            Certyfikowane rury polietylenowe PE100 oraz PE100-RC. Magistrale przesyłowe dla sadownictwa, plantacji i rolnictwa polowego.
           </p>
-
-          <div class="space-y-2 text-xs font-mono text-[#9AA1A9] border-t border-white/10 pt-6">
-            <div class="flex justify-between">
-              <span>Zastosowanie:</span>
-              <span class="text-white">Irygacja upraw i magistrale</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Średnice:</span>
-              <span class="text-white">DN 16 mm do DN 110 mm</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Standard:</span>
-              <span class="text-white">PE100 / PE100-RC</span>
-            </div>
-          </div>
+          <ul class="text-sm font-medium text-black space-y-2 mb-8">
+            <li>&rarr; Średnice: DN 16 – 110 mm</li>
+            <li>&rarr; Zastosowanie: Uprawy, sady, linie kroplujące</li>
+            <li>&rarr; Dystrybucja: Cała Polska</li>
+          </ul>
         </div>
-
-        <div class="mt-10 pt-6 border-t border-white/10">
-          <a
-            href="https://rurape.pl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-between w-full text-xs uppercase tracking-wider text-white hover:text-[#9AA1A9] transition-colors"
-          >
-            <span>Otwórz stronę rurape.pl</span>
-            <span>&rarr;</span>
-          </a>
-        </div>
+        
+        <a href="https://rurape.pl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-4 text-black hover:text-black/60 transition-colors font-bold uppercase text-sm tracking-wider">
+          <span>Otwórz rurape.pl</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
       </div>
-
-      <!-- sercemyjni.pl -->
-      <div class="border border-white/10 p-8 sm:p-12 flex flex-col justify-between hover:border-white/30 transition-colors">
-        <div>
-          <div class="flex items-center justify-between text-xs tracking-widest text-[#9AA1A9] uppercase mb-6">
-            <span>Wysokie Ciśnienie &middot; Myjnie</span>
-            <span>sercemyjni.pl</span>
-          </div>
-
-          <h3 class="text-2xl sm:text-3xl font-normal text-white mb-4">
-            sercemyjni.pl — Pompy Udor
-          </h3>
-
-          <p class="text-sm sm:text-base text-[#9AA1A9] font-light leading-relaxed mb-8">
-            Dystrybucja i doradztwo w zakresie pomp nurnikowych Udor. Niezawodne jednostki napędowe stworzone do ciągłej pracy w myjniach bezdotykowych i przemyśle.
-          </p>
-
-          <div class="space-y-2 text-xs font-mono text-[#9AA1A9] border-t border-white/10 pt-6">
-            <div class="flex justify-between">
-              <span>Producent:</span>
-              <span class="text-white">UDOR (Made in Italy)</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Nurniki:</span>
-              <span class="text-white">Pełna ceramika</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Ciśnienie robocze:</span>
-              <span class="text-white">Do 200+ bar</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-10 pt-6 border-t border-white/10">
-          <a
-            href="https://sercemyjni.pl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-between w-full text-xs uppercase tracking-wider text-white hover:text-[#9AA1A9] transition-colors"
-          >
-            <span>Otwórz stronę sercemyjni.pl</span>
-            <span>&rarr;</span>
-          </a>
-        </div>
-      </div>
-
     </div>
+
+    <!-- ================= OBSZAR 2: WYSOKIE CIŚNIENIE / MYJNIE ================= -->
+    <div class="group relative w-full h-[600px] lg:h-[700px] bg-black overflow-hidden">
+      <!-- Fotografia w tle: Energia / Wysokie ciśnienie przemysłowe -->
+      <div 
+        class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105 opacity-80"
+        style="background-image: url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1200&q=80');"
+      ></div>
+
+      <!-- Biały box z treścią -->
+      <div class="absolute bottom-6 left-6 right-6 lg:bottom-10 lg:left-10 lg:right-10 bg-white p-8 lg:p-10 shadow-xl flex flex-col justify-between">
+        <div>
+          <span class="block text-[10px] uppercase tracking-widest text-[#717171] font-bold mb-4">
+            Siła Kinetyczna // Przemysł
+          </span>
+          <h3 class="text-3xl lg:text-4xl font-normal text-black mb-4">
+            Pompy do Myjni Udor
+          </h3>
+          <p class="text-[#222222] text-sm leading-relaxed mb-6 border-b border-black/10 pb-6">
+            Przemysłowe pompy wysokociśnieniowe (Włochy), nurniki ceramiczne oraz armatura stworzone do ciągłej pracy w myjniach bezdotykowych.
+          </p>
+          <ul class="text-sm font-medium text-black space-y-2 mb-8">
+            <li>&rarr; Ciśnienie: Robocze do 200 Barów</li>
+            <li>&rarr; Konstrukcja: Nurniki w pełni ceramiczne</li>
+            <li>&rarr; Producent: UDOR (Oryginał)</li>
+          </ul>
+        </div>
+        
+        <a href="https://sercemyjni.pl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-4 text-black hover:text-black/60 transition-colors font-bold uppercase text-sm tracking-wider">
+          <span>Otwórz sercemyjni.pl</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
