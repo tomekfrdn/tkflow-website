@@ -4,17 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-ink': '#0A131F',
-        'brand-blue': '#00A3E0',
-        'brand-dark': '#041A2F',
+        'brand-navy': '#041A2F',
+        'brand-water': '#0098E0',
+        'brand-water-deep': '#005B99',
         'brand-agro': '#047857',
-        'brand-agro-light': '#ECFDF5',
         'brand-wash': '#BE123C',
-        'brand-wash-light': '#FFF1F2',
-        'brand-canvas': '#F6F8FA',
-        'brand-muted': '#64748B',
-        // Zachowanie kompatybilności wstecznej dla starszych klas
-        'dark-blue': '#00a3e0',
+        'brand-bg': '#F4F7FA',
+        'brand-slate': '#5A6E85',
+        // Zachowanie kompatybilności wstecznej
+        'dark-blue': '#0098E0',
         'light-blue': '#041A2F',
         'steel-blue': '#8FAEC4',
         'light-gray': '#F0F6FA',

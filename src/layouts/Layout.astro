@@ -9,23 +9,22 @@ const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="pl" class="scroll-smooth bg-[#F6F8FA] text-[#0A131F]">
+<html lang="pl" class="scroll-smooth bg-[#F4F7FA] text-[#0A1A2F]">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="TK Flow Tomasz Kulpa — Inżynieria i dystrybucja systemów przesyłu cieczy: certyfikowane rury PE do nawadniania oraz przemysłowe pompy wysokociśnieniowe do myjni."
+      content="TK Flow Tomasz Kulpa — Centrala dystrybucji i doradztwa technicznego w przesyle wody: certyfikowane rury PE do nawadniania oraz przemysłowe pompy wysokociśnieniowe do myjni."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon-tk-flow.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
-    <!-- Zoptymalizowany preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Google Fonts: Plus Jakarta Sans, Syne (nagłówki techniczne), JetBrains Mono (dane inżynieryjne) -->
+    <!-- Google Fonts: Plus Jakarta Sans, Syne, JetBrains Mono -->
     <link
       rel="preload"
       as="style"
@@ -44,7 +43,7 @@ const { title } = Astro.props
       />
     </noscript>
   </head>
-  <body class="bg-[#F6F8FA] font-sans antialiased text-[#0A131F] selection:bg-[#00A3E0] selection:text-white overflow-x-hidden">
+  <body class="bg-[#F4F7FA] font-sans antialiased text-[#0A1A2F] selection:bg-[#0098E0] selection:text-white overflow-x-hidden">
     <Header />
     <slot />
   </body>
@@ -52,27 +51,26 @@ const { title } = Astro.props
 
 <style is:global>
   ::selection {
-    background-color: #00a3e0;
+    background-color: #0098e0;
     color: #ffffff;
   }
 
   body {
-    background-color: #f6f8fa;
-    color: #0a131f;
+    background-color: #f4f7fa;
+    color: #0a1a2f;
   }
 
-  /* Precyzyjny, szwajcarski pasek przewijania */
   ::-webkit-scrollbar {
-    width: 7px;
+    width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #eef2f6;
+    background: #e9eef4;
   }
   ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 2px;
+    background: #94a3b8;
+    border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #00a3e0;
+    background: #0098e0;
   }
 </style>
