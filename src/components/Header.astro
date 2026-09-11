@@ -1,44 +1,47 @@
 ---
-// Header.astro — Northvolt Minimalist Navbar
+// Header.astro — Ostra, techniczna belka z wyraźnym CTA
 ---
 
 <header
-  data-navbar
-  class="fixed top-0 inset-x-0 z-50 h-20 flex items-center justify-between px-6 md:px-12 transition-all duration-300 pointer-events-none bg-white/95 backdrop-blur-md border-b border-black/5"
+  class="fixed top-0 inset-x-0 z-50 h-20 bg-white/95 backdrop-blur-md border-b border-nv-border flex items-center justify-between px-6 md:px-12 transition-all duration-300"
 >
-  <!-- Lewy slot: Minimalistyczne Logo -->
-  <div class="relative z-10 flex items-center pointer-events-auto">
+  <!-- Lewa strona: Logo -->
+  <div class="flex items-center">
     <a href="#" class="flex items-center gap-4 outline-none group">
-      <div class="w-8 h-8 bg-black flex items-center justify-center text-white font-bold text-sm">
+      <div class="w-9 h-9 bg-nv-graphite flex items-center justify-center text-white font-extrabold text-sm transition-transform group-hover:scale-105">
         TK
       </div>
-      <span class="font-bold text-xl tracking-tight text-black uppercase">
+      <span class="font-extrabold text-xl tracking-tight text-nv-graphite uppercase">
         TK Flow
       </span>
     </a>
   </div>
 
-  <!-- Środek: Prosta nawigacja -->
-  <nav class="hidden lg:flex items-center gap-8 relative z-10 font-medium text-sm text-black pointer-events-auto">
-    <a href="https://rurape.pl" target="_blank" rel="noopener noreferrer" class="hover:text-black/60 transition-colors">
-      Nawadnianie Rolnicze &nearr;
+  <!-- Środek: Prosta, nienachalna nawigacja -->
+  <nav class="hidden lg:flex items-center gap-10 font-semibold text-sm tracking-wide text-nv-graphite">
+    <a href="https://rurape.pl" target="_blank" rel="noopener noreferrer" class="hover:text-nv-muted transition-colors flex items-center gap-1">
+      Nawadnianie Rolnicze <span class="text-[10px] text-nv-muted">&nearr;</span>
     </a>
-    <a href="https://sercemyjni.pl" target="_blank" rel="noopener noreferrer" class="hover:text-black/60 transition-colors">
-      Pompy Wysokociśnieniowe &nearr;
+    <a href="https://sercemyjni.pl" target="_blank" rel="noopener noreferrer" class="hover:text-nv-muted transition-colors flex items-center gap-1">
+      Pompy Wysokociśnieniowe <span class="text-[10px] text-nv-muted">&nearr;</span>
     </a>
-    <a href="#about" class="hover:text-black/60 transition-colors">
-      Doradztwo Techniczne
+    <a href="#doradztwo" class="hover:text-nv-muted transition-colors">
+      O nas
     </a>
   </nav>
 
-  <!-- Prawy róg: Elegancki telefon -->
-  <div class="relative z-10 flex items-center pointer-events-auto">
+  <!-- Prawa strona: Infolinia rzucająca się w oczy -->
+  <div class="flex items-center">
     <a
       href="tel:+48000000000"
-      class="group flex items-center gap-3 text-black font-semibold text-sm hover:opacity-70 transition-opacity"
+      class="group flex items-center gap-3 text-nv-graphite font-bold text-base hover:text-nv-muted transition-colors"
     >
-      <span class="hidden sm:inline-block">Infolinia Inżynieryjna:</span>
-      <span class="underline underline-offset-4 decoration-black/20">+48 000 000 000</span>
+      <span class="hidden sm:inline-block text-xs uppercase tracking-wider text-nv-muted font-semibold group-hover:text-nv-graphite transition-colors">
+        Infolinia Inżynieryjna:
+      </span>
+      <span class="underline underline-offset-4 decoration-nv-border group-hover:decoration-nv-graphite transition-colors">
+        +48 000 000 000
+      </span>
     </a>
   </div>
 </header>
