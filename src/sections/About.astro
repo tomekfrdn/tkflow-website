@@ -1,82 +1,64 @@
 ---
-// About.astro — Ekspert i Doradca Techniczny
+// About.astro — Inżynier Prowadzący
 ---
 
 <section
   id="about"
-  data-about
-  class="relative bg-[#081424] text-white py-20 sm:py-28 lg:py-36 px-5 sm:px-8 md:px-12 border-b border-white/10 overflow-hidden"
+  class="relative bg-white text-[#0B1523] py-20 sm:py-28 px-5 sm:px-8 md:px-12 border-b border-slate-200"
 >
   <div class="max-w-6xl mx-auto">
-    <!-- Header sekcji -->
-    <div class="flex items-center gap-2.5 font-mono text-xs tracking-wider uppercase text-[#0098E0] font-bold mb-12">
-      <span class="w-2 h-2 bg-[#0098E0]"></span>
-      <span>02 // DORADZTWO TECHNICZNE I ODPOWIEDZIALNOŚĆ</span>
+    <div class="flex items-center gap-2 font-mono text-[11px] tracking-widest uppercase text-[#0066CC] font-bold mb-10">
+      <span class="w-1.5 h-1.5 bg-[#0066CC]"></span>
+      <span>Człowiek za technologią &middot; Doradztwo</span>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
       
-      <!-- Portret Tomasza Kulpy -->
-      <div class="lg:col-span-4 flex flex-col items-center sm:items-start">
-        <div class="relative w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden shadow-2xl border-2 border-white/15 bg-[#041A2F]">
+      <!-- Duży portret inżyniera -->
+      <div class="lg:col-span-5 flex flex-col items-center sm:items-start">
+        <div class="relative w-full aspect-[4/5] max-w-[340px] rounded-2xl overflow-hidden bg-slate-100 shadow-xl border border-slate-200">
           <img
             src="/images/tomasz-kulpa-tk-flow.jpg"
-            alt="Tomasz Kulpa — Założyciel TK Flow"
-            width="208"
-            height="208"
-            class="w-full h-full object-cover"
+            alt="Tomasz Kulpa — Inżynier, TK Flow"
+            class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
             loading="lazy"
           />
         </div>
-        <div class="mt-6 text-center sm:text-left">
-          <h3 class="font-extrabold text-2xl text-white">
+        <div class="mt-6">
+          <h3 class="font-extrabold text-3xl text-[#0B1523] tracking-tight">
             Tomasz Kulpa
           </h3>
-          <p class="font-mono text-xs text-[#8FAEC4] uppercase tracking-wider mt-1 font-semibold">
-            Założyciel & Doradca Techniczny
+          <p class="font-mono text-xs text-slate-500 uppercase tracking-wider mt-1.5 font-bold">
+            Główny Inżynier & Doradca
           </p>
-          <span class="inline-block mt-3 px-3 py-1 rounded-full bg-white/5 border border-white/10 font-mono text-xs text-slate-300 font-medium">
-            Bydgoszcz &middot; Cała Polska
-          </span>
         </div>
       </div>
 
-      <!-- Oryginalny manifest autorski zoptymalizowany pod autorytet -->
-      <div class="lg:col-span-8">
-        <h2
-          data-about-text
-          class="font-sans text-xl sm:text-2xl lg:text-[1.85rem] font-semibold text-white leading-snug"
-        >
-          Nazywam się Tomasz Kulpa. Wspieram inwestorów i&nbsp;wykonawców w&nbsp;doborze oraz zaopatrzeniu w&nbsp;kluczowe komponenty do&nbsp;przesyłu wody i&nbsp;systemów wysokociśnieniowych.
+      <!-- Problem vs Rozwiązanie -->
+      <div class="lg:col-span-7 lg:pt-8">
+        <h2 class="font-bold text-2xl sm:text-3xl lg:text-4xl text-[#0B1523] leading-tight tracking-tight">
+          Dlaczego błąd w doborze kosztuje majątek?
         </h2>
 
-        <p class="font-sans text-base sm:text-lg text-[#8FAEC4] mt-6 leading-relaxed">
-          W&nbsp;TK Flow łączę zaplecze czołowych producentów z&nbsp;partnerskim doradztwem. Dbam o&nbsp;to, by&nbsp;instalacje pracowały bezawaryjnie, oszczędzając Twój czas i&nbsp;pieniądze.
+        <p class="font-sans text-base sm:text-lg text-slate-600 mt-6 leading-relaxed">
+          W nawadnianiu tanie rury z regranulatu pękają pod wpływem uderzenia hydraulicznego i mrozu. W myjniach słabe pompy kawitują i niszczą uszczelnienia przy agresywnej chemii. 
+          <br/><br/>
+          W TK Flow nie wysyłam losowych paczek z hurtowni. Przeliczam z klientem przepływy, opory liniowe i specyfikę instalacji. Dbam o to, by system ruszył w terminie i pracował bezawaryjnie przez lata.
         </p>
 
-        <!-- Trzy filary inżynieryjne -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10">
-          <div class="p-5 rounded-xl bg-white/[0.03] border border-white/10">
-            <span class="font-mono text-xs text-[#0098E0] font-bold block mb-1">01 / PRODUCENT</span>
-            <span class="block font-bold text-base text-white">Pewne Źródło</span>
-            <p class="text-xs text-[#8FAEC4] mt-1.5 leading-relaxed font-sans">
-              Tylko europejskie atesty dla rur PE oraz oryginalne jednostki Udor produkowane we Włoszech.
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 pt-8 border-t border-slate-200">
+          <div>
+            <span class="block font-mono text-[10px] text-emerald-600 uppercase font-bold mb-1">Dostępność</span>
+            <span class="block font-bold text-lg text-[#0B1523]">Bezpieczny Sezon</span>
+            <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+              Natychmiastowy dostęp do komponentów eliminuje ryzyko potężnych strat wywołanych przestojami instalacji.
             </p>
           </div>
-
-          <div class="p-5 rounded-xl bg-white/[0.03] border border-white/10">
-            <span class="font-mono text-xs text-emerald-400 font-bold block mb-1">02 / INŻYNIERIA</span>
-            <span class="block font-bold text-base text-white">Praktyczny Dobór</span>
-            <p class="text-xs text-[#8FAEC4] mt-1.5 leading-relaxed font-sans">
-              Kalkulacja strat ciśnienia, przepływów w litrach na minutę i doboru armatury pod specyfikę zadania.
-            </p>
-          </div>
-
-          <div class="p-5 rounded-xl bg-white/[0.03] border border-white/10">
-            <span class="font-mono text-xs text-rose-400 font-bold block mb-1">03 / BEZPIECZEŃSTWO</span>
-            <span class="block font-bold text-base text-white">Ciągłość Pracy</span>
-            <p class="text-xs text-[#8FAEC4] mt-1.5 leading-relaxed font-sans">
-              Szybka dostępność podzespołów w magazynie, eliminująca kosztowne postoje w trakcie sezonu.
+          <div>
+            <span class="block font-mono text-[10px] text-[#0066CC] uppercase font-bold mb-1">Producent</span>
+            <span class="block font-bold text-lg text-[#0B1523]">Oryginalne Źródło</span>
+            <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+              Tylko rury z atestem UE oraz oryginalne jednostki Udor dostarczane bezpośrednio z fabryki we Włoszech.
             </p>
           </div>
         </div>

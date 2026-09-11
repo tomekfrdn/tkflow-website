@@ -1,121 +1,79 @@
 ---
-// Projects.astro — Szczegółowe zestawienie dwóch wyspecjalizowanych platform
+// Projects.astro — Szczegóły techniczne serwisów
 ---
 
 <section
   id="projects"
-  data-projects
-  class="relative bg-[#060D17] text-white py-20 sm:py-28 px-5 sm:px-8 md:px-12 border-b border-white/10"
+  class="relative bg-[#F8FAFC] text-[#0B1523] py-20 sm:py-28 px-5 sm:px-8 md:px-12 border-b border-slate-200"
 >
   <div class="max-w-6xl mx-auto">
-    <!-- Header sekcji -->
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4 border-b border-white/10 pb-6">
-      <div>
-        <span class="font-mono text-xs tracking-wider uppercase text-[#0098E0] font-bold block mb-1">
-          03 // STRUKTURA OFERTY
-        </span>
-        <h2 class="font-extrabold text-2xl sm:text-3xl lg:text-4xl uppercase text-white tracking-tight">
-          Dedykowane Portale Produktowe
-        </h2>
-      </div>
-      <p class="font-mono text-xs text-[#8FAEC4] max-w-sm">
-        Przejdź do wyspecjalizowanego serwisu, aby przejrzeć specyfikacje techniczne i złożyć zapytanie.
-      </p>
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="font-mono text-[11px] tracking-wider uppercase text-[#0066CC] font-bold block mb-3">
+        Zarządzanie Ofertą
+      </span>
+      <h2 class="font-extrabold text-3xl sm:text-4xl uppercase text-[#0B1523] tracking-tight">
+        Specyfikacje Portali
+      </h2>
     </div>
 
-    <!-- Dwie rozbudowane karty -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       
-      <!-- Karta 1: rurape.pl -->
-      <div class="bg-[#081424] rounded-2xl p-8 border border-white/10 shadow-xl flex flex-col justify-between hover:border-emerald-500/50 transition-colors">
-        <div>
-          <div class="flex items-center justify-between mb-5">
-            <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-xs font-bold uppercase border border-emerald-500/30">
-              Nawadnianie &middot; Rolnictwo
-            </span>
-            <span class="font-mono text-xs text-slate-400">rurape.pl</span>
-          </div>
+      <!-- Karta rurape.pl -->
+      <div class="bg-white rounded-2xl p-8 sm:p-10 border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-2xl text-[#0B1523] mb-2 uppercase tracking-tight">rurape.pl</h3>
+        <span class="block font-mono text-xs text-emerald-600 font-bold uppercase mb-6">Nawadnianie w rolnictwie</span>
+        
+        <p class="text-sm text-slate-600 leading-relaxed mb-8">
+          Dystrybucja rur z polietylenu wysokiej gęstości dedykowanych systemom zraszania i nawadniania kropelkowego w uprawach polowych, sadach i pod osłonami.
+        </p>
 
-          <h3 class="font-bold text-2xl sm:text-3xl text-white mb-3">
-            rurape.pl &middot; Rury do Nawadniania
-          </h3>
-          <p class="font-sans text-sm sm:text-base text-[#8FAEC4] leading-relaxed mb-6">
-            Dystrybucja rur polietylenowych wysokiej gęstości dedykowanych systemom zraszania i nawadniania kropelkowego w uprawach polowych, sadach i pod osłonami.
-          </p>
+        <ul class="space-y-3 font-mono text-xs text-slate-700 mb-8 border-y border-slate-100 py-6">
+          <li class="flex justify-between border-b border-slate-50 pb-2">
+            <span class="text-slate-400 font-sans">Materiał</span>
+            <span class="font-bold">Polietylen PE100 / PE100-RC</span>
+          </li>
+          <li class="flex justify-between border-b border-slate-50 pb-2">
+            <span class="text-slate-400 font-sans">Zastosowanie</span>
+            <span class="font-bold">Irygacja, magistrale przesyłowe</span>
+          </li>
+          <li class="flex justify-between">
+            <span class="text-slate-400 font-sans">Montaż</span>
+            <span class="font-bold text-emerald-600">Zgrzewanie / Skręcanie</span>
+          </li>
+        </ul>
 
-          <ul class="font-mono text-xs text-slate-300 space-y-3 pb-6 border-b border-white/10">
-            <li class="flex justify-between">
-              <span class="text-slate-400 font-sans">Zastosowanie:</span>
-              <span class="font-bold text-white">Systemy irygacji upraw polowych i sadów</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="text-slate-400 font-sans">Dostępne średnice:</span>
-              <span class="font-bold text-white">od 16 mm do 110 mm</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="text-slate-400 font-sans">Certyfikacja:</span>
-              <span class="font-bold text-emerald-400">Atesty higieniczne i wytrzymałościowe</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="pt-6">
-          <a
-            href="https://rurape.pl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs uppercase tracking-wider font-bold transition-colors shadow-lg"
-          >
-            <span>Otwórz stronę rurape.pl</span>
-            <span>&rarr;</span>
-          </a>
-        </div>
+        <a href="https://rurape.pl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-slate-100 hover:bg-emerald-600 hover:text-white text-[#0B1523] font-mono text-xs uppercase font-bold transition-colors border border-slate-200 hover:border-transparent">
+          <span>Przejdź na stronę rurape.pl</span>
+        </a>
       </div>
 
-      <!-- Karta 2: sercemyjni.pl -->
-      <div class="bg-[#081424] rounded-2xl p-8 border border-white/10 shadow-xl flex flex-col justify-between hover:border-rose-500/50 transition-colors">
-        <div>
-          <div class="flex items-center justify-between mb-5">
-            <span class="px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 font-mono text-xs font-bold uppercase border border-rose-500/30">
-              Wysokie Ciśnienie &middot; Myjnie
-            </span>
-            <span class="font-mono text-xs text-slate-400">sercemyjni.pl</span>
-          </div>
+      <!-- Karta sercemyjni.pl -->
+      <div class="bg-white rounded-2xl p-8 sm:p-10 border border-slate-200 shadow-sm">
+        <h3 class="font-bold text-2xl text-[#0B1523] mb-2 uppercase tracking-tight">sercemyjni.pl</h3>
+        <span class="block font-mono text-xs text-[#DC2626] font-bold uppercase mb-6">Pompy do myjni Udor</span>
+        
+        <p class="text-sm text-slate-600 leading-relaxed mb-8">
+          Dystrybucja i doradztwo w zakresie pomp nurnikowych Udor. Niezawodne jednostki napędowe stworzone do bezustannej pracy w myjniach bezdotykowych i przemyśle.
+        </p>
 
-          <h3 class="font-bold text-2xl sm:text-3xl text-white mb-3">
-            sercemyjni.pl &middot; Pompy Udor
-          </h3>
-          <p class="font-sans text-sm sm:text-base text-[#8FAEC4] leading-relaxed mb-6">
-            Dystrybucja i doradztwo w zakresie pomp nurnikowych Udor. Niezawodne jednostki napędowe stworzone do bezustannej pracy w myjniach bezdotykowych.
-          </p>
+        <ul class="space-y-3 font-mono text-xs text-slate-700 mb-8 border-y border-slate-100 py-6">
+          <li class="flex justify-between border-b border-slate-50 pb-2">
+            <span class="text-slate-400 font-sans">Konstrukcja</span>
+            <span class="font-bold">Mosiądz / Ceramika</span>
+          </li>
+          <li class="flex justify-between border-b border-slate-50 pb-2">
+            <span class="text-slate-400 font-sans">Parametry</span>
+            <span class="font-bold">Ciśnienie do 200+ bar</span>
+          </li>
+          <li class="flex justify-between">
+            <span class="text-slate-400 font-sans">Eksploatacja</span>
+            <span class="font-bold text-[#DC2626]">Heavy Duty 24/7 (Chemia)</span>
+          </li>
+        </ul>
 
-          <ul class="font-mono text-xs text-slate-300 space-y-3 pb-6 border-b border-white/10">
-            <li class="flex justify-between">
-              <span class="text-slate-400 font-sans">Producent:</span>
-              <span class="font-bold text-white">UDOR (Made in Italy)</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="text-slate-400 font-sans">Budowa:</span>
-              <span class="font-bold text-white">Mosiężna głowica, nurniki ceramiczne</span>
-            </li>
-            <li class="flex justify-between">
-              <span class="text-slate-400 font-sans">Eksploatacja:</span>
-              <span class="font-bold text-rose-400">Ciągła 24/7, chemia myjąca</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="pt-6">
-          <a
-            href="https://sercemyjni.pl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-mono text-xs uppercase tracking-wider font-bold transition-colors shadow-lg"
-          >
-            <span>Otwórz stronę sercemyjni.pl</span>
-            <span>&rarr;</span>
-          </a>
-        </div>
+        <a href="https://sercemyjni.pl" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-slate-100 hover:bg-[#DC2626] hover:text-white text-[#0B1523] font-mono text-xs uppercase font-bold transition-colors border border-slate-200 hover:border-transparent">
+          <span>Przejdź na stronę sercemyjni.pl</span>
+        </a>
       </div>
 
     </div>

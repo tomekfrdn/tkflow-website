@@ -1,193 +1,112 @@
 ---
-// Hero.astro — Split-Screen Cinema: Nawadnianie Rolnicze vs Wysokie Ciśnienie
+// Hero.astro — The Two Pillars (Czystość, Skala, Autorytet)
 ---
 
 <section
   data-hero
-  class="relative w-full h-[100svh] min-h-[640px] bg-[#060D17] text-white overflow-hidden flex flex-col justify-between pt-16 sm:pt-20 select-none"
+  class="relative w-full min-h-[100svh] bg-[#F8FAFC] text-[#0B1523] flex flex-col justify-between pt-24 sm:pt-32 pb-8 px-5 sm:px-8 md:px-12 border-b border-slate-200"
 >
-  <!-- Belka pozycjonująca TK Flow (Zrozumiała w ułamku sekundy) -->
-  <div class="relative z-30 px-6 md:px-12 py-3 bg-[#060D17]/80 backdrop-blur-md border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-    <div class="flex items-center gap-2.5 font-mono text-[11px] text-[#8FAEC4]">
-      <span class="w-2 h-2 rounded-full bg-[#0098E0] animate-pulse"></span>
-      <span class="text-white font-bold uppercase tracking-wider">TK FLOW</span>
-      <span>&mdash; Centralny Dystrybutor Komponentów do Przesyłu Wody</span>
+  <!-- GŁÓWNY KOMUNIKAT BIZNESOWY (Zrozumiały w 2 sekundy) -->
+  <div class="relative z-10 max-w-5xl mx-auto text-center mt-2 sm:mt-6 mb-12 sm:mb-16">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 shadow-sm text-slate-600 font-mono text-[11px] tracking-wider uppercase mb-6 font-semibold">
+      <span class="w-1.5 h-1.5 rounded-full bg-[#0066CC]"></span>
+      <span>Centralna Dystrybucja i Inżynieria Hydrauliczna</span>
     </div>
-    <span class="font-mono text-[10px] sm:text-[11px] text-white/60 tracking-wider uppercase">
-      Wybierz obszar inwestycji &darr;
-    </span>
+
+    <h1 class="font-extrabold text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tighter text-[#0B1523] leading-[1.05] mb-6">
+      Kontrola Przepływu.<br class="hidden sm:block" /> Od zasilania ziemi po 200 barów.
+    </h1>
+
+    <p class="font-sans text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
+      Dobieramy i dostarczamy certyfikowaną armaturę przesyłową dla rolnictwa oraz wysokociśnieniowe jednostki pompowe Udor dla myjni bezdotykowych. Wybierz swój obszar:
+    </p>
   </div>
 
-  <!-- KINOWY SPLIT SCREEN 50 / 50 (REAGUJĄCY NA HOVER) -->
-  <div
-    data-split-container
-    class="relative z-20 flex-1 flex flex-col lg:flex-row w-full h-full overflow-hidden transition-all duration-700 ease-out"
-  >
-
-    <!-- ================= STRUMIEŃ 01: NAWADNIANIE ROZLEGŁE (rurape.pl) ================= -->
+  <!-- INTERAKTYWNY MONOLIT WYBORU (The Two Pillars) -->
+  <div class="relative z-20 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto w-full">
+    
+    <!-- FILAR 01: AGRO / RURAPE.PL -->
     <a
       href="https://rurape.pl"
       target="_blank"
       rel="noopener noreferrer"
-      data-side="agro"
-      class="group relative flex-1 flex flex-col justify-between p-7 sm:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/15 overflow-hidden transition-all duration-700 cursor-pointer"
+      class="group relative flex flex-col justify-end min-h-[400px] lg:min-h-[480px] p-8 rounded-2xl bg-slate-900 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
     >
-      <!-- Tło fotograficzne: Czysta woda nawadniająca uprawy -->
+      <!-- Fotografia najwyższej jakości: Nawadnianie rolnicze -->
       <div
-        class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-105 filter brightness-[0.75] contrast-[1.1]"
-        style="background-image: url('https://images.unsplash.com/photo-1592417817098-8f3d6eb22509?auto=format&fit=crop&w=1800&q=85');"
+        class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-105 filter brightness-[0.65]"
+        style="background-image: url('https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&w=1600&q=80');"
       ></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#021811] via-[#021811]/60 to-transparent"></div>
 
-      <!-- Gradientowe przyciemnienie dla perfekcyjnego kontrastu tekstu -->
-      <div class="absolute inset-0 bg-gradient-to-t from-[#041E15]/95 via-[#020F0A]/60 to-black/40"></div>
-      <div class="absolute inset-0 bg-emerald-950/20 mix-blend-color"></div>
-
-      <!-- Top info -->
-      <div class="relative z-10 flex justify-between items-start">
-        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/25 border border-emerald-400/40 text-emerald-300 font-mono text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          01 // Nawadnianie Rolnicze
+      <div class="relative z-10">
+        <span class="inline-block px-3 py-1 bg-emerald-500/20 backdrop-blur-md border border-emerald-400/30 text-emerald-300 font-mono text-[10px] uppercase font-bold tracking-wider mb-4 rounded-md">
+          01 // Nawadnianie Agro
         </span>
-        <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-emerald-500 group-hover:border-emerald-500 transition-all duration-300">
-          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-          </svg>
-        </div>
-      </div>
-
-      <!-- Treść centralna -->
-      <div class="relative z-10 my-auto py-4">
-        <span class="font-mono text-xs text-emerald-400 font-semibold tracking-widest uppercase block mb-1">
-          Magistrale wodne &middot; Pola &middot; Sady &middot; Plantacje
-        </span>
-        <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl uppercase tracking-tight text-white leading-tight">
-          Rury PE do Nawadniania
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tighter uppercase mb-3">
+          Magistrale Nawadniania
         </h2>
-        <p class="font-sans text-sm sm:text-base text-slate-200 mt-3 max-w-lg leading-relaxed font-normal drop-shadow">
-          Certyfikowane rury polietylenowe PE100 i PE100-RC. Kompletne zasilanie instalacji zraszających i linii kroplujących o wieloletniej odporności na naprężenia gruntu.
+        <p class="text-sm text-slate-200 leading-relaxed mb-6 max-w-md">
+          Atestowane rury polietylenowe PE100 i PE100-RC dla sadownictwa, plantacji i rolnictwa. Pewny przesył wody.
         </p>
 
-        <!-- Pigułki parametrów -->
-        <div class="flex flex-wrap gap-2 mt-5 font-mono text-xs text-white/90">
-          <span class="px-2.5 py-1 rounded bg-black/40 backdrop-blur-sm border border-white/10">DN 16 – 110 mm</span>
-          <span class="px-2.5 py-1 rounded bg-black/40 backdrop-blur-sm border border-white/10">PE100 / RC</span>
-          <span class="px-2.5 py-1 rounded bg-black/40 backdrop-blur-sm border border-white/10">Atesty Higieniczne</span>
+        <div class="flex items-center gap-3 font-mono text-xs text-white/90 mb-6 hidden sm:flex">
+          <span class="px-2 py-1 border border-white/20 bg-black/20 rounded backdrop-blur-sm">Średnice: 16–110 mm</span>
+          <span class="px-2 py-1 border border-white/20 bg-black/20 rounded backdrop-blur-sm">Certyfikat PE100-RC</span>
         </div>
-      </div>
 
-      <!-- Dolny wyrazisty przycisk -->
-      <div class="relative z-10 pt-2">
-        <div class="inline-flex items-center justify-between w-full py-4 px-6 rounded-xl bg-emerald-600 group-hover:bg-emerald-500 text-white font-mono text-xs uppercase tracking-wider font-bold transition-all shadow-xl">
-          <span>Otwórz katalog rur: rurape.pl</span>
-          <span class="text-sm font-bold group-hover:translate-x-1 transition-transform">&rarr;</span>
+        <div class="inline-flex items-center justify-between w-full py-4 px-6 rounded-xl bg-white text-[#0B1523] group-hover:bg-emerald-500 group-hover:text-white font-mono text-xs uppercase tracking-wider font-bold transition-colors">
+          <span>Przejdź do oferty rur: rurape.pl</span>
+          <span class="text-lg leading-none transition-transform group-hover:translate-x-1">&rarr;</span>
         </div>
       </div>
     </a>
 
-
-    <!-- ================= STRUMIEŃ 02: WYSOKIE CIŚNIENIE (sercemyjni.pl) ================= -->
+    <!-- FILAR 02: MYJNIE / SERCEMYJNI.PL -->
     <a
       href="https://sercemyjni.pl"
       target="_blank"
       rel="noopener noreferrer"
-      data-side="wash"
-      class="group relative flex-1 flex flex-col justify-between p-7 sm:p-10 lg:p-12 overflow-hidden transition-all duration-700 cursor-pointer"
+      class="group relative flex flex-col justify-end min-h-[400px] lg:min-h-[480px] p-8 rounded-2xl bg-slate-900 border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
     >
-      <!-- Tło fotograficzne: Woda pod potężnym ciśnieniem w myjni -->
+      <!-- Fotografia najwyższej jakości: Wysokie ciśnienie -->
       <div
-        class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-105 filter brightness-[0.7] contrast-[1.15]"
-        style="background-image: url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1800&q=85');"
+        class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-105 filter brightness-[0.55]"
+        style="background-image: url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1600&q=80');"
       ></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#1A050B] via-[#1A050B]/60 to-transparent"></div>
 
-      <!-- Gradientowe przyciemnienie dla perfekcyjnego kontrastu tekstu -->
-      <div class="absolute inset-0 bg-gradient-to-t from-[#1F070E]/95 via-[#100307]/60 to-black/40"></div>
-      <div class="absolute inset-0 bg-rose-950/20 mix-blend-color"></div>
-
-      <!-- Top info -->
-      <div class="relative z-10 flex justify-between items-start">
-        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-500/25 border border-rose-400/40 text-rose-300 font-mono text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-          <span class="w-2 h-2 rounded-full bg-rose-400"></span>
-          02 // Wysokie Ciśnienie 200 Bar
+      <div class="relative z-10">
+        <span class="inline-block px-3 py-1 bg-rose-500/20 backdrop-blur-md border border-rose-400/30 text-rose-300 font-mono text-[10px] uppercase font-bold tracking-wider mb-4 rounded-md">
+          02 // Pompy Myjni Udor
         </span>
-        <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white group-hover:bg-rose-600 group-hover:border-rose-600 transition-all duration-300">
-          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-          </svg>
-        </div>
-      </div>
-
-      <!-- Treść centralna -->
-      <div class="relative z-10 my-auto py-4">
-        <span class="font-mono text-xs text-rose-400 font-semibold tracking-widest uppercase block mb-1">
-          Myjnie bezdotykowe &middot; Agregaty &middot; Marka Udor
-        </span>
-        <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl uppercase tracking-tight text-white leading-tight">
-          Pompy do Myjni
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tighter uppercase mb-3">
+          Systemy Wysokociśnieniowe
         </h2>
-        <p class="font-sans text-sm sm:text-base text-slate-200 mt-3 max-w-lg leading-relaxed font-normal drop-shadow">
-          Wysokociśnieniowe pompy nurnikowe Udor z Włoch. Oryginalne podzespoły ceramiczne i armatura stworzone do pracy ciągłej 24/7 w agresywnym środowisku chemii myjącej.
+        <p class="text-sm text-slate-200 leading-relaxed mb-6 max-w-md">
+          Włoskie pompy nurnikowe Udor, agregaty i armatura przystosowane do pracy ciągłej 24/7 w myjniach bezdotykowych.
         </p>
 
-        <!-- Pigułki parametrów -->
-        <div class="flex flex-wrap gap-2 mt-5 font-mono text-xs text-white/90">
-          <span class="px-2.5 py-1 rounded bg-black/40 backdrop-blur-sm border border-white/10">Do 200 bar</span>
-          <span class="px-2.5 py-1 rounded bg-black/40 backdrop-blur-sm border border-white/10">Nurniki Ceramiczne</span>
-          <span class="px-2.5 py-1 rounded bg-black/40 backdrop-blur-sm border border-white/10">Udor Italy</span>
+        <div class="flex items-center gap-3 font-mono text-xs text-white/90 mb-6 hidden sm:flex">
+          <span class="px-2 py-1 border border-white/20 bg-black/20 rounded backdrop-blur-sm">Ciśnienie: do 200 Bar</span>
+          <span class="px-2 py-1 border border-white/20 bg-black/20 rounded backdrop-blur-sm">Nurniki: Ceramika</span>
         </div>
-      </div>
 
-      <!-- Dolny wyrazisty przycisk -->
-      <div class="relative z-10 pt-2">
-        <div class="inline-flex items-center justify-between w-full py-4 px-6 rounded-xl bg-rose-600 group-hover:bg-rose-500 text-white font-mono text-xs uppercase tracking-wider font-bold transition-all shadow-xl">
+        <div class="inline-flex items-center justify-between w-full py-4 px-6 rounded-xl bg-white text-[#0B1523] group-hover:bg-[#DC2626] group-hover:text-white font-mono text-xs uppercase tracking-wider font-bold transition-colors">
           <span>Otwórz ofertę pomp: sercemyjni.pl</span>
-          <span class="text-sm font-bold group-hover:translate-x-1 transition-transform">&rarr;</span>
+          <span class="text-lg leading-none transition-transform group-hover:translate-x-1">&rarr;</span>
         </div>
       </div>
     </a>
 
   </div>
 
-  <!-- Dolny pasek podziału: Przejście do sekcji doradcy -->
-  <div class="relative z-30 px-6 md:px-12 py-3 bg-[#060D17] border-t border-white/10 flex items-center justify-between text-xs text-[#8FAEC4] font-mono">
-    <div class="flex items-center gap-2">
-      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-      <span>DORADZTWO TECHNICZNE: <strong>TOMASZ KULPA</strong></span>
-    </div>
-
-    <a
-      href="#about"
-      class="hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wider font-semibold text-[11px] group"
-    >
-      <span>O marce TK Flow</span>
-      <span class="group-hover:translate-y-0.5 transition-transform">&darr;</span>
+  <!-- DOLNY PASEK BIZNESOWY -->
+  <div class="relative z-10 pt-6 flex flex-col sm:flex-row items-center justify-between font-mono text-[11px] text-slate-500 uppercase tracking-wider gap-3">
+    <span>Dostawy Cała Polska &middot; Bydgoszcz</span>
+    <a href="#about" class="flex items-center gap-1.5 hover:text-[#0B1523] transition-colors font-bold">
+      <span>Zarządzanie: Tomasz Kulpa</span>
+      <span>&darr;</span>
     </a>
   </div>
 </section>
-
-<!-- Skrypt płynnego rozszerzania połówki ekranu (Curtain Reveal) -->
-<script>
-  import { DOMLoaded } from '@/ts/events'
-
-  DOMLoaded(() => {
-    const agroSide = document.querySelector('[data-side="agro"]') as HTMLElement
-    const washSide = document.querySelector('[data-side="wash"]') as HTMLElement
-    const container = document.querySelector('[data-split-container]')
-
-    if (agroSide && washSide && window.innerWidth >= 1024) {
-      agroSide.addEventListener('mouseenter', () => {
-        agroSide.style.flex = '1.35'
-        washSide.style.flex = '0.85'
-      })
-
-      washSide.addEventListener('mouseenter', () => {
-        washSide.style.flex = '1.35'
-        agroSide.style.flex = '0.85'
-      })
-
-      container?.addEventListener('mouseleave', () => {
-        agroSide.style.flex = '1'
-        washSide.style.flex = '1'
-      })
-    }
-  })
-</script>
