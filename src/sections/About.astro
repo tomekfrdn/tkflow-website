@@ -1,51 +1,66 @@
 ---
-// About.astro — The Engineering Manifesto
+// About.astro — Manifest Inżyniera
 ---
 
-<section id="inżynieria" class="relative w-full py-24 sm:py-32 border-b border-tk-border max-w-[1600px] mx-auto bg-[#F9FAFB]">
+<section id="doradztwo" class="relative w-full py-24 sm:py-32 bg-nv-gray border-y border-nv-border max-w-[1600px] mx-auto px-6 md:px-12">
   
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
     
-    <!-- Lojalność i powaga (Lewa część) -->
-    <div class="lg:col-span-7 px-6 md:px-12 pb-16 lg:pb-0 lg:border-r border-tk-border flex flex-col justify-center">
-      <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-[2.5rem] text-tk-black leading-[1.15] tracking-tight mb-10">
-        „W nawadnianiu wielkoobszarowym i&nbsp;przemyśle myjni, błąd w&nbsp;doborze komponentów kosztuje majątek. Zabezpieczamy Twój sezon.”
-      </h2>
-      
-      <p class="text-lg text-tk-muted leading-relaxed font-light max-w-2xl mb-16">
-        Nazywam się Tomasz Kulpa. W TK Flow nie jesteśmy anonimową hurtownią. Przeliczam z inwestorami przepływy, straty ciśnienia i opory liniowe. Dbam o to, by instalacja ruszyła w terminie i pracowała bezawaryjnie, eliminując przestoje sprzętu.
-      </p>
-
-      <div class="mt-auto">
-        <span class="block font-extrabold text-2xl uppercase tracking-tighter text-tk-black">Tomasz Kulpa</span>
-        <span class="block font-mono text-xs uppercase tracking-widest text-tk-muted font-bold mt-1">Główny Inżynier & Doradca</span>
+    <!-- CZĘŚĆ LEWA: Fotografia i Podpis -->
+    <div class="lg:col-span-4 flex flex-col">
+      <div class="w-full aspect-[4/5] bg-nv-border relative overflow-hidden mb-6 filter grayscale contrast-125">
+        <img 
+          src="/images/tomasz-kulpa-tk-flow.jpg" 
+          alt="Tomasz Kulpa" 
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+        <!-- Techniczny znacznik na zdjęciu -->
+        <div class="absolute bottom-4 left-4 bg-white px-3 py-1 text-[9px] uppercase tracking-widest font-bold text-nv-black">
+          Główny Inżynier
+        </div>
       </div>
+      <h3 class="font-display font-extrabold text-2xl tracking-tighter text-nv-black uppercase">
+        Tomasz Kulpa
+      </h3>
+      <span class="font-sans text-xs text-nv-muted uppercase tracking-widest mt-1 font-bold">
+        Założyciel TK Flow
+      </span>
     </div>
 
-    <!-- Twarde filary B2B (Prawa część) -->
-    <div class="lg:col-span-5 px-6 md:px-12 flex flex-col">
-      <div class="flex-1 flex flex-col justify-center py-8 border-b border-tk-border">
-        <span class="block font-mono text-[10px] uppercase tracking-widest text-tk-black font-bold mb-3">[ Filar 01 ]</span>
-        <h3 class="font-extrabold text-xl uppercase tracking-tight text-tk-black mb-2">Atestowane Źródło</h3>
-        <p class="text-sm text-tk-muted leading-relaxed font-light">
-          Tylko oryginały. Rury z atestem jakości pierwotnej PE100 (zero regranulatu) oraz oryginalne pompy UDOR sprowadzane prosto z włoskiej fabryki.
-        </p>
-      </div>
+    <!-- CZĘŚĆ PRAWA: Manifest i Twarde Argumenty -->
+    <div class="lg:col-span-8 flex flex-col justify-center">
+      <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-nv-black leading-[1.1] tracking-tightest mb-10">
+        „W nawadnianiu i przemyśle błąd w doborze kosztuje majątek. Zabezpieczamy Twój sezon.”
+      </h2>
+      
+      <p class="font-sans text-lg sm:text-xl text-nv-muted leading-relaxed font-light mb-16 max-w-3xl">
+        W TK Flow nie jesteśmy anonimową hurtownią. Przeliczam z inwestorami opory hydrauliczne i straty ciśnienia. Dobieram komponenty o przemysłowej wytrzymałości, by Twoja instalacja ruszyła w terminie i pracowała bezawaryjnie pod ekstremalnym obciążeniem.
+      </p>
 
-      <div class="flex-1 flex flex-col justify-center py-8 border-b border-tk-border">
-        <span class="block font-mono text-[10px] uppercase tracking-widest text-tk-black font-bold mb-3">[ Filar 02 ]</span>
-        <h3 class="font-extrabold text-xl uppercase tracking-tight text-tk-black mb-2">Obliczenia Hydrauliczne</h3>
-        <p class="text-sm text-tk-muted leading-relaxed font-light">
-          Praktyczny dobór. Analizujemy medium robocze, skoki ciśnień i warunki środowiskowe, aby zaproponować armaturę z bezpiecznym buforem wytrzymałości.
-        </p>
-      </div>
-
-      <div class="flex-1 flex flex-col justify-center py-8">
-        <span class="block font-mono text-[10px] uppercase tracking-widest text-tk-black font-bold mb-3">[ Filar 03 ]</span>
-        <h3 class="font-extrabold text-xl uppercase tracking-tight text-tk-black mb-2">Bezpieczeństwo Sezonu</h3>
-        <p class="text-sm text-tk-muted leading-relaxed font-light">
-          Szybka logistyka z magazynu centralnego. Błyskawiczna reakcja zaopatrzeniowa to gwarancja, że awaria nie zatrzyma Twojego zysku.
-        </p>
+      <!-- Siatka wartości B2B w stylu Northvolt -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-10 border-t border-nv-border">
+        <div>
+          <span class="block font-sans text-[10px] uppercase tracking-widest text-nv-blue font-bold mb-3">01 / Atesty</span>
+          <h4 class="font-display font-bold text-lg text-nv-black mb-2">Europejskie Źródło</h4>
+          <p class="text-sm text-nv-muted font-light leading-relaxed">
+            Rury wyłącznie z atestem jakości pierwotnej PE100 oraz oryginalne pompy włoskiej fabryki UDOR.
+          </p>
+        </div>
+        <div>
+          <span class="block font-sans text-[10px] uppercase tracking-widest text-nv-blue font-bold mb-3">02 / Dobór</span>
+          <h4 class="font-display font-bold text-lg text-nv-black mb-2">Kalkulacja Parametrów</h4>
+          <p class="text-sm text-nv-muted font-light leading-relaxed">
+            Analiza medium roboczego i warunków środowiskowych dla wyznaczenia optymalnego bufora bezpieczeństwa.
+          </p>
+        </div>
+        <div>
+          <span class="block font-sans text-[10px] uppercase tracking-widest text-nv-blue font-bold mb-3">03 / Logistyka</span>
+          <h4 class="font-display font-bold text-lg text-nv-black mb-2">Ochrona Inwestycji</h4>
+          <p class="text-sm text-nv-muted font-light leading-relaxed">
+            Natychmiastowa reakcja i dostępność z magazynu, aby zlikwidować ryzyko przestoju w trakcie zbiorów.
+          </p>
+        </div>
       </div>
     </div>
 

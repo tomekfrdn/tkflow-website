@@ -4,24 +4,23 @@ export default {
   theme: {
     extend: {
       colors: {
-        'tk-black': '#0A1118',
-        'tk-border': '#E5E7EB',
-        'tk-muted': '#6B7280',
-        'tk-water': '#0066CC',
-        'tk-agro': '#059669',
-        'tk-wash': '#DC2626',
-        // Zachowanie kompatybilności dla układu
-        'dark-blue': '#0A1118',
-        'light-blue': '#FFFFFF',
-        'steel-blue': '#6B7280',
-        'light-gray': '#FFFFFF',
+        'nv-black': '#0A0A0A',
+        'nv-white': '#FFFFFF',
+        'nv-border': '#EBEBEB',
+        'nv-muted': '#737373',
+        'nv-blue': '#0055FF',
+        'nv-gray': '#F5F5F5',
+        // Akcenty delikatne dla kart hover
+        'nv-agro-bg': '#F0FDF4',
+        'nv-wash-bg': '#FFF1F2',
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        sans: ['"Inter"', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       letterSpacing: {
-        tighter: '-0.04em',
+        tightest: '-0.04em',
+        widest: '0.2em',
       },
     },
   },

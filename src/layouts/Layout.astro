@@ -9,13 +9,10 @@ const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="pl" class="scroll-smooth bg-white text-[#0A1118]">
+<html lang="pl" class="scroll-smooth bg-white text-[#0A0A0A]">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="TK Flow Tomasz Kulpa — Centrala dystrybucji i inżynierii doboru. Certyfikowane rury PE do nawadniania oraz przemysłowe pompy wysokociśnieniowe Udor."
-    />
+    <meta name="description" content="TK Flow — Technologie Przesyłu Wody. Centrala inżynieryjna: nawadnianie rolnicze i systemy wysokociśnieniowe do myjni." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon-tk-flow.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -24,26 +21,14 @@ const { title } = Astro.props
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Plus Jakarta Sans (Nagłówki) & JetBrains Mono (Parametry) -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
+    <!-- Monumentalna, szwajcarska typografia -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-white font-sans antialiased text-[#0A1118] selection:bg-[#0A1118] selection:text-white overflow-x-hidden">
-    <!-- Globalna siatka tła (Subtelne linie budujące strukturę rurociągu) -->
-    <div class="fixed inset-0 pointer-events-none z-[-1] flex justify-center">
-      <div class="w-full max-w-[1600px] h-full border-x border-[#E5E7EB]/60 relative">
-        <div class="absolute inset-y-0 left-1/2 w-[1px] bg-[#E5E7EB]/60 hidden md:block"></div>
-      </div>
-    </div>
+  <body class="bg-white font-sans antialiased text-[#0A0A0A] selection:bg-[#0055FF] selection:text-white">
+    <!-- Główna Oś Przepływu (Niebieska linia "magistrali" budująca motyw bez użycia zdjęć) -->
+    <div class="fixed top-0 bottom-0 left-6 md:left-12 w-[1px] bg-[#EBEBEB] z-[-1]"></div>
+    <div class="fixed top-0 bottom-0 right-6 md:right-12 w-[1px] bg-[#EBEBEB] z-[-1]"></div>
+    <div class="fixed top-0 bottom-0 left-1/2 w-[1px] bg-[#0055FF]/20 z-[-1] hidden lg:block"></div>
 
     <Header />
     <slot />
@@ -52,32 +37,23 @@ const { title } = Astro.props
 
 <style is:global>
   ::selection {
-    background-color: #0a1118;
+    background-color: #0055FF;
     color: #ffffff;
   }
   body {
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, .font-display {
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
-  
-  /* Animacja pulsującej wody (ciśnienia) w rurze/siatce */
-  @keyframes flow-y {
-    0% { transform: translateY(-100%); opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { transform: translateY(100vh); opacity: 0; }
-  }
-  .animate-flow {
-    animation: flow-y 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  }
-
   ::-webkit-scrollbar {
     width: 6px;
   }
   ::-webkit-scrollbar-track {
     background: #ffffff;
-    border-left: 1px solid #E5E7EB;
+    border-left: 1px solid #EBEBEB;
   }
   ::-webkit-scrollbar-thumb {
-    background: #0a1118;
+    background: #0A0A0A;
   }
 </style>
