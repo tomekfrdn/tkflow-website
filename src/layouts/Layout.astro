@@ -9,12 +9,12 @@ const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="pl" class="scroll-smooth bg-[#F8FAFC] text-[#0B1523]">
+<html lang="pl" class="scroll-smooth bg-[#020B14] text-white">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="TK Flow Tomasz Kulpa — Inżynieria Ciśnienia i Przepływu Cieczy. Centralna dystrybucja certyfikowanych rur PE do nawadniania oraz przemysłowych pomp wysokociśnieniowych Udor."
+      content="TK Flow Tomasz Kulpa — Centrala dystrybucji i doradztwa technicznego w przesyle wody: certyfikowane rury PE do nawadniania oraz przemysłowe pompy wysokociśnieniowe do myjni."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon-tk-flow.svg" />
@@ -24,26 +24,13 @@ const { title } = Astro.props
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Elegancka, szwajcarska typografia: Plus Jakarta Sans i JetBrains Mono -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap"
-    />
+    <!-- Plus Jakarta Sans & JetBrains Mono -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap"
-      media="print"
-      onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap"
     />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap"
-      />
-    </noscript>
   </head>
-  <body class="bg-[#F8FAFC] font-sans antialiased text-[#0B1523] selection:bg-[#0066CC] selection:text-white overflow-x-hidden">
+  <body class="bg-[#020B14] font-sans antialiased text-white selection:bg-[#00A3E0] selection:text-white overflow-x-hidden">
     <Header />
     <slot />
   </body>
@@ -51,26 +38,27 @@ const { title } = Astro.props
 
 <style is:global>
   ::selection {
-    background-color: #0066cc;
+    background-color: #00a3e0;
     color: #ffffff;
   }
 
   body {
-    background-color: #f8fafc;
-    color: #0b1523;
+    background-color: #020b14;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #edf2f7;
+    background: #020b14;
   }
   ::-webkit-scrollbar-thumb {
-    background: #94a3b8;
+    background: #0d2847;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #0066cc;
+    background: #00a3e0;
   }
 </style>
