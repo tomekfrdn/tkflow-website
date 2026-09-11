@@ -1,5 +1,5 @@
 ---
-// Contact.astro — Black Monolith Terminal (Ostateczne szlify proporcji i czytelności)
+// Contact.astro — Skorygowane proporcje przestrzeni stopki
 const currentYear = new Date().getFullYear()
 ---
 
@@ -8,19 +8,19 @@ const currentYear = new Date().getFullYear()
   <div class="max-w-[1600px] w-full mx-auto flex-1 flex flex-col">
     
     <div class="mb-auto">
-      <span class="block font-mono text-xs uppercase tracking-widest opacity-50 mb-8 font-bold">
+      <span class="block font-mono text-xs uppercase tracking-widest opacity-50 mb-6 font-bold">
         Bezpośredni Punkt Kontaktowy &middot; Doradztwo
       </span>
       
-      <!-- GIGANTYCZNY NUMER TELEFONU (Skalowany bezbłędnie w jednej linii) -->
+      <!-- Gigantyczny numer telefonu w jednej linii -->
       <a 
         href="tel:+48000000000" 
-        class="block font-display font-extrabold text-[clamp(2rem,7.2vw,7.5rem)] leading-[0.85] tracking-tightest hover:opacity-70 kh-transition whitespace-nowrap"
+        class="block font-display font-extrabold text-[clamp(2rem,7.2vw,7.5rem)] leading-[0.85] tracking-tightest hover:opacity-70 kh-transition whitespace-nowrap mb-6"
       >
         +48 000 000 000
       </a>
       
-      <div class="mt-10">
+      <div>
         <a 
           href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#116;&#107;&#102;&#108;&#111;&#119;&#46;&#112;&#108;" 
           class="inline-block font-display font-bold text-xl md:text-2xl tracking-tight hover:opacity-70 kh-transition underline underline-offset-8 decoration-white/20"
@@ -30,8 +30,8 @@ const currentYear = new Date().getFullYear()
       </div>
     </div>
 
-    <!-- Dane Rejestrowe i Linki zidealizowane pod kątem czytelności B2B -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-20 border-t border-white/15 mt-20 font-mono text-xs">
+    <!-- Dane Rejestrowe i Siatka z idealnym balansem odstępu (pt-16 mt-16 zamiast 20) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-16 border-t border-white/15 mt-16 font-mono text-xs">
       
       <div>
         <span class="block uppercase tracking-widest opacity-50 font-bold mb-3">Centrala Bydgoszcz</span>
