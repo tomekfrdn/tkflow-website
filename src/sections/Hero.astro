@@ -1,69 +1,81 @@
 ---
-// Hero.astro — The Clean Split Gate (Dwie drogi przepływu)
+// Hero.astro — Computational Fluid Dynamics & Dual Stream Portals
 ---
 
 <section
   data-hero
-  class="relative w-full min-h-[100svh] lg:h-[100svh] bg-[#F8FAFC] text-[#0F172A] flex flex-col justify-between pt-20 sm:pt-24 pb-6 px-4 sm:px-8 md:px-12 overflow-hidden border-b border-slate-200"
+  class="relative w-full min-h-[100svh] lg:h-[100svh] bg-[#F6F8FA] text-[#0A131F] flex flex-col justify-between pt-20 sm:pt-24 pb-6 px-4 sm:px-8 md:px-12 overflow-hidden border-b border-slate-200 select-none"
 >
-  <!-- Subtelna inżynieryjna siatka CAD w tle -->
-  <div
-    class="absolute inset-0 opacity-[0.035] pointer-events-none"
-    style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 40px 40px;"
-  ></div>
+  <!-- CANVAS INTERAKTYWNYCH LINII PRZEPŁYWU (Wektorowy fluid CFD) -->
+  <canvas
+    id="flow-canvas"
+    class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-45"
+  ></canvas>
 
-  <!-- Komunikat wprowadzający: Czym jest TK Flow (Zrozumiałe w 3 sekundy) -->
-  <div class="relative z-10 max-w-4xl mx-auto text-center pt-4 pb-6">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 font-mono text-[11px] tracking-wider uppercase mb-3 font-semibold">
-      <span class="w-2 h-2 rounded-full bg-[#00A3E0]"></span>
-      <span>Centrala Doradztwa i Dystrybucji Komponentów Wodnych</span>
+  <!-- GÓRNY PASEK ARCHITEKTURY: KONTROLA PRZEPŁYWU -->
+  <div class="relative z-10 max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3 pt-2 pb-4 border-b border-slate-200/80">
+    <div>
+      <div class="flex items-center gap-2 font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-[#00A3E0] font-bold">
+        <span class="w-1.5 h-1.5 bg-[#00A3E0] animate-pulse"></span>
+        <span>ARCHITEKTURA PRZEPŁYWU CIECZY // CENTRAL PORTAL</span>
+      </div>
+      <h1 class="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase tracking-tight text-[#0A131F] mt-0.5">
+        TK FLOW &middot; KONTROLA PRZEPŁYWU
+      </h1>
     </div>
-    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-[#041A2F] leading-tight">
-      Dedykowane Rozwiązania do Przesyłu Wody
-    </h1>
-    <p class="font-sans text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mt-2.5 leading-relaxed font-normal">
-      Wybierz obszar, który odpowiada Twojej inwestycji. Przejdź do wyspecjalizowanego katalogu produktowego lub skontaktuj się z doradcą technicznym:
-    </p>
+
+    <!-- Status operacyjny -->
+    <div class="font-mono text-[11px] text-slate-500 hidden sm:flex items-center gap-4">
+      <span class="px-2 py-0.5 bg-white border border-slate-200 rounded text-slate-700 font-semibold">
+        STATUS: 100% OPERACYJNY
+      </span>
+      <span>BYDGOSZCZ // PL</span>
+    </div>
   </div>
 
-  <!-- INTERAKTYWNY ROZDZIELACZ STRUMIENIA (Split Gate) -->
+  <!-- INTERAKTYWNE BRAMY STRUMIENI (SPLIT GATE) -->
   <div
     data-chamber-split
-    class="relative z-20 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 my-auto max-w-7xl mx-auto w-full"
+    class="relative z-20 flex-1 grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 my-auto max-w-7xl mx-auto w-full py-4 sm:py-6"
   >
 
-    <!-- ================= OBSZAR 1: RURY PE / RURAPE.PL (AGRO & NAWADNIANIE) ================= -->
+    <!-- ================= STRUMIEŃ 01: LAMINARNY / RURAPE.PL (AGRO) ================= -->
     <a
       href="https://rurape.pl"
       target="_blank"
       rel="noopener noreferrer"
-      data-card-agro
-      class="group relative flex flex-col justify-between p-6 sm:p-8 lg:p-10 rounded-2xl bg-white border-2 border-slate-200 hover:border-emerald-600 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden"
+      data-stream="agro"
+      class="group relative flex flex-col justify-between p-7 sm:p-9 lg:p-10 rounded-2xl bg-white/95 backdrop-blur-sm border-2 border-slate-200 hover:border-emerald-600 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-2xl transition-all duration-500 overflow-hidden"
     >
-      <!-- Subtelny zielony akcent u góry -->
-      <div class="absolute top-0 inset-x-0 h-2 bg-emerald-600"></div>
+      <!-- Subtelny pasek magistrali u góry -->
+      <div class="absolute top-0 inset-x-0 h-1.5 bg-emerald-600 group-hover:h-2 transition-all duration-300"></div>
 
-      <!-- Top info karty -->
       <div>
-        <div class="flex items-center justify-between font-mono text-xs mb-4">
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 font-bold uppercase tracking-wider text-[11px] border border-emerald-200">
+        <!-- Nagłówek techniczny strumienia -->
+        <div class="flex items-center justify-between font-mono text-xs mb-5">
+          <span class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 font-bold uppercase tracking-wider text-[11px] border border-emerald-200">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-            Rolnictwo &middot; Sadownictwo &middot; Nawadnianie
+            Strumień 01 // Ciągłość & Objętość
           </span>
-          <span class="text-slate-400 font-semibold hidden sm:inline-block">rurape.pl &nearr;</span>
+          <span class="text-slate-400 font-semibold group-hover:text-emerald-700 transition-colors hidden sm:inline-block">
+            rurape.pl &nearr;
+          </span>
         </div>
 
-        <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#041A2F] group-hover:text-emerald-700 transition-colors uppercase tracking-tight">
-          Rury PE do Nawadniania
+        <span class="font-mono text-xs text-emerald-700 font-bold uppercase tracking-widest block mb-1">
+          Nawadnianie Rolnicze &middot; Plantacje &middot; Sady
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0A131F] group-hover:text-emerald-800 transition-colors uppercase tracking-tight">
+          RURY PE
         </h2>
-        <p class="font-sans text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed">
-          Kompletne magistrale przesyłowe i rury polietylenowe dla gospodarstw rolnych, plantacji jagodowych, sadów oraz instalacji melioracyjnych.
+        <p class="font-sans text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
+          Certyfikowane rury polietylenowe PE100 i PE100-RC do budowy wieloletnich magistrali irygacyjnych i zasilania upraw rolnych. Niezawodność w kontakcie z gruntem.
         </p>
 
-        <!-- Praktyczne parametry dla rolnika / wykonawcy -->
+        <!-- Matryca parametrów czytelna dla plantatora / instalatora -->
         <div class="grid grid-cols-3 gap-2 mt-6 py-4 border-y border-slate-100 font-mono text-xs">
           <div>
-            <span class="block text-[10px] text-slate-400 uppercase font-semibold">Materiał</span>
+            <span class="block text-[10px] text-slate-400 uppercase font-semibold">Standard</span>
             <span class="text-slate-900 font-bold">PE100 / RC</span>
           </div>
           <div>
@@ -71,16 +83,16 @@
             <span class="text-slate-900 font-bold">DN 16 – 110 mm</span>
           </div>
           <div>
-            <span class="block text-[10px] text-slate-400 uppercase font-semibold">Odporność</span>
-            <span class="text-emerald-700 font-bold">UV / Grunt</span>
+            <span class="block text-[10px] text-slate-400 uppercase font-semibold">Przeznaczenie</span>
+            <span class="text-emerald-700 font-bold">Irygacja Agro</span>
           </div>
         </div>
       </div>
 
-      <!-- Duży, czytelny przycisk konwersji -->
-      <div class="mt-6 pt-2 flex items-center justify-between">
-        <div class="inline-flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-xl bg-emerald-700 group-hover:bg-emerald-800 text-white font-semibold text-sm transition-all shadow-sm group-hover:shadow-md">
-          <span>Przejdź do katalogu rurape.pl</span>
+      <!-- Przycisk z poziomu Awwwards -->
+      <div class="mt-6 pt-2">
+        <div class="inline-flex items-center justify-between w-full py-4 px-6 rounded-xl bg-[#0A131F] group-hover:bg-emerald-700 text-white font-mono text-xs uppercase tracking-wider font-bold transition-all shadow-sm">
+          <span>Wejdź do katalogu rurape.pl</span>
           <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
           </svg>
@@ -88,35 +100,40 @@
       </div>
     </a>
 
-    <!-- ================= OBSZAR 2: POMPY UDOR / SERCEMYJNI.PL (WYSOKIE CIŚNIENIE) ================= -->
+    <!-- ================= STRUMIEŃ 02: TURBULENTNY / SERCEMYJNI.PL (WYSOKIE CIŚNIENIE) ================= -->
     <a
       href="https://sercemyjni.pl"
       target="_blank"
       rel="noopener noreferrer"
-      data-card-wash
-      class="group relative flex flex-col justify-between p-6 sm:p-8 lg:p-10 rounded-2xl bg-white border-2 border-slate-200 hover:border-rose-600 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden"
+      data-stream="wash"
+      class="group relative flex flex-col justify-between p-7 sm:p-9 lg:p-10 rounded-2xl bg-white/95 backdrop-blur-sm border-2 border-slate-200 hover:border-rose-600 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-2xl transition-all duration-500 overflow-hidden"
     >
-      <!-- Subtelny czerwony akcent Udor u góry -->
-      <div class="absolute top-0 inset-x-0 h-2 bg-rose-600"></div>
+      <!-- Subtelny pasek ciśnienia u góry -->
+      <div class="absolute top-0 inset-x-0 h-1.5 bg-rose-600 group-hover:h-2 transition-all duration-300"></div>
 
-      <!-- Top info karty -->
       <div>
-        <div class="flex items-center justify-between font-mono text-xs mb-4">
-          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-rose-50 text-rose-800 font-bold uppercase tracking-wider text-[11px] border border-rose-200">
+        <!-- Nagłówek techniczny strumienia -->
+        <div class="flex items-center justify-between font-mono text-xs mb-5">
+          <span class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-rose-50 text-rose-800 font-bold uppercase tracking-wider text-[11px] border border-rose-200">
             <span class="w-1.5 h-1.5 rounded-full bg-rose-600"></span>
-            Myjnie Samochodowe &middot; Przemysł
+            Strumień 02 // Kinetyczna Siła 200 Bar
           </span>
-          <span class="text-slate-400 font-semibold hidden sm:inline-block">sercemyjni.pl &nearr;</span>
+          <span class="text-slate-400 font-semibold group-hover:text-rose-700 transition-colors hidden sm:inline-block">
+            sercemyjni.pl &nearr;
+          </span>
         </div>
 
-        <h2 class="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#041A2F] group-hover:text-rose-700 transition-colors uppercase tracking-tight">
-          Pompy do Myjni (Udor)
+        <span class="font-mono text-xs text-rose-700 font-bold uppercase tracking-widest block mb-1">
+          Pompy Wysokociśnieniowe Udor &middot; Myjnie Bezdotykowe
+        </span>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0A131F] group-hover:text-rose-800 transition-colors uppercase tracking-tight">
+          SERCE MYJNI
         </h2>
-        <p class="font-sans text-sm sm:text-base text-slate-600 mt-2.5 leading-relaxed">
-          Wysokociśnieniowe pompy nurnikowe włoskiej marki Udor, podzespoły robocze oraz doradztwo serwisowe dla bezdotykowych myjni samochodowych.
+        <p class="font-sans text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
+          Wysokociśnieniowe pompy nurnikowe włoskiej fabryki Udor. Przemysłowe agregaty i podzespoły przystosowane do ciągłej pracy w warunkach agresywnej chemii myjącej.
         </p>
 
-        <!-- Praktyczne parametry dla właściciela / serwisanta -->
+        <!-- Matryca parametrów czytelna dla serwisanta myjni -->
         <div class="grid grid-cols-3 gap-2 mt-6 py-4 border-y border-slate-100 font-mono text-xs">
           <div>
             <span class="block text-[10px] text-slate-400 uppercase font-semibold">Ciśnienie</span>
@@ -127,16 +144,16 @@
             <span class="text-slate-900 font-bold">Ceramiczne</span>
           </div>
           <div>
-            <span class="block text-[10px] text-slate-400 uppercase font-semibold">Tryb pracy</span>
-            <span class="text-rose-700 font-bold">Heavy Duty 24/7</span>
+            <span class="block text-[10px] text-slate-400 uppercase font-semibold">Marka</span>
+            <span class="text-rose-700 font-bold">UDOR (Włochy)</span>
           </div>
         </div>
       </div>
 
-      <!-- Duży, czytelny przycisk konwersji -->
-      <div class="mt-6 pt-2 flex items-center justify-between">
-        <div class="inline-flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-xl bg-rose-700 group-hover:bg-rose-800 text-white font-semibold text-sm transition-all shadow-sm group-hover:shadow-md">
-          <span>Przejdź do pomp sercemyjni.pl</span>
+      <!-- Przycisk z poziomu Awwwards -->
+      <div class="mt-6 pt-2">
+        <div class="inline-flex items-center justify-between w-full py-4 px-6 rounded-xl bg-[#0A131F] group-hover:bg-rose-700 text-white font-mono text-xs uppercase tracking-wider font-bold transition-all shadow-sm">
+          <span>Wejdź do katalogu sercemyjni.pl</span>
           <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
           </svg>
@@ -146,38 +163,86 @@
 
   </div>
 
-  <!-- Dolny pasek informacyjny z bezpośrednim zaproszeniem do kontaktu -->
-  <div class="relative z-10 pt-4 flex flex-col sm:flex-row items-center justify-between border-t border-slate-200 text-xs text-slate-500 font-medium gap-2">
+  <!-- DOLNA BELKA KONTROLNA: PRZEJŚCIE DO DORADCY -->
+  <div class="relative z-10 pt-3 flex flex-col sm:flex-row items-center justify-between border-t border-slate-200/80 text-xs text-slate-500 font-mono gap-2">
     <div class="flex items-center gap-2">
       <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-      <span>Wsparcie techniczne i wyceny: <strong>Tomasz Kulpa</strong></span>
+      <span>OSOBISTE DORADZTWO TECHNICZNE: <strong>TOMASZ KULPA</strong></span>
     </div>
+
     <a
       href="#about"
-      class="hover:text-[#041A2F] transition-colors flex items-center gap-1 font-semibold"
+      class="hover:text-[#0A131F] transition-colors flex items-center gap-1.5 uppercase tracking-wider font-semibold text-[11px]"
     >
-      <span>Dowiedz się więcej o marce TK Flow</span>
+      <span>Poznaj założenia marki TK Flow</span>
       <span>&darr;</span>
     </a>
   </div>
 </section>
 
+<!-- SKRYPT INTERAKTYWNEJ SYMULACJI WEKTORÓW PRZEPŁYWU W CANVASIE -->
 <script>
-  import { gsap } from 'gsap'
   import { DOMLoaded } from '@/ts/events'
 
   DOMLoaded(() => {
-    const cardAgro = document.querySelector('[data-card-agro]')
-    const cardWash = document.querySelector('[data-card-wash]')
+    const canvas = document.getElementById('flow-canvas') as HTMLCanvasElement
+    if (!canvas) return
 
-    if (cardAgro && cardWash) {
-      gsap.from([cardAgro, cardWash], {
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power2.out',
-      })
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let width = (canvas.width = window.innerWidth)
+    let height = (canvas.height = window.innerHeight)
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth
+      height = canvas.height = window.innerHeight
+    })
+
+    const mouse = { x: -1000, y: -1000 }
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX
+      mouse.y = e.clientY
+    })
+
+    // Generator linii prądu laminarnego
+    const linesCount = Math.floor(height / 36)
+    let offset = 0
+
+    const render = () => {
+      ctx.clearRect(0, 0, width, height)
+      ctx.lineWidth = 1
+      offset += 0.006
+
+      for (let i = 0; i < linesCount; i++) {
+        const yBase = (i * 36) + 18
+        ctx.beginPath()
+
+        for (let x = 0; x <= width; x += 16) {
+          // Fala płynu + deformacja od kursora
+          const wave = Math.sin(x * 0.003 + offset + i * 0.2) * 12
+          const dx = x - mouse.x
+          const dy = yBase - mouse.y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+          
+          let deflection = 0
+          if (dist < 180) {
+            deflection = Math.cos((dist / 180) * (Math.PI / 2)) * 24 * (dy < 0 ? -1 : 1)
+          }
+
+          const y = yBase + wave + deflection
+          if (x === 0) ctx.moveTo(x, y)
+          else ctx.lineTo(x, y)
+        }
+
+        // Subtelny, inżynieryjny grafit linii
+        ctx.strokeStyle = i % 2 === 0 ? 'rgba(10, 19, 31, 0.045)' : 'rgba(0, 163, 224, 0.04)'
+        ctx.stroke()
+      }
+
+      requestAnimationFrame(render)
     }
+
+    render()
   })
 </script>

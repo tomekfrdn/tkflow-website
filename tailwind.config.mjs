@@ -4,16 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-dark': '#041A2F',
+        'brand-ink': '#0A131F',
         'brand-blue': '#00A3E0',
-        'brand-agro': '#059669',
-        'brand-agro-dark': '#065F46',
+        'brand-dark': '#041A2F',
+        'brand-agro': '#047857',
+        'brand-agro-light': '#ECFDF5',
         'brand-wash': '#BE123C',
-        'brand-wash-dark': '#881337',
-        'brand-slate': '#64748B',
-        'brand-light': '#F8FAFC',
-        'brand-border': '#E2E8F0',
-        // Zachowanie kompatybilności wstecznej
+        'brand-wash-light': '#FFF1F2',
+        'brand-canvas': '#F6F8FA',
+        'brand-muted': '#64748B',
+        // Zachowanie kompatybilności wstecznej dla starszych klas
         'dark-blue': '#00a3e0',
         'light-blue': '#041A2F',
         'steel-blue': '#8FAEC4',

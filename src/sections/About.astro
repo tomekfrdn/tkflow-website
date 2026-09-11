@@ -1,48 +1,51 @@
 ---
-// About.astro — Człowiek za biznesem (Ekspert i Doradca Techniczny)
+// About.astro — Doradca Techniczny i Inżynier
 ---
 
 <section
   id="about"
   data-about
-  class="relative bg-white text-[#0F172A] py-20 sm:py-28 lg:py-36 px-5 sm:px-8 md:px-12 border-b border-slate-200 overflow-hidden"
+  class="relative bg-white text-[#0A131F] py-20 sm:py-28 lg:py-36 px-5 sm:px-8 md:px-12 border-b border-slate-200 overflow-hidden"
 >
-  <div class="max-w-5xl mx-auto">
-    <!-- Etykieta sekcji -->
-    <div class="flex items-center gap-2.5 font-mono text-xs tracking-wider uppercase text-[#00A3E0] font-bold mb-8">
-      <span class="w-2 h-2 rounded-sm bg-[#00A3E0]"></span>
-      <span>Doradztwo Techniczne &middot; Praktyka &middot; Odpowiedzialność</span>
+  <div class="max-w-6xl mx-auto">
+    <!-- Etykieta inżynieryjna -->
+    <div class="flex items-center gap-2.5 font-mono text-xs tracking-wider uppercase text-[#00A3E0] font-bold mb-10">
+      <span class="w-2 h-2 rounded-none bg-[#00A3E0]"></span>
+      <span>02 // OSOBISTA ODPOWIEDZIALNOŚĆ &middot; DORADZTWO TECHNICZNE</span>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
       
-      <!-- Portret Tomasza Kulpy -->
+      <!-- Portret z podpisem -->
       <div class="lg:col-span-4 flex flex-col items-center sm:items-start">
-        <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden shadow-lg border-2 border-slate-200 bg-slate-100">
+        <div class="relative w-40 h-40 sm:w-48 sm:h-48 rounded-2xl overflow-hidden shadow-xl border-2 border-slate-200 bg-slate-100">
           <img
             src="/images/tomasz-kulpa-tk-flow.jpg"
-            alt="Tomasz Kulpa - TK Flow"
-            width="176"
-            height="176"
+            alt="Tomasz Kulpa — Założyciel TK Flow"
+            width="192"
+            height="192"
             class="w-full h-full object-cover"
             loading="lazy"
           />
         </div>
-        <div class="mt-5 text-center sm:text-left">
-          <h3 class="font-display font-bold text-xl text-[#041A2F]">
+        <div class="mt-6 text-center sm:text-left">
+          <h3 class="font-display font-bold text-2xl text-[#0A131F]">
             Tomasz Kulpa
           </h3>
-          <p class="font-mono text-xs text-slate-500 uppercase tracking-wider mt-0.5 font-semibold">
+          <p class="font-mono text-xs text-slate-500 uppercase tracking-wider mt-1 font-semibold">
             Założyciel & Doradca Techniczny
           </p>
+          <span class="inline-block mt-3 px-2.5 py-1 rounded bg-slate-100 font-mono text-[11px] text-slate-700 font-medium">
+            Bydgoszcz &middot; Cała Polska
+          </span>
         </div>
       </div>
 
-      <!-- Treść merytoryczna (Twoje oryginalne słowa zoptymalizowane pod zaufanie) -->
+      <!-- Oryginalny manifest autorski zoptymalizowany pod zaufanie -->
       <div class="lg:col-span-8">
         <h2
           data-about-text
-          class="font-sans text-xl sm:text-2xl lg:text-[1.75rem] font-semibold text-[#041A2F] leading-relaxed"
+          class="font-sans text-xl sm:text-2xl lg:text-[1.85rem] font-semibold text-[#0A131F] leading-snug"
         >
           Nazywam się Tomasz Kulpa. Wspieram inwestorów i&nbsp;wykonawców w&nbsp;doborze oraz zaopatrzeniu w&nbsp;kluczowe komponenty do&nbsp;przesyłu wody i&nbsp;systemów wysokociśnieniowych.
         </h2>
@@ -51,24 +54,29 @@
           W&nbsp;TK Flow łączę zaplecze czołowych producentów z&nbsp;partnerskim doradztwem. Dbam o&nbsp;to, by&nbsp;instalacje pracowały bezawaryjnie, oszczędzając Twój czas i&nbsp;pieniądze.
         </p>
 
-        <!-- 3 Filary biznesowe TK Flow -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-slate-200">
-          <div>
-            <span class="block font-display font-bold text-base text-[#041A2F]">Sprawdzeni Producenci</span>
-            <p class="text-xs text-slate-500 mt-1 leading-normal">
-              Tylko atestowane rury polietylenowe oraz oryginalne pompy Udor z fabryki we Włoszech.
+        <!-- 3 Fundamenty Rzetelności -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 pt-8 border-t border-slate-200">
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+            <span class="font-mono text-xs text-[#00A3E0] font-bold block mb-1">01 / PRODUCENT</span>
+            <span class="block font-display font-bold text-base text-[#0A131F]">Pewne Źródło</span>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed font-sans">
+              Tylko certyfikowane fabryki: atestowane rury PE oraz oryginalne jednostki Udor z Włoch.
             </p>
           </div>
-          <div>
-            <span class="block font-display font-bold text-base text-[#041A2F]">Praktyczny Dobór</span>
-            <p class="text-xs text-slate-500 mt-1 leading-normal">
-              Pomoc w kalkulacji przepływów, doborze ciśnień, złączek oraz redukcji pod dane zadanie.
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+            <span class="font-mono text-xs text-emerald-700 font-bold block mb-1">02 / INŻYNIERIA</span>
+            <span class="block font-display font-bold text-base text-[#0A131F]">Precyzyjny Dobór</span>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed font-sans">
+              Kalkulacja strat ciśnienia, wydajności przepływu i doboru armatury pod specyfikę medium.
             </p>
           </div>
-          <div>
-            <span class="block font-display font-bold text-base text-[#041A2F]">Dostępność & Wysyłka</span>
-            <p class="text-xs text-slate-500 mt-1 leading-normal">
-              Sprawne zaopatrzenie w kluczowe komponenty, by eliminować przestój instalacji w sezonie.
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+            <span class="font-mono text-xs text-rose-700 font-bold block mb-1">03 / BEZPIECZEŃSTWO</span>
+            <span class="block font-display font-bold text-base text-[#0A131F]">Ochrona Sezonu</span>
+            <p class="text-xs text-slate-500 mt-1.5 leading-relaxed font-sans">
+              Błyskawiczne wsparcie zaopatrzeniowe, eliminujące ryzyko kosztownych przestojów.
             </p>
           </div>
         </div>
