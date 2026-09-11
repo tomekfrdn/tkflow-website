@@ -1,345 +1,83 @@
 ---
-// Hero.astro — WebGL Hydrodynamic Stream Shader (Kaustyka, Refrakcja, Kierunkowy Przepływ)
+// Hero.astro — Scandinavian Industrial Minimalism (Northvolt Style)
 ---
 
 <section
-  data-hero
-  class="relative w-full min-h-[100svh] bg-[#020B14] text-white flex flex-col justify-between pt-20 sm:pt-24 pb-8 px-6 md:px-12 overflow-hidden select-none border-b border-white/10"
+  class="relative w-full min-h-[100svh] bg-[#0D0F12] text-white flex flex-col justify-between pt-28 sm:pt-36 px-6 md:px-12 border-b border-white/10"
 >
-  <!-- CANVAS WEBGL: Symulacja żywego, ukierunkowanego strumienia wody z kaustyką -->
-  <canvas
-    id="water-stream-canvas"
-    class="absolute inset-0 w-full h-full pointer-events-none z-0"
-  ></canvas>
+  <!-- Monumentalny nagłówek misji -->
+  <div class="max-w-6xl">
+    <span class="block text-xs uppercase tracking-[0.25em] text-[#9AA1A9] mb-6 font-medium">
+      Infrastruktura Przesyłu Cieczy &middot; Bydgoszcz
+    </span>
 
-  <!-- Winieta optyczna i subtelna głębia -->
-  <div class="absolute inset-0 bg-radial-vignette pointer-events-none z-0 opacity-40"></div>
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl 2xl:text-8xl font-normal tracking-tight leading-[1.05] text-white max-w-5xl">
+      Zarządzanie przepływem cieczy dla rolnictwa i przemysłu.
+    </h1>
 
-  <!-- 1. GÓRNY PASEK KOMUNIKACJI -->
-  <div class="relative z-10 max-w-7xl mx-auto w-full flex flex-col sm:flex-row sm:items-end justify-between gap-4 pt-4 pb-4 border-b border-white/15">
-    <div>
-      <div class="flex items-center gap-2 font-mono text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-[#00A3E0] font-bold">
-        <span class="w-2 h-2 rounded-full bg-[#00A3E0] animate-ping"></span>
-        <span>ARCHITEKTURA PRZEPŁYWU // DYSTRYBUCJA I DORADZTWO TECHNICZNE</span>
-      </div>
-      <h1 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl uppercase tracking-tight text-white mt-1 drop-shadow-lg">
-        Kontrola Przepływu Wody
-      </h1>
-    </div>
-
-    <div class="font-mono text-xs text-[#8FAEC4] hidden md:flex items-center gap-6">
-      <div>
-        <span class="block text-[9px] uppercase text-white/40">CIŚNIENIE ROBOCZE</span>
-        <span class="text-white font-semibold">0 &mdash; 200+ BAR</span>
-      </div>
-      <div class="border-l border-white/15 pl-6">
-        <span class="block text-[9px] uppercase text-white/40">DORADZTWO</span>
-        <span class="text-emerald-400 font-semibold">TOMASZ KULPA</span>
-      </div>
-    </div>
+    <p class="text-base sm:text-xl text-[#9AA1A9] max-w-3xl mt-8 sm:mt-10 font-light leading-relaxed">
+      TK Flow łączy zaplecze wiodących europejskich producentów z inżynieryjnym doradztwem. Dostarczamy certyfikowaną armaturę przesyłową PE dla gospodarstw rolnych oraz agregaty wysokociśnieniowe Udor dla myjni bezdotykowych.
+    </p>
   </div>
 
-  <!-- 2. SERCE STRONY: DWA PORTALE PRODUKTOWE NA STRUMIENIU WODY -->
-  <div class="relative z-20 flex-1 flex flex-col justify-center my-auto max-w-7xl mx-auto w-full py-6">
-    <div class="text-center max-w-2xl mx-auto mb-8">
-      <p class="font-sans text-sm sm:text-base text-slate-200 leading-relaxed font-light drop-shadow">
-        Wspieramy inwestorów i wykonawców w doborze oraz zaopatrzeniu w kluczowe komponenty hydrauliczne. Wybierz swój obszar:
-      </p>
-    </div>
-
-    <!-- Dwa portale oparte na szkle (Frosted Glass) -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-      
-      <!-- ================= STRUMIEŃ 01: RURAPE.PL (AGRO & NAWADNIANIE) ================= -->
-      <a
-        href="https://rurape.pl"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-[#02130F]/75 backdrop-blur-xl border-2 border-emerald-500/40 hover:border-emerald-400 shadow-[0_10px_40px_rgba(4,120,87,0.25)] hover:shadow-[0_15px_60px_rgba(4,120,87,0.45)] transition-all duration-500 overflow-hidden"
-      >
-        <div class="absolute -top-24 -right-24 w-72 h-72 bg-emerald-500/15 rounded-full blur-[80px] group-hover:bg-emerald-500/30 transition-all duration-700 pointer-events-none"></div>
-
-        <div>
-          <div class="flex items-center justify-between font-mono text-xs mb-6">
-            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold uppercase tracking-wider text-[11px] border border-emerald-500/40 backdrop-blur-md">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-              Strumień 01 // Nawadnianie Rolnicze
-            </span>
-            <span class="text-emerald-400 font-semibold group-hover:translate-x-0.5 transition-transform">
-              rurape.pl &nearr;
-            </span>
-          </div>
-
-          <span class="font-mono text-xs text-emerald-400 font-semibold uppercase tracking-widest block mb-1">
-            Magistrale Wodne &middot; Uprawy &middot; Sady &middot; Plantacje
-          </span>
-          <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white group-hover:text-emerald-300 transition-colors uppercase tracking-tight">
-            Rury PE do Nawadniania
-          </h2>
-          <p class="font-sans text-sm sm:text-base text-slate-200 mt-3 leading-relaxed">
-            Certyfikowane rury polietylenowe PE100 i PE100-RC. Kompletne zasilanie instalacji zraszających i linii kroplujących o wieloletniej odporności na naprężenia gruntu.
-          </p>
-
-          <div class="grid grid-cols-3 gap-3 mt-6 pt-6 border-t border-white/10 font-mono text-xs text-white">
-            <div>
-              <span class="block text-[10px] text-white/50 uppercase">Gatunek</span>
-              <span class="font-bold">PE100 / RC</span>
-            </div>
-            <div>
-              <span class="block text-[10px] text-white/50 uppercase">Średnice</span>
-              <span class="font-bold">16 &mdash; 110 mm</span>
-            </div>
-            <div>
-              <span class="block text-[10px] text-white/50 uppercase">Certyfikat</span>
-              <span class="text-emerald-400 font-bold">Atest Higieniczny</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-8 pt-2">
-          <div class="inline-flex items-center justify-between w-full py-4 px-6 rounded-xl bg-emerald-600 group-hover:bg-emerald-500 text-white font-mono text-xs uppercase tracking-wider font-bold transition-all shadow-lg">
-            <span>Przejdź do oferty rur: rurape.pl</span>
-            <span class="text-sm font-bold group-hover:translate-x-1 transition-transform">&rarr;</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- ================= STRUMIEŃ 02: SERCEMYJNI.PL (WYSOKIE CIŚNIENIE) ================= -->
-      <a
-        href="https://sercemyjni.pl"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group relative flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-[#1A060C]/75 backdrop-blur-xl border-2 border-rose-500/40 hover:border-rose-400 shadow-[0_10px_40px_rgba(225,29,72,0.25)] hover:shadow-[0_15px_60px_rgba(225,29,72,0.45)] transition-all duration-500 overflow-hidden"
-      >
-        <div class="absolute -top-24 -right-24 w-72 h-72 bg-rose-500/15 rounded-full blur-[80px] group-hover:bg-rose-500/30 transition-all duration-700 pointer-events-none"></div>
-
-        <div>
-          <div class="flex items-center justify-between font-mono text-xs mb-6">
-            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-500/20 text-rose-300 font-bold uppercase tracking-wider text-[11px] border border-rose-500/40 backdrop-blur-md">
-              <span class="w-2 h-2 rounded-full bg-rose-400"></span>
-              Strumień 02 // Wysokie Ciśnienie 200 Bar
-            </span>
-            <span class="text-rose-400 font-semibold group-hover:translate-x-0.5 transition-transform">
-              sercemyjni.pl &nearr;
-            </span>
-          </div>
-
-          <span class="font-mono text-xs text-rose-400 font-semibold uppercase tracking-widest block mb-1">
-            Myjnie Bezdotykowe &middot; Agregaty &middot; Marka Udor
-          </span>
-          <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white group-hover:text-rose-300 transition-colors uppercase tracking-tight">
-            Pompy do Myjni
-          </h2>
-          <p class="font-sans text-sm sm:text-base text-slate-200 mt-3 leading-relaxed">
-            Wysokociśnieniowe pompy nurnikowe Udor z Włoch. Oryginalne podzespoły ceramiczne i armatura stworzone do pracy ciągłej 24/7 w agresywnym środowisku chemii myjącej.
-          </p>
-
-          <div class="grid grid-cols-3 gap-3 mt-6 pt-6 border-t border-white/10 font-mono text-xs text-white">
-            <div>
-              <span class="block text-[10px] text-white/50 uppercase">Ciśnienie</span>
-              <span class="font-bold">Do 200 Bar</span>
-            </div>
-            <div>
-              <span class="block text-[10px] text-white/50 uppercase">Nurniki</span>
-              <span class="font-bold">Ceramiczne</span>
-            </div>
-            <div>
-              <span class="block text-[10px] text-white/50 uppercase">Producent</span>
-              <span class="text-rose-400 font-bold">UDOR (Włochy)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-8 pt-2">
-          <div class="inline-flex items-center justify-between w-full py-4 px-6 rounded-xl bg-rose-600 group-hover:bg-rose-500 text-white font-mono text-xs uppercase tracking-wider font-bold transition-all shadow-lg">
-            <span>Przejdź do oferty pomp: sercemyjni.pl</span>
-            <span class="text-sm font-bold group-hover:translate-x-1 transition-transform">&rarr;</span>
-          </div>
-        </div>
-      </a>
-
-    </div>
-  </div>
-
-  <!-- 3. DOLNY STATUS OPERACYJNY -->
-  <div class="relative z-10 pt-4 flex flex-col sm:flex-row items-center justify-between border-t border-white/15 text-xs text-[#8FAEC4] font-mono gap-3">
-    <div class="flex items-center gap-2">
-      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-      <span>DORADZTWO TECHNICZNE: <strong>TOMASZ KULPA</strong></span>
-    </div>
-
+  <!-- Siatka modułowa: Dwa obszary działalności (Northvolt Grid) -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 border-t border-white/10 mt-16 sm:mt-24">
+    
+    <!-- Moduł 01: Nawadnianie / rurape.pl -->
     <a
-      href="#about"
-      class="hover:text-white transition-colors flex items-center gap-1.5 uppercase tracking-wider font-semibold text-[11px] group"
+      href="https://rurape.pl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group flex flex-col justify-between py-10 lg:py-14 lg:pr-12 border-b lg:border-b-0 lg:border-r border-white/10 hover:bg-white/[0.02] transition-colors"
     >
-      <span>Poznaj zaplecze inżynieryjne TK Flow</span>
-      <span class="group-hover:translate-y-0.5 transition-transform">&darr;</span>
+      <div>
+        <div class="flex items-center justify-between text-xs tracking-widest text-[#9AA1A9] uppercase mb-8">
+          <span>01 / Systemy Irygacyjne</span>
+          <span class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-white text-sm">&nearr;</span>
+        </div>
+
+        <h2 class="text-2xl sm:text-4xl font-normal text-white tracking-tight mb-4">
+          Rury PE do Nawadniania
+        </h2>
+
+        <p class="text-sm sm:text-base text-[#9AA1A9] font-light leading-relaxed max-w-md">
+          Certyfikowane rury polietylenowe PE100 oraz PE100-RC. Magistrale przesyłowe dla sadownictwa, plantacji jagodowych i rolnictwa polowego.
+        </p>
+      </div>
+
+      <div class="mt-10 flex items-center justify-between text-xs uppercase tracking-wider text-white/60 group-hover:text-white transition-colors">
+        <span>Przejdź do platformy rurape.pl</span>
+        <span>&rarr;</span>
+      </div>
     </a>
+
+    <!-- Moduł 02: Myjnie / sercemyjni.pl -->
+    <a
+      href="https://sercemyjni.pl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group flex flex-col justify-between py-10 lg:py-14 lg:pl-12 hover:bg-white/[0.02] transition-colors"
+    >
+      <div>
+        <div class="flex items-center justify-between text-xs tracking-widest text-[#9AA1A9] uppercase mb-8">
+          <span>02 / Wysokie Ciśnienie 200 Bar</span>
+          <span class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-white text-sm">&nearr;</span>
+        </div>
+
+        <h2 class="text-2xl sm:text-4xl font-normal text-white tracking-tight mb-4">
+          Pompy Nurnikowe do Myjni
+        </h2>
+
+        <p class="text-sm sm:text-base text-[#9AA1A9] font-light leading-relaxed max-w-md">
+          Przemysłowe pompy wysokociśnieniowe Udor (Włochy), podzespoły ceramiczne oraz armatura stworzone do ciągłej pracy w warunkach agresywnej chemii myjącej.
+        </p>
+      </div>
+
+      <div class="mt-10 flex items-center justify-between text-xs uppercase tracking-wider text-white/60 group-hover:text-white transition-colors">
+        <span>Przejdź do platformy sercemyjni.pl</span>
+        <span>&rarr;</span>
+      </div>
+    </a>
+
   </div>
 </section>
-
-<style>
-  .bg-radial-vignette {
-    background: radial-gradient(circle at center, transparent 40%, rgba(2, 11, 20, 0.8) 100%);
-  }
-</style>
-
-<!-- GLSL SHADER SILNIKA WODNEGO (CZYSTY WEBGL) -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('water-stream-canvas') as HTMLCanvasElement
-    if (!canvas) return
-
-    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl') as WebGLRenderingContext
-    if (!gl) return
-
-    // Vertex Shader: pełnoekranowy prostokąt
-    const vsSource = `
-      attribute vec2 a_position;
-      varying vec2 v_uv;
-      void main() {
-        v_uv = (a_position + 1.0) * 0.5;
-        gl_Position = vec4(a_position, 0.0, 1.0);
-      }
-    `
-
-    // Fragment Shader: Symulacja strumienia, kaustyki i refrakcji
-    const fsSource = `
-      precision mediump float;
-      varying vec2 v_uv;
-      uniform vec2 u_resolution;
-      uniform float u_time;
-      uniform vec2 u_mouse;
-
-      // Szum Voronoi symulujący kaustykę wodną
-      vec2 hash2(vec2 p) {
-        return fract(sin(vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)))) * 43758.5453);
-      }
-
-      float voronoiCaustic(vec2 p) {
-        vec2 n = floor(p);
-        vec2 f = fract(p);
-        float m_dist = 1.0;
-        for (int j = -1; j <= 1; j++) {
-          for (int i = -1; i <= 1; i++) {
-            vec2 g = vec2(float(i), float(j));
-            vec2 o = hash2(n + g);
-            o = 0.5 + 0.5 * sin(u_time * 2.2 + 6.2831 * o);
-            vec2 r = g + o - f;
-            float d = dot(r, r);
-            m_dist = min(m_dist, d);
-          }
-        }
-        return sqrt(m_dist);
-      }
-
-      void main() {
-        vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-        float aspect = u_resolution.x / u_resolution.y;
-        vec2 p = uv;
-        p.x *= aspect;
-
-        // Kierunkowy wektor prędkości strumienia wody (diagonalny pęd cieczy)
-        vec2 flowDir = vec2(0.25, 0.75);
-        vec2 flowUV = p * 4.5 + flowDir * (u_time * 0.7);
-
-        // Reakcja cieczy na kursor myszy
-        vec2 mouseP = u_mouse / u_resolution.xy;
-        mouseP.x *= aspect;
-        float mouseDist = length(p - mouseP);
-        float mouseWave = sin(mouseDist * 28.0 - u_time * 5.0) * exp(-mouseDist * 4.0) * 0.08;
-
-        // Podwójna warstwa kaustyki świetlnej
-        float c1 = voronoiCaustic(flowUV + mouseWave);
-        float c2 = voronoiCaustic(flowUV * 1.6 - flowDir * (u_time * 0.5) - mouseWave);
-        float caustic = pow(1.0 - (c1 * 0.6 + c2 * 0.4), 3.0) * 1.8;
-
-        // Falowanie normalnych i refrakcja
-        float wave = sin(p.x * 5.0 + u_time * 2.0) * cos(p.y * 5.0 + u_time * 2.0) * 0.04;
-        wave += mouseWave;
-
-        // Paleta barw głębi wody TK Flow
-        vec3 deepColor = vec3(0.01, 0.05, 0.12);     // Głębia hydrotechniczna
-        vec3 surfaceColor = vec3(0.0, 0.45, 0.75);   // Czysty błękit ciśnieniowy
-        vec3 causticHighlight = vec3(0.35, 0.82, 1.0);// Krystaliczny rozbłysk światła
-
-        // Mieszanie kolorów z efektem Fresnela
-        float fresnel = pow(1.0 - uv.y + wave, 2.0) * 0.6;
-        vec3 finalColor = mix(deepColor, surfaceColor, uv.y + wave * 0.5);
-        finalColor += causticHighlight * caustic * 0.55;
-        finalColor += vec3(0.8, 0.95, 1.0) * pow(caustic, 4.0) * 0.35; // Błyski lustrzane
-        finalColor += vec3(0.0, 0.3, 0.5) * fresnel;
-
-        gl_FragColor = vec4(finalColor, 1.0);
-      }
-    `
-
-    function createShader(gl: WebGLRenderingContext, type: number, source: string) {
-      const shader = gl.createShader(type)
-      if (!shader) return null
-      gl.shaderSource(shader, source)
-      gl.compileShader(shader)
-      return shader
-    }
-
-    const vs = createShader(gl, gl.VERTEX_SHADER, vsSource)
-    const fs = createShader(gl, gl.FRAGMENT_SHADER, fsSource)
-    if (!vs || !fs) return
-
-    const program = gl.createProgram()
-    if (!program) return
-    gl.attachShader(program, vs)
-    gl.attachShader(program, fs)
-    gl.linkProgram(program)
-    gl.useProgram(program)
-
-    // Bufor wierzchołków
-    const positionBuffer = gl.createBuffer()
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
-    gl.bufferData(
-      gl.ARRAY_BUFFER,
-      new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]),
-      gl.STATIC_DRAW
-    )
-
-    const aPosition = gl.getAttribLocation(program, 'a_position')
-    gl.enableVertexAttribArray(aPosition)
-    gl.vertexAttribPointer(aPosition, 2, gl.FLOAT, false, 0, 0)
-
-    // Lokacje uniformów
-    const uResolution = gl.getUniformLocation(program, 'u_resolution')
-    const uTime = gl.getUniformLocation(program, 'u_time')
-    const uMouse = gl.getUniformLocation(program, 'u_mouse')
-
-    let mouseX = -1000
-    let mouseY = -1000
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX
-      mouseY = window.innerHeight - e.clientY
-    })
-
-    function resize() {
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5)
-      canvas.width = window.innerWidth * dpr
-      canvas.height = window.innerHeight * dpr
-      gl.viewport(0, 0, canvas.width, canvas.height)
-    }
-
-    window.addEventListener('resize', resize)
-    resize()
-
-    const startTime = performance.now()
-    function render() {
-      const currentTime = (performance.now() - startTime) * 0.001
-      gl.uniform2f(uResolution, canvas.width, canvas.height)
-      gl.uniform1f(uTime, currentTime)
-      gl.uniform2f(uMouse, mouseX * (canvas.width / window.innerWidth), mouseY * (canvas.height / window.innerHeight))
-
-      gl.drawArrays(gl.TRIANGLES, 0, 6)
-      requestAnimationFrame(render)
-    }
-
-    requestAnimationFrame(render)
-  })
-</script>

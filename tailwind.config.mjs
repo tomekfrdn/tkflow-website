@@ -4,21 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-dark': '#020B14',
-        'brand-navy': '#041A2F',
-        'brand-blue': '#00A3E0',
-        'brand-agro': '#059669',
-        'brand-wash': '#DC2626',
-        'brand-slate': '#8FAEC4',
+        'nv-dark': '#0D0F12',
+        'nv-card': '#13161B',
+        'nv-border': 'rgba(255, 255, 255, 0.12)',
+        'nv-muted': '#9AA1A9',
+        'nv-light': '#F3F4F6',
         // Kompatybilność wsteczna
-        'dark-blue': '#00A3E0',
-        'light-blue': '#041A2F',
-        'steel-blue': '#8FAEC4',
-        'light-gray': '#F0F6FA',
+        'dark-blue': '#0D0F12',
+        'light-blue': '#13161B',
+        'steel-blue': '#9AA1A9',
+        'light-gray': '#F3F4F6',
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
     },
   },

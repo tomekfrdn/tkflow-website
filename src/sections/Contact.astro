@@ -5,103 +5,96 @@ const currentYear = new Date().getFullYear()
 
 <section
   id="contact"
-  class="relative bg-white text-[#0B1523] py-20 sm:py-28 px-5 sm:px-8 md:px-12"
+  class="bg-[#0D0F12] text-white py-24 sm:py-32 px-6 md:px-12"
 >
-  <div class="max-w-6xl mx-auto">
-    <div class="mb-14">
-      <h2 class="font-extrabold text-3xl sm:text-4xl uppercase text-[#0B1523] tracking-tight">
-        Transparentne Dane i Kontakt
-      </h2>
-      <p class="font-sans text-base sm:text-lg text-slate-600 mt-3 max-w-2xl">
-        Żadnych ukrytych formularzy. Zadzwoń bezpośrednio do inżyniera prowadzącego, aby uzyskać wycenę i dobrać komponenty.
-      </p>
-    </div>
+  <div class="max-w-6xl">
+    <span class="block text-xs uppercase tracking-[0.25em] text-[#9AA1A9] mb-6 font-medium">
+      Kontakt &middot; Bydgoszcz
+    </span>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-slate-200">
+    <h2 class="text-3xl sm:text-5xl font-normal tracking-tight text-white mb-6">
+      Doradztwo techniczne i wycena.
+    </h2>
+
+    <p class="text-base sm:text-lg text-[#9AA1A9] font-light max-w-2xl mb-16 leading-relaxed">
+      Zadzwoń bezpośrednio lub wyślij specyfikację zapotrzebowania drogą mailową.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pt-12 border-t border-white/10">
       
-      <!-- Adres i Rejestr -->
-      <div class="p-8 rounded-2xl bg-[#F8FAFC] border border-slate-200 flex flex-col justify-between">
-        <div>
-          <span class="block font-mono text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-4">
-            Dane Rejestrowe
-          </span>
-          <p class="font-bold text-lg text-[#0B1523] mb-1">TK Flow Tomasz Kulpa</p>
-          <p class="text-sm text-slate-600">ul. Marcina Kromera 7B/34</p>
-          <p class="text-sm text-slate-600">85-790 Bydgoszcz</p>
-        </div>
-        <p class="text-sm text-slate-600 mt-6 pt-4 border-t border-slate-200 font-mono">
-          NIP: <span class="font-bold text-[#0B1523]">0000000000</span>
+      <!-- Dane rejestrowe -->
+      <div>
+        <span class="block text-xs uppercase tracking-widest text-[#9AA1A9] mb-4">
+          Rejestr
+        </span>
+        <p class="text-base text-white font-medium mb-1">TK Flow Tomasz Kulpa</p>
+        <p class="text-sm text-[#9AA1A9]">ul. Marcina Kromera 7B/34</p>
+        <p class="text-sm text-[#9AA1A9]">85-790 Bydgoszcz</p>
+        <p class="text-sm text-[#9AA1A9] mt-3 font-mono">
+          NIP: 0000000000
         </p>
       </div>
 
-      <!-- Kontakt Bezpośredni -->
-      <div class="p-8 rounded-2xl bg-[#F8FAFC] border border-slate-200 flex flex-col justify-between">
+      <!-- Bezpośredni kontakt -->
+      <div>
+        <span class="block text-xs uppercase tracking-widest text-[#9AA1A9] mb-4">
+          Bezpośrednia Infolinia
+        </span>
+        <div class="mb-4">
+          <a
+            href="tel:+48000000000"
+            class="text-xl sm:text-2xl text-white hover:text-[#9AA1A9] transition-colors font-normal"
+          >
+            +48 000 000 000
+          </a>
+        </div>
         <div>
-          <span class="block font-mono text-[10px] uppercase tracking-widest text-[#0066CC] font-bold mb-4">
-            Infolinia Techniczna
-          </span>
-          <div class="mb-5">
-            <span class="block text-xs text-slate-500 mb-1 font-sans">Rozmowa i dobór:</span>
-            <a
-              href="tel:+48000000000"
-              class="font-mono text-2xl font-bold text-[#0B1523] hover:text-[#0066CC] transition-colors tracking-tight"
-            >
-              +48 000 000 000
-            </a>
-          </div>
-          <div>
-            <span class="block text-xs text-slate-500 mb-1 font-sans">Zapytania ofertowe:</span>
-            <a
-              href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#116;&#107;&#102;&#108;&#111;&#119;&#46;&#112;&#108;"
-              class="font-mono text-sm font-bold text-[#0B1523] hover:text-[#0066CC] transition-colors inline-block"
-            >
-              <bdo dir="rtl">lp.wolfkt@tkatnok</bdo>
-            </a>
-          </div>
+          <a
+            href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#116;&#107;&#102;&#108;&#111;&#119;&#46;&#112;&#108;"
+            class="text-sm text-white hover:text-[#9AA1A9] transition-colors inline-block"
+          >
+            <bdo dir="rtl">lp.wolfkt@tkatnok</bdo>
+          </a>
         </div>
       </div>
 
-      <!-- Szybkie linki -->
-      <div class="p-8 rounded-2xl bg-[#F8FAFC] border border-slate-200 flex flex-col justify-between">
-        <div>
-          <span class="block font-mono text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-4">
-            Przejdź do oferty
-          </span>
-          <div class="space-y-4">
-            <div>
-              <a
-                href="https://rurape.pl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="font-bold text-emerald-700 hover:text-emerald-800 transition-colors inline-flex items-center gap-1.5"
-              >
-                <span>Nawadnianie: rurape.pl</span>
-                <span class="text-xs">&nearr;</span>
-              </a>
-            </div>
-            <div>
-              <a
-                href="https://sercemyjni.pl"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="font-bold text-[#DC2626] hover:text-[#B91C1C] transition-colors inline-flex items-center gap-1.5"
-              >
-                <span>Pompy: sercemyjni.pl</span>
-                <span class="text-xs">&nearr;</span>
-              </a>
-            </div>
-          </div>
-        </div>
+      <!-- Bezpośrednie przejścia -->
+      <div>
+        <span class="block text-xs uppercase tracking-widest text-[#9AA1A9] mb-4">
+          Katalogi Produktowe
+        </span>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a
+              href="https://rurape.pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white hover:text-[#9AA1A9] transition-colors flex items-center justify-between border-b border-white/10 pb-2"
+            >
+              <span>rurape.pl</span>
+              <span>&nearr;</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://sercemyjni.pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white hover:text-[#9AA1A9] transition-colors flex items-center justify-between border-b border-white/10 pb-2"
+            >
+              <span>sercemyjni.pl</span>
+              <span>&nearr;</span>
+            </a>
+          </li>
+        </ul>
       </div>
 
     </div>
 
     <!-- Stopka -->
-    <div class="mt-12 pt-6 border-t border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-slate-500">
-      <p>&copy; {currentYear} TK FLOW Tomasz Kulpa. Wszelkie prawa zastrzeżone.</p>
-      <p class="uppercase tracking-widest text-[10px] text-[#0B1523] font-bold">
-        Technologie Przesyłu Wody
-      </p>
+    <div class="mt-24 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center text-xs text-[#9AA1A9] tracking-wider uppercase gap-4">
+      <p>&copy; {currentYear} TK FLOW Tomasz Kulpa</p>
+      <p>Technologie Przesyłu Cieczy</p>
     </div>
   </div>
 </section>
