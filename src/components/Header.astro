@@ -1,32 +1,29 @@
 ---
-// Header.astro — Alabaster Command Bar z Twoim imieniem i nazwiskiem w miejscu dawnej centrali
+// Header.astro — Optycznie zlicowane wyrównanie lewej strony, identyczne ostylowanie TK Flow i Tomasz Kulpa
 ---
 
-<header class="fixed top-0 inset-x-0 z-50 bg-[#F4F3EE]/90 backdrop-blur-md border-b border-tk-border h-20 flex items-center px-6 md:px-12 transition-all duration-300">
+<header class="fixed top-0 inset-x-0 z-50 bg-[#F4F3EE]/95 backdrop-blur-md border-b border-tk-border h-20 flex items-center px-6 md:px-12 transition-all duration-300">
   <div class="w-full max-w-[1600px] mx-auto flex items-center justify-between">
     
-    <!-- Identyfikator TK Flow z Twoim imieniem i nazwiskiem zamiast "Centrala dystrybucyjna" -->
     <a href="/" class="flex items-center gap-3.5 group outline-none">
       <div class="w-9 h-9 bg-tk-dark text-white flex items-center justify-center font-display font-bold text-sm tracking-tighter transition-transform group-hover:scale-105 shrink-0">
         TK
       </div>
-      <div class="flex flex-col">
-        <span class="font-display font-extrabold text-lg md:text-xl tracking-tight text-tk-dark uppercase leading-none">
+      <div class="flex flex-col items-start justify-center">
+        <span class="font-display font-extrabold text-lg md:text-xl tracking-tight text-tk-dark uppercase leading-none block -ml-[1px]">
           TK Flow
         </span>
-        <span class="text-[10px] text-tk-muted tracking-wide uppercase mt-1 font-mono font-bold">
+        <span class="font-display font-extrabold text-lg md:text-xl tracking-tight text-tk-dark uppercase leading-none block -ml-[1px] mt-1">
           Tomasz Kulpa
         </span>
       </div>
     </a>
 
-    <!-- Status (Ukryty na mobile) -->
     <div class="hidden lg:flex items-center gap-3 font-mono text-[11px] font-bold text-tk-muted uppercase tracking-wider">
       <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
       <span>Dostawy Cała Polska</span>
     </div>
 
-    <!-- Infolinia -->
     <a href="tel:+48000000000" class="group flex items-center gap-2 md:gap-3">
       <span class="hidden sm:inline-block text-[10px] uppercase tracking-widest text-tk-muted font-bold font-mono group-hover:text-tk-dark transition-colors">
         Bezpośrednio z Tomaszem:

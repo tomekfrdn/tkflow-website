@@ -1,5 +1,5 @@
 ---
-// Contact.astro — Skorygowane proporcje przestrzeni stopki
+// Contact.astro
 const currentYear = new Date().getFullYear()
 ---
 
@@ -12,7 +12,6 @@ const currentYear = new Date().getFullYear()
         Bezpośredni Punkt Kontaktowy &middot; Doradztwo
       </span>
       
-      <!-- Gigantyczny numer telefonu w jednej linii -->
       <a 
         href="tel:+48000000000" 
         class="block font-display font-extrabold text-[clamp(2rem,7.2vw,7.5rem)] leading-[0.85] tracking-tightest hover:opacity-70 kh-transition whitespace-nowrap mb-6"
@@ -30,27 +29,28 @@ const currentYear = new Date().getFullYear()
       </div>
     </div>
 
-    <!-- Dane Rejestrowe i Siatka z idealnym balansem odstępu (pt-16 mt-16 zamiast 20) -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-16 border-t border-white/15 mt-16 font-mono text-xs">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-12 pt-16 border-t border-white/15 mt-16 font-mono text-xs">
       
-      <div>
+      <div class="md:col-span-4 flex flex-col items-start text-left">
         <span class="block uppercase tracking-widest opacity-50 font-bold mb-3">Centrala Bydgoszcz</span>
         <p class="font-bold text-sm tracking-wide text-white mb-1">TK Flow Tomasz Kulpa</p>
         <p class="opacity-75 leading-relaxed">ul. Marcina Kromera 7B/34<br/>85-790 Bydgoszcz</p>
         <p class="font-bold mt-3 text-white/90">NIP: 0000000000</p>
       </div>
 
-      <div class="flex flex-col gap-3 font-bold uppercase tracking-widest">
-        <span class="block opacity-50 mb-1">Platformy Handlowe</span>
-        <a href="https://rurape.pl" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 kh-transition flex items-center justify-between border-b border-white/10 pb-2 text-emerald-400">
-          rurape.pl <span>&nearr;</span>
-        </a>
-        <a href="https://sercemyjni.pl" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 kh-transition flex items-center justify-between border-b border-white/10 pb-2 text-rose-300">
-          sercemyjni.pl <span>&nearr;</span>
-        </a>
+      <div class="md:col-span-4 flex flex-col items-start text-left">
+        <span class="block uppercase tracking-widest opacity-50 font-bold mb-3">Platformy Handlowe</span>
+        <div class="flex flex-col gap-3 font-bold uppercase tracking-widest w-full">
+          <a href="https://rurape.pl" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 kh-transition flex items-center justify-between border-b border-white/10 pb-2 text-emerald-400">
+            rurape.pl <span>&nearr;</span>
+          </a>
+          <a href="https://sercemyjni.pl" target="_blank" rel="noopener noreferrer" class="hover:opacity-70 kh-transition flex items-center justify-between border-b border-white/10 pb-2 text-rose-300">
+            sercemyjni.pl <span>&nearr;</span>
+          </a>
+        </div>
       </div>
 
-      <div class="flex flex-col justify-end text-[10px] opacity-40 uppercase tracking-widest font-bold">
+      <div class="md:col-span-4 flex flex-col items-start md:items-end text-left md:text-right justify-end opacity-40 uppercase tracking-widest font-bold text-[10px]">
         <p>&copy; {currentYear} TK FLOW. Wszelkie prawa zastrzeżone.</p>
         <p class="mt-1">Technologie Przesyłu Cieczy</p>
       </div>

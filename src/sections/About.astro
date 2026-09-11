@@ -1,14 +1,13 @@
 ---
-// About.astro — Skorygowane odstępy i idealne osiowanie pionowe
+// About.astro
 ---
 
 <section id="doradztwo" class="w-full bg-white py-24 md:py-36 px-6 md:px-12 border-b-2 border-tk-dark">
   <div class="max-w-[1600px] mx-auto">
     
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
       
-      <!-- Lewa kolumna: Kompaktowy portret -->
-      <div class="lg:col-span-3 flex flex-col">
+      <div class="lg:col-span-3 flex flex-col items-start text-left">
         <div class="w-32 h-32 sm:w-40 sm:h-40 bg-tk-base border border-tk-border overflow-hidden mb-4 filter grayscale contrast-125 shadow-sm">
           <img 
             src="/images/tomasz-kulpa-tk-flow.jpg" 
@@ -25,7 +24,6 @@
         </p>
       </div>
 
-      <!-- Prawa kolumna: Manifest i zhierarchizowane filary -->
       <div class="lg:col-span-9 flex flex-col justify-center">
         <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-tk-dark leading-[1.15] tracking-tight mb-8">
           „W rolnictwie i przemyśle przestój kosztuje majątek. Zabezpieczamy Twój sezon.”
@@ -35,23 +33,22 @@
           W TK Flow nie jesteśmy anonimową hurtownią. Gwarantuję doradztwo oparte na sprawdzonym, europejskim pochodzeniu materiałów i pełną przewidywalność dostaw bezpośrednio pod wskazany adres.
         </p>
 
-        <!-- Filary z zachowanym, ostrym rytmem siatki -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-tk-border font-sans">
-          <div>
+          <div class="flex flex-col items-start">
             <span class="block font-mono text-[10px] uppercase tracking-widest text-tk-dark font-bold mb-2">[ 01 / Atesty UE ]</span>
             <h4 class="font-display font-bold text-base text-tk-dark mb-1">Pewne Źródło</h4>
             <p class="text-xs sm:text-sm text-tk-muted font-light leading-relaxed">
               Dostarczamy wyłącznie atestowane rury PE oraz oryginalne jednostki Udor produkowane we Włoszech.
             </p>
           </div>
-          <div>
+          <div class="flex flex-col items-start">
             <span class="block font-mono text-[10px] uppercase tracking-widest text-tk-dark font-bold mb-2">[ 02 / Partnerstwo ]</span>
             <h4 class="font-display font-bold text-base text-tk-dark mb-1">Bezbłędny Dobór</h4>
             <p class="text-xs sm:text-sm text-tk-muted font-light leading-relaxed">
               Pomagam dobrać optymalne średnice, złączki i osprzęt bezpośrednio pod specyfikę Twojej inwestycji.
             </p>
           </div>
-          <div>
+          <div class="flex flex-col items-start">
             <span class="block font-mono text-[10px] uppercase tracking-widest text-tk-dark font-bold mb-2">[ 03 / Logistyka ]</span>
             <h4 class="font-display font-bold text-base text-tk-dark mb-1">Ochrona Sezonu</h4>
             <p class="text-xs sm:text-sm text-tk-muted font-light leading-relaxed">

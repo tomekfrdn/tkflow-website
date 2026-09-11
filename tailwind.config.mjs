@@ -8,8 +8,8 @@ export default {
         'tk-dark': '#1A1D20',
         'tk-border': '#E2E0D8',
         'tk-muted': '#656A70',
-        'tk-agro': '#134E39', // Głęboka zieleń nawadniania
-        'tk-wash': '#651C32', // Karmin pomp Udor
+        'tk-agro': '#134E39', 
+        'tk-wash': '#651C32',
       },
       fontFamily: {
         sans: ['"Inter"', 'sans-serif'],

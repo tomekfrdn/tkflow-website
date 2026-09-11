@@ -1,5 +1,5 @@
 ---
-// Hero.astro — Skorygowane proporcje interlinii i marginesów
+// Hero.astro
 import { Image } from 'astro:assets';
 import ruryImage from '../images/rury-pe.webp';
 import pompaImage from '../images/pompy-do-myjni.webp';
@@ -15,9 +15,9 @@ import pompaImage from '../images/pompy-do-myjni.webp';
       </span>
     </div>
 
-    <!-- Skorygowana interlinia (leading-[0.9]) dla perfekcyjnego złączenia wierszy -->
     <h1 class="font-display font-extrabold text-[10.5vw] sm:text-[8.5vw] lg:text-[7rem] leading-[0.9] tracking-tightest text-tk-dark uppercase select-none mb-8">
-      Technologie przesyłu cieczy.
+      <span class="block">Technologie</span>
+      <span class="block">przesyłu cieczy.</span>
     </h1>
 
     <p class="font-sans text-base sm:text-xl md:text-2xl text-tk-muted max-w-3xl leading-relaxed font-light">
@@ -27,7 +27,6 @@ import pompaImage from '../images/pompy-do-myjni.webp';
 
   <div id="platformy" class="w-full border-t-2 border-tk-dark flex flex-col">
     
-    <!-- BRAMA 01: AGRO -->
     <a 
       href="https://rurape.pl" 
       target="_blank" 
@@ -72,7 +71,6 @@ import pompaImage from '../images/pompy-do-myjni.webp';
       </div>
     </a>
 
-    <!-- BRAMA 02: MYJNIE -->
     <a 
       href="https://sercemyjni.pl" 
       target="_blank" 
