@@ -4,27 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        'kh-black': '#050505',
-        'kh-white': '#FFFFFF',
-        'kh-gray': '#F4F5F7',
-        'kh-border': '#EBEBEB',
-        'kh-muted': '#6B7280',
-        // Brutalne akcenty marek
-        'kh-agro': '#022C22',
-        'kh-wash': '#4C0519',
-        // Zgodność wsteczna
-        'dark-blue': '#050505',
-        'light-blue': '#F4F5F7',
-        'steel-blue': '#6B7280',
-        'light-gray': '#FFFFFF',
+        'tk-base': '#F4F3EE',
+        'tk-dark': '#1A1D20',
+        'tk-border': '#E2E0D8',
+        'tk-muted': '#656A70',
+        // Twoje oryginalne kolory marek zintegrowane jako akcenty hover
+        'tk-agro': '#134E39', // Głęboka, szlachetna zieleń nawadniania
+        'tk-wash': '#651C32', // Głęboki, inżynieryjny karmin pomp Udor
       },
       fontFamily: {
         sans: ['"Inter"', 'sans-serif'],
         display: ['"Plus Jakarta Sans"', 'sans-serif'],
-      },
-      letterSpacing: {
-        tightest: '-0.04em',
-        widest: '0.2em',
       },
     },
   },

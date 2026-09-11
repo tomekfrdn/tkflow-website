@@ -1,25 +1,40 @@
 ---
-// Header.astro — Floating Frame Header
+// Header.astro — Alabaster Command Bar
 ---
 
-<header class="fixed top-0 inset-x-0 z-50 p-6 md:p-12 flex justify-between items-start pointer-events-none mix-blend-difference text-white">
-  
-  <div class="pointer-events-auto">
-    <a href="/" class="block font-display font-extrabold text-2xl md:text-3xl uppercase tracking-tight hover:opacity-70 kh-transition leading-none">
-      TK Flow
+<header class="fixed top-0 inset-x-0 z-50 bg-[#F4F3EE]/90 backdrop-blur-md border-b border-tk-border h-20 flex items-center px-6 md:px-12 transition-all duration-300">
+  <div class="w-full max-w-[1600px] mx-auto flex items-center justify-between">
+    
+    <!-- Identyfikator -->
+    <a href="/" class="flex items-center gap-4 group outline-none">
+      <div class="w-8 h-8 bg-tk-dark text-white flex items-center justify-center font-display font-bold text-sm tracking-tighter transition-transform group-hover:scale-105">
+        TK
+      </div>
+      <div class="flex flex-col">
+        <span class="font-display font-extrabold text-xl tracking-tight text-tk-dark uppercase leading-none">
+          TK Flow
+        </span>
+        <span class="text-[9px] text-tk-muted tracking-widest uppercase mt-1 font-mono font-bold">
+          Centrala Dystrybucyjna
+        </span>
+      </div>
     </a>
-    <span class="block text-[9px] tracking-widest uppercase opacity-60 mt-1 font-mono">
-      Centrala Inżynieryjna
-    </span>
-  </div>
 
-  <div class="pointer-events-auto text-right">
-    <span class="block text-[9px] uppercase tracking-widest font-bold mb-1 opacity-60 font-mono">
-      Infolinia Doradcza
-    </span>
-    <a href="tel:+48000000000" class="block font-display font-bold text-lg md:text-2xl tracking-tight hover:opacity-70 kh-transition">
-      +48 000 000 000
+    <!-- Informacja z boku -->
+    <div class="hidden lg:flex items-center gap-3 font-mono text-[11px] font-bold text-tk-muted uppercase tracking-wider">
+      <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+      <span>Dostawy Cała Polska</span>
+    </div>
+
+    <!-- Bezpośrednia Infolinia -->
+    <a href="tel:+48000000000" class="group flex items-center gap-3">
+      <span class="hidden sm:block text-[10px] uppercase tracking-widest text-tk-muted font-bold font-mono group-hover:text-tk-dark transition-colors">
+        Doradztwo i Wyceny:
+      </span>
+      <span class="font-display font-bold text-base md:text-lg text-tk-dark tracking-tight underline underline-offset-4 decoration-tk-border group-hover:decoration-tk-dark transition-colors">
+        +48 000 000 000
+      </span>
     </a>
-  </div>
 
+  </div>
 </header>
