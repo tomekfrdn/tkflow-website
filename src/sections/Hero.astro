@@ -1,40 +1,99 @@
 ---
-// Hero.astro — The Offset White Box (Wizytówka w stylu Northvolt)
+// Hero.astro — The Typographic Bifurcation (Terminal Rozdzielczy)
 ---
 
 <section
-  class="relative w-full h-[100svh] min-h-[640px] bg-nv-gray flex items-end justify-end overflow-hidden"
+  class="relative w-full min-h-[100svh] pt-32 pb-0 flex flex-col border-b border-tk-border max-w-[1600px] mx-auto"
 >
-  <!-- 1. Tło: Potężny zrzut wody (Siła i kontrola przepływu) -->
-  <div
-    class="absolute inset-0 bg-cover bg-center transition-transform duration-[20s] ease-out hover:scale-105"
-    style="background-image: url('https://images.unsplash.com/photo-1505691410978-75c13b24d773?auto=format&fit=crop&w=2000&q=85');"
-  >
-    <!-- Przyciemnienie dla idealnego osadzenia białego boxu -->
-    <div class="absolute inset-0 bg-black/15"></div>
+  <!-- Centralna magistrala wodna (Puls przepływu) -->
+  <div class="absolute inset-y-0 left-1/2 w-[1px] bg-tk-border hidden md:block z-0 overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-transparent via-tk-water to-transparent animate-flow"></div>
   </div>
 
-  <!-- 2. Offset White Box — Zrozumiały, mocny komunikat B2B -->
-  <div class="relative z-20 bg-white w-full md:w-[640px] lg:w-[720px] p-8 sm:p-12 lg:p-16 flex flex-col md:mr-16 md:mb-16 shadow-2xl">
+  <!-- STREFA A: GŁÓWNA DEKLARACJA -->
+  <div class="px-6 md:px-12 flex-1 flex flex-col justify-center max-w-5xl relative z-10 mb-16 md:mb-24">
+    <span class="block font-mono text-xs uppercase tracking-[0.2em] text-tk-muted font-bold mb-6">
+      Centralna Dystrybucja &middot; Bydgoszcz
+    </span>
     
-    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-nv-graphite leading-[1.1] mb-6">
-      Kontrola i inżynieria przepływu.
+    <h1 class="font-extrabold text-5xl sm:text-7xl lg:text-[5.5rem] uppercase tracking-tighter text-tk-black leading-[1.05] mb-8">
+      Technologie<br/>Przesyłu Cieczy.
     </h1>
 
-    <p class="text-base sm:text-lg text-nv-muted font-normal leading-relaxed mb-8">
-      <strong class="uppercase text-[11px] tracking-widest font-bold text-nv-graphite mr-2">Technologie Przesyłu Wody</strong> 
-      TK Flow to centrala dystrybucji i doradztwa technicznego. Łączymy wiodących europejskich producentów z inwestorami, zabezpieczając ciągłość pracy w rolnictwie i przemyśle myjni. Wybierz swój strumień technologii poniżej.
+    <p class="font-sans text-lg sm:text-xl text-tk-muted max-w-2xl leading-relaxed font-light">
+      Inżynieria doboru i dystrybucja armatury. Zabezpieczamy ciągłość pracy dla wielkoobszarowego rolnictwa oraz przemysłowych myjni bezdotykowych.
     </p>
+  </div>
 
-    <!-- Ikoniczny, kwadratowy czarny przycisk nawigacyjny -->
-    <a 
-      href="#ekosystem" 
-      class="absolute bottom-0 right-0 w-16 h-16 sm:w-20 sm:h-20 bg-nv-graphite flex items-center justify-center hover:bg-black transition-colors"
-      aria-label="Przewiń do oferty"
+  <!-- STREFA B: BIFURKACJA (DWIE BRAMY B2B) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 relative z-10 w-full border-t border-tk-border mt-auto">
+    
+    <!-- BRAMA 01: AGRO -->
+    <a
+      href="https://rurape.pl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group relative flex flex-col p-8 sm:p-12 border-b md:border-b-0 md:border-r border-tk-border bg-white overflow-hidden transition-colors"
     >
-      <svg class="w-6 h-6 text-white transform transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
+      <!-- Hover Fill Effect (Zbiornik napełniający się od dołu) -->
+      <div class="absolute inset-0 bg-tk-agro/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out origin-bottom"></div>
+
+      <div class="relative z-10">
+        <div class="flex items-center justify-between mb-12">
+          <span class="font-mono text-xs font-bold tracking-widest uppercase text-tk-agro border border-tk-agro/30 px-3 py-1 rounded-full bg-tk-agro/5">
+            01 / Magistrale Agro
+          </span>
+          <span class="font-mono text-xs text-tk-muted group-hover:text-tk-agro transition-colors">&nearr;</span>
+        </div>
+
+        <h2 class="font-extrabold text-4xl sm:text-5xl uppercase tracking-tighter text-tk-black mb-6">
+          RURAPE.PL
+        </h2>
+
+        <ul class="font-mono text-xs text-tk-muted space-y-3 mb-12">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 bg-tk-agro"></span> Certyfikowane rury PE100 i PE100-RC</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 bg-tk-agro"></span> Średnice znamionowe: DN 16 – 110 mm</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 bg-tk-agro"></span> Przeznaczenie: Sady, plantacje, irygacja</li>
+        </ul>
+
+        <div class="inline-flex items-center gap-4 font-bold uppercase text-sm tracking-widest text-tk-black group-hover:text-tk-agro transition-colors">
+          Wejdź do katalogu <span class="text-lg leading-none">&rarr;</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- BRAMA 02: MYJNIE -->
+    <a
+      href="https://sercemyjni.pl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="group relative flex flex-col p-8 sm:p-12 bg-white overflow-hidden transition-colors"
+    >
+      <!-- Hover Fill Effect -->
+      <div class="absolute inset-0 bg-tk-wash/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out origin-bottom"></div>
+
+      <div class="relative z-10">
+        <div class="flex items-center justify-between mb-12">
+          <span class="font-mono text-xs font-bold tracking-widest uppercase text-tk-wash border border-tk-wash/30 px-3 py-1 rounded-full bg-tk-wash/5">
+            02 / Wysokie Ciśnienie
+          </span>
+          <span class="font-mono text-xs text-tk-muted group-hover:text-tk-wash transition-colors">&nearr;</span>
+        </div>
+
+        <h2 class="font-extrabold text-4xl sm:text-5xl uppercase tracking-tighter text-tk-black mb-6">
+          SERCEMYJNI.PL
+        </h2>
+
+        <ul class="font-mono text-xs text-tk-muted space-y-3 mb-12">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 bg-tk-wash"></span> Przemysłowe pompy nurnikowe Udor</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 bg-tk-wash"></span> Ciśnienie robocze: do 200+ Barów</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 bg-tk-wash"></span> Konstrukcja: Nurniki w pełni ceramiczne</li>
+        </ul>
+
+        <div class="inline-flex items-center gap-4 font-bold uppercase text-sm tracking-widest text-tk-black group-hover:text-tk-wash transition-colors">
+          Otwórz ofertę pomp <span class="text-lg leading-none">&rarr;</span>
+        </div>
+      </div>
     </a>
 
   </div>

@@ -1,62 +1,53 @@
 ---
-// About.astro — Manifesto Inżyniera (Zbudowane na zaufaniu i wiedzy)
+// About.astro — The Engineering Manifesto
 ---
 
-<section id="doradztwo" class="bg-nv-gray py-24 lg:py-32 px-6 md:px-12 border-t border-nv-border">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+<section id="inżynieria" class="relative w-full py-24 sm:py-32 border-b border-tk-border max-w-[1600px] mx-auto bg-[#F9FAFB]">
+  
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+    
+    <!-- Lojalność i powaga (Lewa część) -->
+    <div class="lg:col-span-7 px-6 md:px-12 pb-16 lg:pb-0 lg:border-r border-tk-border flex flex-col justify-center">
+      <h2 class="font-extrabold text-3xl sm:text-4xl lg:text-[2.5rem] text-tk-black leading-[1.15] tracking-tight mb-10">
+        „W nawadnianiu wielkoobszarowym i&nbsp;przemyśle myjni, błąd w&nbsp;doborze komponentów kosztuje majątek. Zabezpieczamy Twój sezon.”
+      </h2>
       
-      <!-- Lewa kolumna: Główny przekaz -->
-      <div>
-        <h2 class="text-3xl sm:text-5xl font-normal text-nv-graphite leading-tight tracking-tight mb-8">
-          Inżynieria doboru. <br/>Dlaczego błąd kosztuje majątek?
-        </h2>
-        <p class="text-lg text-nv-graphite leading-relaxed mb-6 font-medium">
-          Nazywam się Tomasz Kulpa. Wspieram inwestorów i wykonawców w zaopatrzeniu w kluczowe komponenty hydrauliczne. 
-        </p>
-        <p class="text-base text-nv-muted leading-relaxed font-light">
-          W nawadnianiu rury z taniego regranulatu pękają od uderzeń hydraulicznych. W myjniach słabe pompy szybko ulegają kawitacji pod wpływem agresywnej chemii. W TK Flow dobieram komponenty o sprawdzonej, przemysłowej wytrzymałości, by Twoja instalacja pracowała bez kosztownych przerw w sezonie.
-        </p>
+      <p class="text-lg text-tk-muted leading-relaxed font-light max-w-2xl mb-16">
+        Nazywam się Tomasz Kulpa. W TK Flow nie jesteśmy anonimową hurtownią. Przeliczam z inwestorami przepływy, straty ciśnienia i opory liniowe. Dbam o to, by instalacja ruszyła w terminie i pracowała bezawaryjnie, eliminując przestoje sprzętu.
+      </p>
 
-        <div class="mt-12 pt-8 border-t border-nv-border flex items-center gap-6">
-          <div class="w-16 h-16 rounded-full overflow-hidden bg-nv-border">
-            <!-- Portret Tomasza w wersji czarno-białej buduje inżynieryjną powagę -->
-            <img src="/images/tomasz-kulpa-tk-flow.jpg" alt="Tomasz Kulpa" class="w-full h-full object-cover filter grayscale contrast-125" loading="lazy" />
-          </div>
-          <div>
-            <span class="block font-bold text-nv-graphite text-lg tracking-tight">Tomasz Kulpa</span>
-            <span class="block text-xs uppercase tracking-widest text-nv-muted mt-1">Główny Inżynier & Doradca</span>
-          </div>
-        </div>
+      <div class="mt-auto">
+        <span class="block font-extrabold text-2xl uppercase tracking-tighter text-tk-black">Tomasz Kulpa</span>
+        <span class="block font-mono text-xs uppercase tracking-widest text-tk-muted font-bold mt-1">Główny Inżynier & Doradca</span>
       </div>
-
-      <!-- Prawa kolumna: Filary działalności w ostrym, technicznym wylistowaniu -->
-      <div class="flex flex-col gap-10 lg:pt-4">
-        <div class="border-l-[3px] border-nv-graphite pl-6">
-          <span class="block text-[10px] tracking-widest uppercase text-nv-muted font-bold mb-2">01 / Atestowane Źródło</span>
-          <h3 class="text-xl font-bold text-nv-graphite mb-2">Europejscy Producenci</h3>
-          <p class="text-sm text-nv-muted leading-relaxed">
-            Dostarczamy wyłącznie certyfikowane rury PE z atestami higienicznymi oraz oryginalne, włoskie pompy marki UDOR. Zero anonimowych komponentów.
-          </p>
-        </div>
-
-        <div class="border-l-[3px] border-nv-graphite pl-6">
-          <span class="block text-[10px] tracking-widest uppercase text-nv-muted font-bold mb-2">02 / Doradztwo</span>
-          <h3 class="text-xl font-bold text-nv-graphite mb-2">Praktyczny Dobór</h3>
-          <p class="text-sm text-nv-muted leading-relaxed">
-            Kalkulacja strat ciśnienia, oporów i dobór optymalnych średnic oraz armatury bezpośrednio pod warunki terenowe i robocze Twojej instalacji.
-          </p>
-        </div>
-
-        <div class="border-l-[3px] border-nv-graphite pl-6">
-          <span class="block text-[10px] tracking-widest uppercase text-nv-muted font-bold mb-2">03 / Logistyka</span>
-          <h3 class="text-xl font-bold text-nv-graphite mb-2">Ochrona Sezonu</h3>
-          <p class="text-sm text-nv-muted leading-relaxed">
-            Szybka dostępność podzespołów z naszego magazynu i bezpośrednie dostawy. Minimalizujemy ryzyko potężnych strat wywołanych przestojami.
-          </p>
-        </div>
-      </div>
-
     </div>
+
+    <!-- Twarde filary B2B (Prawa część) -->
+    <div class="lg:col-span-5 px-6 md:px-12 flex flex-col">
+      <div class="flex-1 flex flex-col justify-center py-8 border-b border-tk-border">
+        <span class="block font-mono text-[10px] uppercase tracking-widest text-tk-black font-bold mb-3">[ Filar 01 ]</span>
+        <h3 class="font-extrabold text-xl uppercase tracking-tight text-tk-black mb-2">Atestowane Źródło</h3>
+        <p class="text-sm text-tk-muted leading-relaxed font-light">
+          Tylko oryginały. Rury z atestem jakości pierwotnej PE100 (zero regranulatu) oraz oryginalne pompy UDOR sprowadzane prosto z włoskiej fabryki.
+        </p>
+      </div>
+
+      <div class="flex-1 flex flex-col justify-center py-8 border-b border-tk-border">
+        <span class="block font-mono text-[10px] uppercase tracking-widest text-tk-black font-bold mb-3">[ Filar 02 ]</span>
+        <h3 class="font-extrabold text-xl uppercase tracking-tight text-tk-black mb-2">Obliczenia Hydrauliczne</h3>
+        <p class="text-sm text-tk-muted leading-relaxed font-light">
+          Praktyczny dobór. Analizujemy medium robocze, skoki ciśnień i warunki środowiskowe, aby zaproponować armaturę z bezpiecznym buforem wytrzymałości.
+        </p>
+      </div>
+
+      <div class="flex-1 flex flex-col justify-center py-8">
+        <span class="block font-mono text-[10px] uppercase tracking-widest text-tk-black font-bold mb-3">[ Filar 03 ]</span>
+        <h3 class="font-extrabold text-xl uppercase tracking-tight text-tk-black mb-2">Bezpieczeństwo Sezonu</h3>
+        <p class="text-sm text-tk-muted leading-relaxed font-light">
+          Szybka logistyka z magazynu centralnego. Błyskawiczna reakcja zaopatrzeniowa to gwarancja, że awaria nie zatrzyma Twojego zysku.
+        </p>
+      </div>
+    </div>
+
   </div>
 </section>

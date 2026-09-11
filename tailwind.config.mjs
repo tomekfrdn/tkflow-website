@@ -4,18 +4,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        'nv-graphite': '#0A1118',
-        'nv-gray': '#F4F5F7',
-        'nv-border': '#E5E7EB',
-        'nv-muted': '#6B7280',
-        // Zachowanie kompatybilności
+        'tk-black': '#0A1118',
+        'tk-border': '#E5E7EB',
+        'tk-muted': '#6B7280',
+        'tk-water': '#0066CC',
+        'tk-agro': '#059669',
+        'tk-wash': '#DC2626',
+        // Zachowanie kompatybilności dla układu
         'dark-blue': '#0A1118',
-        'light-blue': '#F4F5F7',
+        'light-blue': '#FFFFFF',
         'steel-blue': '#6B7280',
         'light-gray': '#FFFFFF',
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
+      letterSpacing: {
+        tighter: '-0.04em',
       },
     },
   },
