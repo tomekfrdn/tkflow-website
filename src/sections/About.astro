@@ -1,43 +1,63 @@
 ---
-import TextReveal from '@/components/TextReveal.astro'
+// About.astro
 ---
 
 <section
+  id="about"
   data-about
-  class="bg-light-blue text-steel-blue py-24 md:py-32 lg:py-40 px-6 sm:px-8"
+  class="relative bg-[#030C15] text-[#8FAEC4] py-32 md:py-44 px-6 md:px-12 border-t border-white/5 overflow-hidden"
 >
-  <div class="mx-auto max-w-3xl text-left">
-    <!-- Główny tekst -->
-    <TextReveal
-      class="text-xl sm:text-2xl lg:text-3xl font-sans font-medium leading-[1.75] sm:leading-[1.8] tracking-normal"
-      color="bg-gradient-to-r from-white to-white text-white/50"
-    >
-      Nazywam się Tomasz Kulpa. Wspieram inwestorów i&nbsp;wykonawców w&nbsp;doborze oraz zaopatrzeniu w&nbsp;kluczowe komponenty do&nbsp;przesyłu wody i&nbsp;systemów wysokociśnieniowych.
-      <br /><br />
-      W&nbsp;TK Flow łączę zaplecze czołowych producentów z&nbsp;partnerskim doradztwem. Dbam o&nbsp;to, by&nbsp;instalacje pracowały bezawaryjnie, oszczędzając Twój czas i&nbsp;pieniądze.
-    </TextReveal>
+  <!-- Tło siatki -->
+  <div
+    class="absolute inset-0 opacity-[0.03] pointer-events-none"
+    style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 80px 80px;"
+  ></div>
 
-    <!-- Sygnatura autorska -->
-    <div class="mt-12 sm:mt-16 pt-8 border-t border-white/10 flex items-center gap-5 sm:gap-6">
-      <div class="relative shrink-0 w-16 h-16 sm:w-[4.5rem] sm:h-[4.5rem] rounded-full overflow-hidden ring-2 ring-white/20 shadow-lg bg-[#041A2F]">
-        <img
-          src="/images/tomasz-kulpa-tk-flow.jpg"
-          alt="Tomasz Kulpa"
-          width="72"
-          height="72"
-          class="block w-full h-full object-cover"
-          loading="eager"
-        />
+  <div class="relative max-w-6xl mx-auto">
+    <!-- Etykieta sekcji HUD -->
+    <div class="flex items-center gap-3 font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#00A3E0] mb-12">
+      <span class="w-1.5 h-1.5 bg-[#00A3E0]"></span>
+      <span>02 // DORADZTWO TECHNICZNE I PARTNERSTWO</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <!-- Główny tekst manifestu -->
+      <div class="lg:col-span-8">
+        <h2
+          data-about-text
+          class="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-medium leading-[1.35] tracking-tight text-white/90"
+        >
+          Nazywam się <span class="text-white font-bold underline decoration-[#00A3E0]/40 underline-offset-8">Tomasz Kulpa</span>. Wspieram inwestorów i&nbsp;wykonawców w&nbsp;doborze oraz zaopatrzeniu w&nbsp;kluczowe komponenty do&nbsp;przesyłu wody i&nbsp;systemów wysokociśnieniowych.
+          <br /><br />
+          W&nbsp;TK Flow łączę zaplecze czołowych producentów z&nbsp;partnerskim doradztwem. Dbam o&nbsp;to, by&nbsp;instalacje pracowały bezawaryjnie, oszczędzając Twój czas i&nbsp;pieniądze.
+        </h2>
       </div>
 
-      <!-- Podpis ze zwiększonym światłem między literami -->
-      <div class="flex flex-col justify-center">
-        <span class="font-sans text-lg sm:text-xl font-semibold tracking-wide text-white leading-tight">
-          Tomasz Kulpa
-        </span>
-        <span class="font-mono text-xs sm:text-sm tracking-widest uppercase text-white/70 mt-1">
-          Założyciel i Doradca Techniczny
-        </span>
+      <!-- Wizytówka inżyniera / Sygnatura -->
+      <div class="lg:col-span-4 border-l border-white/10 lg:pl-10 pt-4 flex flex-col gap-6">
+        <div class="relative w-24 h-24 rounded-2xl overflow-hidden ring-1 ring-white/20 bg-[#041A2F] shadow-2xl">
+          <img
+            src="/images/tomasz-kulpa-tk-flow.jpg"
+            alt="Tomasz Kulpa"
+            width="96"
+            height="96"
+            class="w-full h-full object-cover filter grayscale contrast-110 hover:grayscale-0 transition-all duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#030C15]/60 to-transparent"></div>
+        </div>
+
+        <div>
+          <span class="block font-display text-xl font-bold tracking-tight text-white">
+            Tomasz Kulpa
+          </span>
+          <span class="block font-mono text-xs tracking-widest uppercase text-[#00A3E0] mt-1">
+            Założyciel & Doradca Techniczny
+          </span>
+          <p class="font-sans text-xs text-[#8FAEC4]/70 mt-3 leading-relaxed">
+            Praktyczna znajomość fizyki instalacji ciśnieniowych oraz armatury przesyłowej dedykowanej dla wymagających środowisk roboczych.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -46,31 +66,28 @@ import TextReveal from '@/components/TextReveal.astro'
 <script>
   import { gsap } from 'gsap'
   import { ScrollTrigger } from 'gsap/ScrollTrigger'
-  import { DOMLoaded } from '../ts/events'
+  import { DOMLoaded } from '@/ts/events'
 
   DOMLoaded(() => {
-    if (typeof window === 'undefined') return
-
     gsap.registerPlugin(ScrollTrigger)
+    const text = document.querySelector('[data-about-text]') as HTMLElement
 
-    const trigger = document.querySelector('[data-about]') as HTMLElement
-    const target = trigger?.querySelector('p') as HTMLElement
-
-    if (trigger && target) {
-      requestAnimationFrame(() => {
-        gsap.to(target, {
-          opacity: 0.15,
+    if (text) {
+      gsap.fromTo(
+        text,
+        { opacity: 0.2, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: 'power3.out',
           scrollTrigger: {
-            id: 'about-fade',
-            trigger: target,
-            start: 'top 30%',
-            end: () => `+=${window.innerHeight * 0.75}`,
-            scrub: 1.2,
-            invalidateOnRefresh: true,
+            trigger: text,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
           },
-          ease: 'none',
-        })
-      })
+        }
+      )
     }
   })
 </script>
