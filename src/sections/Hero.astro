@@ -1,8 +1,16 @@
-<section data-hero class="relative w-full h-[100svh] bg-brand-water text-white">
-  <div class="absolute inset-0 overflow-clip">
+---
+// Hero.astro
+---
+
+<section
+  data-hero
+  class="relative w-full h-[100svh] bg-brand-surface text-white overflow-hidden flex flex-col justify-between pt-24 pb-8 px-6 md:px-12 selection:bg-brand-cyan selection:text-brand-surface"
+>
+  <!-- Tło: wygaszone wideo jako organiczna tekstura cieczy + siatka inżynieryjna -->
+  <div class="absolute inset-0 z-0 pointer-events-none">
     <video
       data-hero-video
-      class="w-full h-full object-cover"
+      class="w-full h-full object-cover opacity-20 filter contrast-125 saturate-50"
       autoplay
       muted
       playsinline
@@ -10,32 +18,85 @@
     >
       <source src="/images/hero-bg.mp4" type="video/mp4" />
     </video>
+    <!-- Maskowanie gradientem, by płynnie połączyć sekcję z resztą strony -->
+    <div class="absolute inset-0 bg-gradient-to-b from-brand-surface/80 via-transparent to-brand-surface"></div>
+    <!-- Subtelna siatka pomiarowa -->
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 80px 80px;"
+    ></div>
   </div>
-  <div class="absolute inset-0 bg-dark-blue/75"></div>
 
-  <!-- Minimalistyczna strzałka w dół -->
-  <div
-    data-scroll-hint
-    class="absolute bottom-6 pb-[env(safe-area-inset-bottom)] sm:bottom-12 inset-x-0 z-20 flex justify-center pointer-events-auto"
-  >
-    <a
-      href="#about"
-      class="p-3 text-white/60 hover:text-white transition-colors duration-300"
-      aria-label="Przewiń w dół do sekcji o marce"
-    >
-      <svg
-        class="w-6 h-6 animate-bounce stroke-[1.5]"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
+  <!-- Górny pasek techniczny / Micro UI -->
+  <div class="relative z-10 flex justify-between items-center border-b border-white/10 pb-4 font-mono text-[10px] md:text-xs tracking-widest uppercase text-brand-steel">
+    <div class="flex items-center gap-3">
+      <span class="inline-block w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+      <span class="text-white/80">Fluid Flow Systems // Ver. 2.4</span>
+    </div>
+    <div class="hidden sm:block">
+      <span>LAT: 53.1235° N / LON: 18.0084° E</span>
+    </div>
+    <div class="text-white/60">
+      <span>SEC: 01 // IND.TECH</span>
+    </div>
+  </div>
+
+  <!-- Główny blok: potężna typografia wypełniająca przestrzeń horyzontu -->
+  <div class="relative z-10 my-auto py-6">
+    <div class="overflow-hidden mb-2">
+      <p
+        data-hero-sub
+        class="font-mono text-xs md:text-sm tracking-[0.25em] uppercase text-brand-cyan mb-2 font-semibold"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-        />
-      </svg>
-    </a>
+        Technologie Przesyłu Cieczy
+      </p>
+    </div>
+
+    <!-- H1 o skali 14vw natychmiast eliminuje pustkę ekranu -->
+    <h1
+      data-hero-title
+      class="font-display font-extrabold uppercase leading-[0.88] tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white/95 to-brand-steel/40 text-[14vw] select-none"
+    >
+      TK FLOW
+    </h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 mt-6 items-end">
+      <div class="md:col-span-7 lg:col-span-6">
+        <p class="font-sans font-light text-brand-steel text-sm md:text-base lg:text-lg leading-relaxed max-w-xl">
+          Projektowanie, wdrażanie i optymalizacja zaawansowanych instalacji pompowni oraz armatury przemysłowej o bezkompromisowej niezawodności.
+        </p>
+      </div>
+      <div class="md:col-span-5 lg:col-span-6 flex justify-start md:justify-end gap-10 font-mono text-xs text-white/50">
+        <div>
+          <span class="block text-white font-semibold text-base font-sans mb-0.5">100%</span>
+          <span>DYSPOZYCYJNOŚĆ</span>
+        </div>
+        <div class="border-l border-white/10 pl-6">
+          <span class="block text-white font-semibold text-base font-sans mb-0.5">&lt; 0.2s</span>
+          <span>CZAS REAKCJI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dolna belka kontrolna ze wskaźnikiem scrollowania -->
+  <div class="relative z-10 flex justify-between items-end border-t border-white/10 pt-4 font-mono text-xs text-brand-steel">
+    <span class="text-[11px] tracking-wider hidden sm:block opacity-60">EXPLORE ARCHITECTURE</span>
+
+    <div data-scroll-hint class="flex items-center gap-3 cursor-pointer group">
+      <a
+        href="#about"
+        class="flex items-center gap-3 text-white/70 group-hover:text-brand-cyan transition-colors duration-300"
+        aria-label="Przewiń stronę w dół"
+      >
+        <span class="text-[11px] tracking-widest uppercase">SCROLL</span>
+        <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center group-hover:border-brand-cyan transition-colors">
+          <svg class="w-3.5 h-3.5 stroke-[2] transition-transform duration-300 group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -46,34 +107,39 @@
 
   DOMLoaded(() => {
     gsap.registerPlugin(ScrollTrigger)
-
-    // Zapobiega gwałtownemu przeliczaniu triggerów podczas chowania się pasków mobilnych
     ScrollTrigger.config({ ignoreMobileResize: true })
 
     const hero = document.querySelector('[data-hero]') as HTMLElement
-    const heroVideo = document.querySelector(
-      '[data-hero-video]'
-    ) as HTMLVideoElement
-    const scrollHint = document.querySelector(
-      '[data-scroll-hint]'
-    ) as HTMLElement
+    const heroVideo = document.querySelector('[data-hero-video]') as HTMLVideoElement
+    const title = document.querySelector('[data-hero-title]') as HTMLElement
+    const sub = document.querySelector('[data-hero-sub]') as HTMLElement
+    const scrollHint = document.querySelector('[data-scroll-hint]') as HTMLElement
 
+    // Płynna animacja wejściowa przy załadowaniu strony
+    const enterTl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1.2 } })
+    enterTl
+      .fromTo(sub, { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.15 })
+      .fromTo(title, { opacity: 0, y: 50, scale: 0.97 }, { opacity: 1, y: 0, scale: 1 }, '-=0.9')
+
+    // Parallax dla wideo oraz oddalanie nagłówka przy przewijaniu
     if (hero && heroVideo) {
-      const tl = gsap.timeline({
+      const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: hero,
           start: 'top top',
           end: 'bottom top',
-          scrub: true,
+          scrub: 0.5,
           fastScrollEnd: true,
           preventOverlaps: true,
         },
       })
 
-      tl.to(heroVideo, { y: '50%', duration: 1 })
+      scrollTl
+        .to(heroVideo, { y: '20%', scale: 1.05, ease: 'none' }, 0)
+        .to(title, { y: '-15%', opacity: 0.15, ease: 'none' }, 0)
 
       if (scrollHint) {
-        tl.to(scrollHint, { opacity: 0, y: 10, duration: 0.15 }, 0)
+        scrollTl.to(scrollHint, { opacity: 0, y: 15, duration: 0.2 }, 0)
       }
     }
 
@@ -81,7 +147,7 @@
       const link = scrollHint.querySelector('a')
       link?.addEventListener('click', (e) => {
         e.preventDefault()
-        const target = document.querySelector('[data-about]')
+        const target = document.querySelector('#about') || document.querySelector('[data-about]')
         target?.scrollIntoView({ behavior: 'smooth' })
       })
     }
