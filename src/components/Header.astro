@@ -1,41 +1,41 @@
 ---
-// Header.astro — Architektura zaufania i natychmiastowego kontaktu
+// Header.astro — Dyskretna tafla z bezpośrednim kontaktem telefonicznym
 ---
 
 <header
   data-navbar
   class="fixed top-0 inset-x-0 z-50 h-16 sm:h-20 flex items-center justify-between px-5 sm:px-8 md:px-12 transition-all duration-300 pointer-events-none"
 >
-  <!-- Płynny szklany blur aktywowany przy scrollowaniu -->
+  <!-- Tło szkła aktywowane po zjechaniu ze strony -->
   <div
     data-navbar-bg
-    class="absolute inset-0 bg-[#041A2F]/90 backdrop-blur-lg border-b border-white/10 opacity-0 transition-opacity duration-300 pointer-events-none shadow-md"
+    class="absolute inset-0 bg-[#060D17]/90 backdrop-blur-md border-b border-white/10 opacity-0 transition-opacity duration-300 pointer-events-none shadow-lg"
   ></div>
 
-  <!-- Lewy slot: Logo i tożsamość firmy -->
+  <!-- Lewy slot: Czysty znak firmowy -->
   <div class="relative z-10 flex items-center gap-3 pointer-events-auto">
     <a href="#" class="group flex items-center gap-3 outline-none">
-      <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-[#005B99] to-[#0098E0] flex items-center justify-center text-white font-display font-extrabold text-sm shadow-md group-hover:scale-105 transition-transform">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#005B99] to-[#0098E0] flex items-center justify-center text-white font-extrabold text-sm shadow-md group-hover:scale-105 transition-transform">
         TK
       </div>
       <div class="flex flex-col">
-        <span class="font-display font-extrabold text-lg tracking-tight text-white uppercase leading-none drop-shadow-sm">
+        <span class="font-extrabold text-lg sm:text-xl tracking-tight text-white uppercase leading-none">
           TK Flow
         </span>
         <span class="font-mono text-[9px] text-[#8FAEC4] tracking-wider uppercase mt-1 font-semibold">
-          Przesył Cieczy // Bydgoszcz
+          Technologie Przesyłu Wody
         </span>
       </div>
     </a>
   </div>
 
-  <!-- Środek: Dwa strumienie w nawigacji -->
+  <!-- Środek: Szybka nawigacja do marek -->
   <nav class="hidden lg:flex items-center gap-6 relative z-10 font-mono text-xs tracking-wider uppercase pointer-events-auto">
     <a
       href="https://rurape.pl"
       target="_blank"
       rel="noopener noreferrer"
-      class="group inline-flex items-center gap-2 py-1.5 px-3 rounded-md text-white/80 hover:text-white bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-400/40 transition-all font-medium"
+      class="group inline-flex items-center gap-2 py-1.5 px-3 rounded-full text-white/80 hover:text-white bg-white/5 hover:bg-emerald-500/20 border border-white/10 hover:border-emerald-400/40 transition-all font-medium"
     >
       <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
       <span>Nawadnianie: rurape.pl</span>
@@ -48,7 +48,7 @@
       href="https://sercemyjni.pl"
       target="_blank"
       rel="noopener noreferrer"
-      class="group inline-flex items-center gap-2 py-1.5 px-3 rounded-md text-white/80 hover:text-white bg-white/5 hover:bg-rose-500/20 border border-white/10 hover:border-rose-400/40 transition-all font-medium"
+      class="group inline-flex items-center gap-2 py-1.5 px-3 rounded-full text-white/80 hover:text-white bg-white/5 hover:bg-rose-500/20 border border-white/10 hover:border-rose-400/40 transition-all font-medium"
     >
       <span class="w-2 h-2 rounded-full bg-rose-400"></span>
       <span>Pompy Myjni: sercemyjni.pl</span>
@@ -65,11 +65,11 @@
     </a>
   </nav>
 
-  <!-- Prawy róg: Bezpośredni telefon (kluczowy CTA dla klienta 40-60 lat) -->
+  <!-- Prawy róg: Duży, pewny telefon B2B -->
   <div class="relative z-10 flex items-center pointer-events-auto">
     <a
       href="tel:+48000000000"
-      class="group inline-flex items-center gap-3 rounded-full px-4 py-2 bg-gradient-to-r from-[#005B99] to-[#0098E0] hover:from-[#006BB3] hover:to-[#00A8F5] text-white shadow-lg transition-all duration-300 hover:scale-[1.02] border border-white/20"
+      class="group inline-flex items-center gap-3 rounded-full px-4 py-2 bg-gradient-to-r from-[#005B99] to-[#0098E0] hover:from-[#006BB3] hover:to-[#00A8F5] text-white shadow-lg transition-all duration-200 hover:scale-[1.02] border border-white/20"
       aria-label="Zadzwoń do Tomasza Kulpy"
     >
       <span class="relative flex h-2.5 w-2.5">
@@ -78,7 +78,7 @@
       </span>
       <div class="flex flex-col text-left">
         <span class="text-[9px] uppercase tracking-wider text-white/80 leading-none font-mono">
-          Tomasz Kulpa &middot; Infolinia
+          Tomasz Kulpa &middot; Telefon
         </span>
         <span class="font-mono text-xs sm:text-sm font-bold tracking-tight text-white mt-0.5">
           +48 000 000 000

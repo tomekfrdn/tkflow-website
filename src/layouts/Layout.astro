@@ -9,7 +9,7 @@ const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="pl" class="scroll-smooth bg-[#F4F7FA] text-[#0A1A2F]">
+<html lang="pl" class="scroll-smooth bg-[#060D17] text-white">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -24,26 +24,13 @@ const { title } = Astro.props
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Google Fonts: Plus Jakarta Sans, Syne, JetBrains Mono -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@700;800&display=swap"
-    />
+    <!-- Plus Jakarta Sans i JetBrains Mono -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@700;800&display=swap"
-      media="print"
-      onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap"
     />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@700;800&display=swap"
-      />
-    </noscript>
   </head>
-  <body class="bg-[#F4F7FA] font-sans antialiased text-[#0A1A2F] selection:bg-[#0098E0] selection:text-white overflow-x-hidden">
+  <body class="bg-[#060D17] font-sans antialiased text-white selection:bg-[#0098E0] selection:text-white overflow-x-hidden">
     <Header />
     <slot />
   </body>
@@ -56,18 +43,19 @@ const { title } = Astro.props
   }
 
   body {
-    background-color: #f4f7fa;
-    color: #0a1a2f;
+    background-color: #060d17;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #e9eef4;
+    background: #081424;
   }
   ::-webkit-scrollbar-thumb {
-    background: #94a3b8;
+    background: #1e3a5f;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
