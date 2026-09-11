@@ -1,5 +1,8 @@
 ---
-// Hero.astro — The Masterclass Statement z wbudowanymi artefaktami inżynieryjnymi
+// Hero.astro — The Masterclass Statement z poprawnie zaimportowanymi plikami WebP z src/images/
+import { Image } from 'astro:assets';
+import ruryImage from '../images/rury-pe.webp';
+import pompaImage from '../images/pompy-do-myjni.webp';
 ---
 
 <section class="w-full min-h-[90svh] flex flex-col justify-between pt-32 md:pt-40 pb-0 bg-tk-base">
@@ -13,6 +16,7 @@
       </span>
     </div>
 
+    <!-- Nienaruszony slogan w pełnym brzmieniu, dopasowany skalą do każdego ekranu -->
     <h1 class="font-display font-extrabold text-[11vw] sm:text-[9vw] lg:text-[7.5rem] leading-[0.95] tracking-tightest text-tk-dark uppercase select-none mb-8">
       Technologie przesyłu cieczy.
     </h1>
@@ -48,15 +52,15 @@
           </p>
         </div>
 
-        <!-- Inżynieryjna rycina fotograficzna: Rury -->
+        <!-- Inżynieryjna rycina fotograficzna: Rury (src/images/rury-pe.webp) -->
         <div class="w-full lg:w-72 h-36 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
-          <img 
-            src="/images/rury-przekroj.jpg" 
-            alt="Przekrój rur PE" 
+          <Image 
+            src={ruryImage} 
+            alt="Zwoje rur PE" 
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             loading="lazy"
           />
-          <div class="absolute top-2 left-2 bg-black/60 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
+          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest z-10">
             Ryc. 01 // Rury PE
           </div>
         </div>
@@ -94,15 +98,15 @@
           </p>
         </div>
 
-        <!-- Inżynieryjna rycina fotograficzna: Przekrój pompy -->
+        <!-- Inżynieryjna rycina fotograficzna: Przekrój pompy (src/images/pompy-do-myjni.webp) -->
         <div class="w-full lg:w-72 h-36 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
-          <img 
-            src="/images/pompa-przekroj.jpg" 
-            alt="Przekrój pompy Udor" 
+          <Image 
+            src={pompaImage} 
+            alt="Przekrój pompy do myjni" 
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             loading="lazy"
           />
-          <div class="absolute top-2 left-2 bg-black/60 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
+          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest z-10">
             Ryc. 02 // Pompa Udor
           </div>
         </div>

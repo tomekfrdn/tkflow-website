@@ -1,5 +1,5 @@
 ---
-// Contact.astro — Black Monolith Terminal
+// Contact.astro — Black Monolith Terminal z responsywnym numerem w jednej linii na mobile
 const currentYear = new Date().getFullYear()
 ---
 
@@ -12,10 +12,10 @@ const currentYear = new Date().getFullYear()
         Bezpośredni Punkt Kontaktowy &middot; Doradztwo
       </span>
       
-      <!-- GIGANTYCZNY NUMER TELEFONU -->
+      <!-- GIGANTYCZNY NUMER TELEFONU (Zabezpieczony przed łamaniem linii na mobile dzięki clamp i jednolitemu vw) -->
       <a 
         href="tel:+48000000000" 
-        class="block font-display font-extrabold text-[12vw] md:text-[9.5vw] lg:text-[8rem] leading-[0.85] tracking-tightest hover:opacity-70 kh-transition"
+        class="block font-display font-extrabold text-[clamp(2.1rem,7.5vw,8rem)] leading-[0.85] tracking-tightest hover:opacity-70 kh-transition whitespace-nowrap"
       >
         +48 000 000 000
       </a>
