@@ -1,78 +1,89 @@
 ---
-// Header.astro
+// Header.astro — Czysty, godny zaufania pasek z bezpośrednim telefonem
 ---
 
 <header
   data-navbar
-  class="fixed top-0 inset-x-0 z-50 h-16 sm:h-20 flex items-center justify-between px-6 md:px-12 transition-all duration-500"
+  class="fixed top-0 inset-x-0 z-50 h-16 sm:h-20 flex items-center justify-between px-5 sm:px-8 md:px-12 transition-all duration-300 pointer-events-none"
 >
-  <!-- Niezależna tafla szkła aktywowana przy scrollu -->
+  <!-- Niezależna tafla szkła aktywowana przy przewijaniu -->
   <div
     data-navbar-bg
-    class="absolute inset-0 bg-[#030C15]/80 backdrop-blur-xl border-b border-white/10 opacity-0 transition-opacity duration-300 pointer-events-none"
+    class="absolute inset-0 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm opacity-0 transition-opacity duration-300 pointer-events-none"
   ></div>
 
-  <!-- Lewy slot: Logo techniczne -->
-  <div class="relative z-10 flex items-center gap-3">
-    <a href="#" class="group flex items-center gap-2.5 outline-none">
-      <span class="w-2.5 h-2.5 rounded-none bg-[#00A3E0] rotate-45 transition-transform duration-300 group-hover:rotate-90"></span>
-      <span class="font-display font-bold text-lg md:text-xl tracking-tight text-white uppercase group-hover:text-[#00A3E0] transition-colors">
-        TK Flow
-      </span>
-      <span class="hidden sm:inline-block font-mono text-[9px] text-[#8FAEC4] tracking-widest uppercase border-l border-white/15 pl-2.5 ml-1">
-        SYS.v26
-      </span>
+  <!-- Lewy slot: Logo i status działalności -->
+  <div class="relative z-10 flex items-center gap-3 pointer-events-auto">
+    <a href="#" class="group flex items-center gap-3 outline-none">
+      <div class="w-8 h-8 rounded-lg bg-[#041A2F] flex items-center justify-center text-white font-display font-bold text-sm shadow-sm group-hover:bg-[#00A3E0] transition-colors">
+        TK
+      </div>
+      <div class="flex flex-col">
+        <span class="font-display font-extrabold text-base sm:text-lg tracking-tight text-[#041A2F] uppercase leading-none">
+          TK Flow
+        </span>
+        <span class="font-mono text-[9px] text-slate-500 tracking-wider uppercase mt-0.5 font-semibold">
+          Przesył Cieczy &middot; Doradztwo
+        </span>
+      </div>
     </a>
   </div>
 
-  <!-- Środek: Nawigacja do marek -->
-  <nav class="hidden md:flex items-center gap-8 relative z-10 font-mono text-xs tracking-[0.18em] uppercase">
+  <!-- Środek: Szybkie przejścia do dwóch obszarów oferty (desktop) -->
+  <nav class="hidden lg:flex items-center gap-8 relative z-10 font-medium text-xs tracking-wider uppercase pointer-events-auto">
     <a
-      href="https://sercemyjni.pl"
+      href="https://rurape.pl"
       target="_blank"
       rel="noopener noreferrer"
-      class="group inline-flex items-center gap-1.5 text-[#8FAEC4] hover:text-white transition-colors py-1"
+      class="group inline-flex items-center gap-2 text-slate-700 hover:text-emerald-700 transition-colors py-1.5 px-3 rounded-md hover:bg-emerald-50/80"
     >
-      <span>Pompy Myjni</span>
-      <svg class="w-3 h-3 opacity-60 transition-transform duration-200 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+      <span class="font-semibold">Nawadnianie: rurape.pl</span>
+      <svg class="w-3.5 h-3.5 opacity-60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
       </svg>
     </a>
 
     <a
-      href="https://rurape.pl"
+      href="https://sercemyjni.pl"
       target="_blank"
       rel="noopener noreferrer"
-      class="group inline-flex items-center gap-1.5 text-[#8FAEC4] hover:text-white transition-colors py-1"
+      class="group inline-flex items-center gap-2 text-slate-700 hover:text-rose-700 transition-colors py-1.5 px-3 rounded-md hover:bg-rose-50/80"
     >
-      <span>Rury Nawadnianie</span>
-      <svg class="w-3 h-3 opacity-60 transition-transform duration-200 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <span class="w-2 h-2 rounded-full bg-rose-600"></span>
+      <span class="font-semibold">Pompy Udor: sercemyjni.pl</span>
+      <svg class="w-3.5 h-3.5 opacity-60 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
       </svg>
     </a>
 
     <a
       href="#about"
-      class="text-[#8FAEC4] hover:text-white transition-colors py-1"
+      class="text-slate-600 hover:text-[#041A2F] transition-colors py-1.5 px-2 font-semibold"
     >
-      O marce
+      O doradcy
     </a>
   </nav>
 
-  <!-- Prawy róg: Direct Contact -->
-  <div class="relative z-10 flex items-center">
+  <!-- Prawy róg: Bezpośredni telefon (kluczowy element budujący zaufanie 40-60 lat) -->
+  <div class="relative z-10 flex items-center pointer-events-auto">
     <a
       href="tel:+48000000000"
-      class="group inline-flex items-center gap-2 rounded-full px-4 py-2 bg-white/5 hover:bg-[#00A3E0]/15 border border-white/15 hover:border-[#00A3E0]/50 transition-all duration-300"
-      aria-label="Zadzwoń do TK Flow"
+      class="group inline-flex items-center gap-2.5 rounded-full px-3.5 sm:px-4 py-2 bg-[#041A2F] hover:bg-[#00A3E0] text-white shadow-sm transition-all duration-200"
+      aria-label="Zadzwoń do Tomasza Kulpy"
     >
       <span class="relative flex h-2 w-2">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
         <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
       </span>
-      <span class="font-mono text-xs font-medium tracking-wider text-white">
-        +48 000 000 000
-      </span>
+      <div class="flex flex-col text-left">
+        <span class="text-[9px] uppercase tracking-wider text-slate-300 group-hover:text-white leading-none font-mono">
+          Zadzwoń teraz
+        </span>
+        <span class="font-mono text-xs sm:text-sm font-bold tracking-tight text-white mt-0.5">
+          +48 000 000 000
+        </span>
+      </div>
     </a>
   </div>
 </header>
@@ -81,18 +92,11 @@
   import { DOMLoaded } from '@/ts/events'
 
   DOMLoaded(() => {
-    const navbar = document.querySelector('[data-navbar]') as HTMLElement
     const navbarBg = document.querySelector('[data-navbar-bg]') as HTMLElement
 
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 40
-      if (navbarBg) {
-        navbarBg.style.opacity = isScrolled ? '1' : '0'
-      }
-      if (navbar) {
-        navbar.classList.toggle('h-14', isScrolled)
-        navbar.classList.toggle('sm:h-16', isScrolled)
-      }
+      const isScrolled = window.scrollY > 25
+      if (navbarBg) navbarBg.style.opacity = isScrolled ? '1' : '0'
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })

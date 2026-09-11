@@ -1,93 +1,79 @@
 ---
-// About.astro
+// About.astro — Człowiek za biznesem (Ekspert i Doradca Techniczny)
 ---
 
 <section
   id="about"
   data-about
-  class="relative bg-[#0B0D10] text-[#9AA4B2] py-32 md:py-44 px-6 md:px-12 border-b border-white/10 overflow-hidden"
+  class="relative bg-white text-[#0F172A] py-20 sm:py-28 lg:py-36 px-5 sm:px-8 md:px-12 border-b border-slate-200 overflow-hidden"
 >
-  <!-- Tło siatki CAD -->
-  <div
-    class="absolute inset-0 opacity-[0.035] pointer-events-none"
-    style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 60px 60px;"
-  ></div>
-
-  <div class="relative max-w-6xl mx-auto">
+  <div class="max-w-5xl mx-auto">
     <!-- Etykieta sekcji -->
-    <div class="flex items-center gap-3 font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#FF5500] mb-12">
-      <span class="w-1.5 h-1.5 bg-[#FF5500]"></span>
-      <span>02 // DORADZTWO TECHNICZNE I PROFIL OPERATORA</span>
+    <div class="flex items-center gap-2.5 font-mono text-xs tracking-wider uppercase text-[#00A3E0] font-bold mb-8">
+      <span class="w-2 h-2 rounded-sm bg-[#00A3E0]"></span>
+      <span>Doradztwo Techniczne &middot; Praktyka &middot; Odpowiedzialność</span>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-      <!-- Główny manifest (Twój tekst 1:1) -->
-      <div class="lg:col-span-8">
-        <h2
-          data-about-text
-          class="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-medium leading-[1.35] tracking-tight text-white/95"
-        >
-          Nazywam się <span class="text-white font-bold underline decoration-[#FF5500]/60 underline-offset-8">Tomasz Kulpa</span>. Wspieram inwestorów i&nbsp;wykonawców w&nbsp;doborze oraz zaopatrzeniu w&nbsp;kluczowe komponenty do&nbsp;przesyłu wody i&nbsp;systemów wysokociśnieniowych.
-          <br /><br />
-          W&nbsp;TK Flow łączę zaplecze czołowych producentów z&nbsp;partnerskim doradztwem. Dbam o&nbsp;to, by&nbsp;instalacje pracowały bezawaryjnie, oszczędzając Twój czas i&nbsp;pieniądze.
-        </h2>
-      </div>
-
-      <!-- Wizytówka inżynierska ze zdjęciem -->
-      <div class="lg:col-span-4 border-l border-white/10 lg:pl-10 pt-2 flex flex-col gap-6">
-        <div class="relative w-24 h-24 rounded-2xl overflow-hidden ring-1 ring-white/20 bg-[#12161C] shadow-2xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      
+      <!-- Portret Tomasza Kulpy -->
+      <div class="lg:col-span-4 flex flex-col items-center sm:items-start">
+        <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden shadow-lg border-2 border-slate-200 bg-slate-100">
           <img
             src="/images/tomasz-kulpa-tk-flow.jpg"
-            alt="Tomasz Kulpa"
-            width="96"
-            height="96"
-            class="w-full h-full object-cover filter grayscale contrast-125 hover:grayscale-0 transition-all duration-500"
+            alt="Tomasz Kulpa - TK Flow"
+            width="176"
+            height="176"
+            class="w-full h-full object-cover"
             loading="lazy"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-[#0B0D10]/50 to-transparent"></div>
         </div>
-
-        <div>
-          <span class="block font-display text-xl font-bold tracking-tight text-white">
+        <div class="mt-5 text-center sm:text-left">
+          <h3 class="font-display font-bold text-xl text-[#041A2F]">
             Tomasz Kulpa
-          </span>
-          <span class="block font-mono text-xs tracking-widest uppercase text-[#FF5500] mt-1">
+          </h3>
+          <p class="font-mono text-xs text-slate-500 uppercase tracking-wider mt-0.5 font-semibold">
             Założyciel & Doradca Techniczny
-          </span>
-          <p class="font-sans text-xs text-[#9AA4B2] mt-3 leading-relaxed">
-            Kompleksowa selekcja hydrauliki siłowej, zbrojonych rur PE100-RC oraz agregatów wysokociśnieniowych do pracy ciągłej.
           </p>
         </div>
       </div>
+
+      <!-- Treść merytoryczna (Twoje oryginalne słowa zoptymalizowane pod zaufanie) -->
+      <div class="lg:col-span-8">
+        <h2
+          data-about-text
+          class="font-sans text-xl sm:text-2xl lg:text-[1.75rem] font-semibold text-[#041A2F] leading-relaxed"
+        >
+          Nazywam się Tomasz Kulpa. Wspieram inwestorów i&nbsp;wykonawców w&nbsp;doborze oraz zaopatrzeniu w&nbsp;kluczowe komponenty do&nbsp;przesyłu wody i&nbsp;systemów wysokociśnieniowych.
+        </h2>
+
+        <p class="font-sans text-base sm:text-lg text-slate-600 mt-6 leading-relaxed">
+          W&nbsp;TK Flow łączę zaplecze czołowych producentów z&nbsp;partnerskim doradztwem. Dbam o&nbsp;to, by&nbsp;instalacje pracowały bezawaryjnie, oszczędzając Twój czas i&nbsp;pieniądze.
+        </p>
+
+        <!-- 3 Filary biznesowe TK Flow -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-slate-200">
+          <div>
+            <span class="block font-display font-bold text-base text-[#041A2F]">Sprawdzeni Producenci</span>
+            <p class="text-xs text-slate-500 mt-1 leading-normal">
+              Tylko atestowane rury polietylenowe oraz oryginalne pompy Udor z fabryki we Włoszech.
+            </p>
+          </div>
+          <div>
+            <span class="block font-display font-bold text-base text-[#041A2F]">Praktyczny Dobór</span>
+            <p class="text-xs text-slate-500 mt-1 leading-normal">
+              Pomoc w kalkulacji przepływów, doborze ciśnień, złączek oraz redukcji pod dane zadanie.
+            </p>
+          </div>
+          <div>
+            <span class="block font-display font-bold text-base text-[#041A2F]">Dostępność & Wysyłka</span>
+            <p class="text-xs text-slate-500 mt-1 leading-normal">
+              Sprawne zaopatrzenie w kluczowe komponenty, by eliminować przestój instalacji w sezonie.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
-
-<script>
-  import { gsap } from 'gsap'
-  import { ScrollTrigger } from 'gsap/ScrollTrigger'
-  import { DOMLoaded } from '@/ts/events'
-
-  DOMLoaded(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    const text = document.querySelector('[data-about-text]') as HTMLElement
-
-    if (text) {
-      gsap.fromTo(
-        text,
-        { opacity: 0.15, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: text,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      )
-    }
-  })
-</script>

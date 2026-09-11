@@ -9,39 +9,42 @@ const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="pl" class="scroll-smooth bg-[#0B0D10] text-[#E5E9F0]">
+<html lang="pl" class="scroll-smooth bg-[#F8FAFC] text-[#0F172A]">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="TK Flow - Architektura systemów przepływu cieczy. Infrastruktura nawadniania agro i pompy wysokociśnieniowe." />
-    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="TK Flow Tomasz Kulpa — Dystrybucja i doradztwo techniczne w zakresie przesyłu cieczy: certyfikowane rury PE do nawadniania oraz przemysłowe pompy wysokociśnieniowe do myjni."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon-tk-flow.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
-    <!-- Preconnect pod Google Fonts -->
+    <!-- Zoptymalizowany preconnect Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Typografia Awwwards: Syne (display brutalism), Plus Jakarta Sans (body), JetBrains Mono (SCADA telemetria) -->
+    <!-- Fonty: Plus Jakarta Sans (ultra-czytelny bezszeryf), Syne (techniczny display) i JetBrains Mono (parametry techniczne) -->
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Syne:wght@700;800&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Syne:wght@700;800&display=swap"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Syne:wght@700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&family=Syne:wght@700;800&display=swap"
       />
     </noscript>
   </head>
-  <body class="bg-[#0B0D10] font-sans antialiased selection:bg-[#FF5500] selection:text-black overflow-x-hidden">
+  <body class="bg-[#F8FAFC] font-sans antialiased text-[#0F172A] selection:bg-[#00A3E0] selection:text-white overflow-x-hidden">
     <Header />
     <slot />
   </body>
@@ -49,27 +52,27 @@ const { title } = Astro.props
 
 <style is:global>
   ::selection {
-    background-color: #ff5500;
-    color: #000;
-  }
-  
-  body {
-    background-color: #0b0d10;
-    color: #e5e9f0;
+    background-color: #00a3e0;
+    color: #ffffff;
   }
 
-  /* Wygląd scrollbara w stylu CAD */
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  /* Precyzyjny scrollbar */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #0b0d10;
+    background: #f1f5f9;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1f242d;
-    border-radius: 3px;
+    background: #cbd5e1;
+    border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #ff5500;
+    background: #00a3e0;
   }
 </style>
