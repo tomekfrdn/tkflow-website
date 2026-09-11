@@ -5,141 +5,116 @@
 <section
   id="projects"
   data-projects
-  class="relative bg-[#02070D] text-white py-28 md:py-36 px-6 md:px-12 border-t border-white/10 overflow-hidden"
+  class="relative bg-[#0E1217] text-white py-28 md:py-36 px-6 md:px-12 border-b border-white/10 overflow-hidden"
 >
   <div class="max-w-7xl mx-auto">
-    <!-- Nagłówek techniczny sekcji -->
+    <!-- Nagłówek sekcji -->
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-white/10 pb-8 gap-6">
       <div>
-        <div class="flex items-center gap-3 font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#00A3E0] mb-3">
-          <span class="w-1.5 h-1.5 bg-[#00A3E0]"></span>
-          <span>03 // STRATEGICZNE LINIE PRODUKTOWE</span>
+        <div class="flex items-center gap-3 font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#FF5500] mb-3">
+          <span class="w-1.5 h-1.5 bg-[#FF5500]"></span>
+          <span>03 // SPECYFIKACJA LINII PRODUKTOWYCH</span>
         </div>
         <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white">
           Dedykowane Strony Produktowe
         </h2>
       </div>
-      <p class="font-mono text-xs text-[#8FAEC4] max-w-sm tracking-wide">
-        [ SELECT OPERATIONAL STREAM ]<br />
-        Dwa wyspecjalizowane ekosystemy dla różnych parametrów ciśnienia i medium.
+      <p class="font-mono text-xs text-[#9AA4B2] max-w-sm tracking-wide">
+        Wybierz dedykowany portal z pełnym katalogiem technicznym, kartami charakterystyki oraz formularzem wyceny.
       </p>
     </div>
 
-    <!-- Dual Stream Container: 2 monumentalne panele bramowe -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8">
+    <!-- Prezentacja techniczna kart -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       
-      <!-- STRUMIEŃ A: sercemyjni.pl (Wysokie ciśnienie) -->
-      <a
-        href="https://sercemyjni.pl"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-project-card
-        class="group relative flex flex-col justify-between p-8 sm:p-12 min-h-[460px] rounded-2xl bg-gradient-to-b from-[#081B2E]/90 to-[#04101D]/90 border border-white/10 hover:border-[#00A3E0]/60 transition-all duration-500 overflow-hidden shadow-2xl"
-      >
-        <!-- Akcent świetlny w tle (Glow) -->
-        <div class="absolute -top-32 -right-32 w-80 h-80 bg-[#00A3E0]/15 rounded-full blur-[90px] group-hover:bg-[#00A3E0]/25 transition-all duration-700 pointer-events-none"></div>
-
-        <!-- Top metadata -->
-        <div class="relative z-10 flex justify-between items-start">
-          <span class="font-mono text-[11px] tracking-widest uppercase px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#8FAEC4] group-hover:text-white group-hover:border-[#00A3E0]/40 transition-colors">
-            Pompy do myjni samochodowych
-          </span>
-          <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white group-hover:bg-[#00A3E0] group-hover:border-[#00A3E0] group-hover:text-[#030C15] transition-all duration-300">
-            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>
+      <!-- sercemyjni.pl Card -->
+      <div class="p-8 sm:p-12 rounded-2xl bg-[#12161D] border border-white/10 hover:border-[#FF5500]/60 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-6 font-mono text-xs text-[#9AA4B2]">
+            <span class="px-3 py-1 rounded bg-white/5 border border-white/10 text-white font-semibold">
+              01 // HIGH PRESSURE
+            </span>
+            <span class="text-[#FF5500]">sercemyjni.pl</span>
           </div>
-        </div>
 
-        <!-- Central Content -->
-        <div class="relative z-10 my-8">
-          <span class="block font-mono text-xs text-[#00A3E0] uppercase tracking-widest mb-2 font-semibold">
-            High Pressure Systems
-          </span>
-          <h3 class="font-display text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tight group-hover:text-[#00A3E0] transition-colors">
+          <h3 class="font-display text-3xl sm:text-4xl font-extrabold uppercase text-white mb-4">
             sercemyjni.pl
           </h3>
-          <p class="font-sans text-sm sm:text-base text-[#8FAEC4] mt-4 max-w-md leading-relaxed">
-            Pompy wysokociśnieniowe do bezdotykowych myjni samochodowych. Niezawodne jednostki napędowe odporne na ciągłą eksploatację i chemię przemysłową.
+          <p class="font-sans text-[#9AA4B2] text-sm sm:text-base leading-relaxed mb-8">
+            Pompy wysokociśnieniowe do bezdotykowych myjni samochodowych. Zaawansowane korpusy, nurniki ceramiczne oraz uszczelnienia odporne na agresywne środki myjące i skoki ciśnień.
           </p>
+
+          <ul class="font-mono text-xs text-white/70 space-y-2.5 mb-8 border-y border-white/5 py-6">
+            <li class="flex justify-between">
+              <span class="text-white/40">Zastosowanie:</span>
+              <span>Myjnie bezdotykowe i przemysłowe</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="text-white/40">Główne medium:</span>
+              <span>Woda uzdatniona / Chemia myjąca</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="text-white/40">Tryb pracy:</span>
+              <span>Ciągły (Heavy Duty 24/7)</span>
+            </li>
+          </ul>
         </div>
 
-        <!-- Bottom Status -->
-        <div class="relative z-10 pt-6 border-t border-white/10 flex items-center justify-between font-mono text-xs text-white/50">
-          <span>PRZEJDŹ DO SERWISU</span>
-          <span class="text-[#00A3E0] group-hover:translate-x-1 transition-transform">sercemyjni.pl &rarr;</span>
-        </div>
-      </a>
+        <a
+          href="https://sercemyjni.pl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#FF5500] hover:bg-[#FF6A1A] text-black font-mono text-xs font-bold uppercase tracking-widest transition-colors"
+        >
+          <span>Otwórz serwis sercemyjni.pl</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
 
-      <!-- STRUMIEŃ B: rurape.pl (Nawadnianie rolnicze) -->
-      <a
-        href="https://rurape.pl"
-        target="_blank"
-        rel="noopener noreferrer"
-        data-project-card
-        class="group relative flex flex-col justify-between p-8 sm:p-12 min-h-[460px] rounded-2xl bg-gradient-to-b from-[#081B2E]/90 to-[#04101D]/90 border border-white/10 hover:border-emerald-500/60 transition-all duration-500 overflow-hidden shadow-2xl"
-      >
-        <!-- Akcent świetlny w tle (Glow) -->
-        <div class="absolute -top-32 -right-32 w-80 h-80 bg-emerald-500/10 rounded-full blur-[90px] group-hover:bg-emerald-500/20 transition-all duration-700 pointer-events-none"></div>
-
-        <!-- Top metadata -->
-        <div class="relative z-10 flex justify-between items-start">
-          <span class="font-mono text-[11px] tracking-widest uppercase px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[#8FAEC4] group-hover:text-white group-hover:border-emerald-500/40 transition-colors">
-            Rury PE do nawadniania w rolnictwie
-          </span>
-          <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white group-hover:bg-emerald-400 group-hover:border-emerald-400 group-hover:text-[#030C15] transition-all duration-300">
-            <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-            </svg>
+      <!-- rurape.pl Card -->
+      <div class="p-8 sm:p-12 rounded-2xl bg-[#12161D] border border-white/10 hover:border-emerald-500/60 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-6 font-mono text-xs text-[#9AA4B2]">
+            <span class="px-3 py-1 rounded bg-white/5 border border-white/10 text-white font-semibold">
+              02 // AGRO INFRA
+            </span>
+            <span class="text-emerald-400">rurape.pl</span>
           </div>
-        </div>
 
-        <!-- Central Content -->
-        <div class="relative z-10 my-8">
-          <span class="block font-mono text-xs text-emerald-400 uppercase tracking-widest mb-2 font-semibold">
-            Agricultural Flow Infra
-          </span>
-          <h3 class="font-display text-4xl sm:text-5xl font-extrabold text-white uppercase tracking-tight group-hover:text-emerald-400 transition-colors">
+          <h3 class="font-display text-3xl sm:text-4xl font-extrabold uppercase text-white mb-4">
             rurape.pl
           </h3>
-          <p class="font-sans text-sm sm:text-base text-[#8FAEC4] mt-4 max-w-md leading-relaxed">
-            Rury polietylenowe do nawadniania w rolnictwie. Kompletne ciągi przesyłowe o wysokiej trwałości mechanicznej i odporności na degradację środowiskową.
+          <p class="font-sans text-[#9AA4B2] text-sm sm:text-base leading-relaxed mb-8">
+            Rury polietylenowe do nawadniania w rolnictwie. Kompletne magistrale przesyłowe o wysokiej odporności na pękanie naprężeniowe, promieniowanie UV oraz zjawisko uderzenia hydraulicznego.
           </p>
+
+          <ul class="font-mono text-xs text-white/70 space-y-2.5 mb-8 border-y border-white/5 py-6">
+            <li class="flex justify-between">
+              <span class="text-white/40">Zastosowanie:</span>
+              <span>Systemy irygacji upraw polowych i szklarni</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="text-white/40">Materiał bazowy:</span>
+              <span>Polietylen PE100 / PE100-RC</span>
+            </li>
+            <li class="flex justify-between">
+              <span class="text-white/40">Montaż:</span>
+              <span>Zgrzewanie doczołowe / elektrooporowe / skręcane</span>
+            </li>
+          </ul>
         </div>
 
-        <!-- Bottom Status -->
-        <div class="relative z-10 pt-6 border-t border-white/10 flex items-center justify-between font-mono text-xs text-white/50">
-          <span>PRZEJDŹ DO SERWISU</span>
-          <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">rurape.pl &rarr;</span>
-        </div>
-      </a>
+        <a
+          href="https://rurape.pl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs font-bold uppercase tracking-widest transition-colors"
+        >
+          <span>Otwórz serwis rurape.pl</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
 
     </div>
   </div>
 </section>
-
-<script>
-  import { gsap } from 'gsap'
-  import { ScrollTrigger } from 'gsap/ScrollTrigger'
-  import { DOMLoaded } from '@/ts/events'
-
-  DOMLoaded(() => {
-    gsap.registerPlugin(ScrollTrigger)
-    const cards = document.querySelectorAll('[data-project-card]')
-
-    if (cards.length) {
-      gsap.from(cards, {
-        scrollTrigger: {
-          trigger: '#projects',
-          start: 'top 75%',
-          toggleActions: 'play none none reverse',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.2,
-        ease: 'power3.out',
-      })
-    }
-  })
-</script>

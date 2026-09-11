@@ -4,17 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-surface': '#030c15',
-        'brand-deep': '#041a2f',
-        'brand-cyan': '#00a3e0',
-        'brand-steel': '#8faec4',
-        'brand-dim': '#1b3147',
-        // Zachowanie kompatybilności wstecznej dla reszty podstron
-        'dark-blue': '#00a3e0',
-        'light-blue': '#041a2f',
-        'dark-gray': '#041a2f',
-        'light-gray': '#f0f6fa',
-        'slate-gray': '#08243f',
+        'brand-base': '#0B0D10',
+        'brand-card': '#11151A',
+        'brand-steel': '#9AA4B2',
+        'brand-orange': '#FF5500',
+        'brand-orange-hover': '#FF6A1A',
+        // Zachowanie kompatybilności wstecznej
+        'dark-blue': '#FF5500',
+        'light-blue': '#0B0D10',
+        'steel-blue': '#9AA4B2',
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'sans-serif'],

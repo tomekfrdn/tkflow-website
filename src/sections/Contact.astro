@@ -6,30 +6,30 @@ const currentYear = new Date().getFullYear()
 <section
   id="contact"
   data-contact
-  class="relative bg-[#030C15] text-[#8FAEC4] py-28 md:py-36 px-6 md:px-12 border-t border-white/10"
+  class="relative bg-[#0B0D10] text-[#9AA4B2] py-28 md:py-36 px-6 md:px-12 overflow-hidden"
 >
   <div class="max-w-6xl mx-auto">
-    <!-- Header kontaktu -->
+    <!-- Nagłówek sekcji -->
     <div class="flex flex-col gap-4 mb-16">
-      <div class="flex items-center gap-3 font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#00A3E0]">
-        <span class="w-1.5 h-1.5 bg-[#00A3E0]"></span>
+      <div class="flex items-center gap-3 font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#FF5500]">
+        <span class="w-1.5 h-1.5 bg-[#FF5500]"></span>
         <span>04 // TERMINAL KONTAKTOWY</span>
       </div>
       <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight text-white">
         Doradztwo Techniczne i Wycena
       </h2>
-      <p class="font-sans text-base sm:text-lg text-[#8FAEC4] max-w-2xl leading-relaxed">
+      <p class="font-sans text-base sm:text-lg text-[#9AA4B2] max-w-2xl leading-relaxed">
         Zadzwoń, wyślij e-mail lub przejdź do dedykowanego serwisu produktowego.
       </p>
     </div>
 
-    <!-- Panel 3-kolumnowy -->
+    <!-- Blok danych rejestrowych i kontaktowych w 3 kolumnach -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-white/10">
       
       <!-- Kolumna 1: Dane rejestrowe -->
-      <div class="p-8 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col justify-between">
+      <div class="p-8 rounded-2xl bg-[#11151A] border border-white/5 flex flex-col justify-between">
         <div>
-          <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#00A3E0] mb-4">
+          <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#FF5500] mb-4 font-semibold">
             Dane Rejestrowe
           </span>
           <p class="font-display font-bold text-white text-lg mb-1">TK Flow Tomasz Kulpa</p>
@@ -41,41 +41,42 @@ const currentYear = new Date().getFullYear()
         </p>
       </div>
 
-      <!-- Kolumna 2: Bezpośrednie połączenie -->
-      <div class="p-8 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col justify-between">
+      <!-- Kolumna 2: Kontakt bezpośredni -->
+      <div class="p-8 rounded-2xl bg-[#11151A] border border-white/5 flex flex-col justify-between">
         <div>
-          <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#00A3E0] mb-4">
+          <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#FF5500] mb-4 font-semibold">
             Kontakt Bezpośredni
           </span>
           <div class="mb-5">
-            <span class="block text-xs font-mono text-white/40 uppercase mb-1">Infolinia:</span>
+            <span class="block text-xs font-mono text-white/40 uppercase mb-1">Infolinia doradcza:</span>
             <a
               href="tel:+48000000000"
-              class="font-mono text-xl font-bold text-white hover:text-[#00A3E0] transition-colors"
+              class="font-mono text-xl font-bold text-white hover:text-[#FF5500] transition-colors"
             >
               +48 000 000 000
             </a>
           </div>
           <div>
-            <span class="block text-xs font-mono text-white/40 uppercase mb-1">E-mail:</span>
+            <span class="block text-xs font-mono text-white/40 uppercase mb-1">E-mail techniczny:</span>
             <a
               href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#111;&#110;&#116;&#97;&#107;&#116;&#64;&#116;&#107;&#102;&#108;&#111;&#119;&#46;&#112;&#108;"
-              class="font-mono text-sm text-white hover:text-[#00A3E0] transition-colors inline-block"
+              class="font-mono text-sm text-white hover:text-[#FF5500] transition-colors inline-block"
             >
               <bdo dir="rtl">lp.wolfkt@tkatnok</bdo>
             </a>
           </div>
         </div>
-        <span class="text-xs font-mono text-white/30 mt-6 pt-4 border-t border-white/5">
-          Status: Gotowy do rozmowy technicznej
+        <span class="text-xs font-mono text-emerald-400 mt-6 pt-4 border-t border-white/5 flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          Kanały komunikacji aktywne
         </span>
       </div>
 
-      <!-- Kolumna 3: Portale produktowe -->
-      <div class="p-8 rounded-xl bg-white/[0.02] border border-white/5 flex flex-col justify-between">
+      <!-- Kolumna 3: Serwisy produktowe -->
+      <div class="p-8 rounded-2xl bg-[#11151A] border border-white/5 flex flex-col justify-between">
         <div>
-          <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#00A3E0] mb-4">
-            Dedykowane Systemy
+          <span class="block font-mono text-[11px] uppercase tracking-[0.2em] text-[#FF5500] mb-4 font-semibold">
+            Dedykowane Portale
           </span>
           <ul class="space-y-4 font-mono text-sm">
             <li>
@@ -84,10 +85,10 @@ const currentYear = new Date().getFullYear()
                 href="https://sercemyjni.pl"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-white hover:text-[#00A3E0] transition-colors inline-flex items-center gap-1.5"
+                class="text-white hover:text-[#FF5500] transition-colors inline-flex items-center gap-2"
               >
                 <span>sercemyjni.pl</span>
-                <span class="text-xs text-[#00A3E0]">&rarr;</span>
+                <span class="text-xs text-[#FF5500]">&rarr;</span>
               </a>
             </li>
             <li>
@@ -96,7 +97,7 @@ const currentYear = new Date().getFullYear()
                 href="https://rurape.pl"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-white hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5"
+                class="text-white hover:text-emerald-400 transition-colors inline-flex items-center gap-2"
               >
                 <span>rurape.pl</span>
                 <span class="text-xs text-emerald-400">&rarr;</span>
@@ -105,16 +106,16 @@ const currentYear = new Date().getFullYear()
           </ul>
         </div>
         <span class="text-xs font-mono text-white/30 mt-6 pt-4 border-t border-white/5">
-          Bezpośrednie formularze zamówień
+          Zapytania ofertowe i specyfikacje
         </span>
       </div>
 
     </div>
 
-    <!-- Stopka praw autorskich -->
+    <!-- Dolna stopka praw autorskich -->
     <div class="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-white/40">
       <p>© {currentYear} TK FLOW TOMASZ KULPA. WSZYSTKIE PRAWA ZASTRZEŻONE.</p>
-      <p class="tracking-widest uppercase text-[10px] text-[#00A3E0]">TECHNOLOGIE PRZESYŁU CIECZY</p>
+      <p class="tracking-widest uppercase text-[10px] text-[#FF5500]">TECHNOLOGIE PRZESYŁU CIECZY</p>
     </div>
   </div>
 </section>
