@@ -1,18 +1,94 @@
 ---
-// Hero.astro — Typographic Hero
+// Hero.astro — The Statement & The Valve (Rozdzielacz B2B)
 ---
 
-<section class="w-full min-h-[90svh] flex flex-col justify-end px-6 md:px-12 pb-12 md:pb-24 bg-white">
+<section class="w-full min-h-[90svh] flex flex-col justify-between pt-36 pb-0 bg-white">
   
-  <div class="max-w-[1800px] w-full mx-auto">
-    <p class="text-sm md:text-xl font-medium text-kh-muted uppercase tracking-widest mb-6 md:mb-12 max-w-2xl">
-      Inżynieria doboru i dystrybucja armatury dla rolnictwa wielkoobszarowego oraz przemysłowych myjni.
-    </p>
+  <!-- Deklaracja celowa -->
+  <div class="max-w-[1600px] w-full mx-auto px-6 md:px-12 mb-20">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="w-2 h-2 bg-kh-black animate-ping"></span>
+      <span class="font-mono text-[10px] uppercase tracking-widest text-kh-muted font-bold">
+        Architektura Przesyłu Cieczy &middot; Bydgoszcz
+      </span>
+    </div>
 
-    <!-- Gigantyczny, responsywny nagłówek rozciągający się na ekranie -->
-    <h1 class="font-extrabold text-[15vw] leading-[0.85] tracking-tighter text-kh-black uppercase select-none">
+    <h1 class="font-display font-extrabold text-[13vw] sm:text-[11vw] lg:text-[9.5rem] leading-[0.9] tracking-tightest text-kh-black uppercase select-none mb-8">
       Przesył<br/>Cieczy.
     </h1>
+
+    <p class="font-sans text-lg sm:text-2xl text-kh-muted max-w-3xl leading-relaxed font-light">
+      Inżynieria doboru i dystrybucja armatury. Zabezpieczamy ciągłość pracy dla wielkoobszarowego rolnictwa oraz przemysłowych myjni bezdotykowych.
+    </p>
+  </div>
+
+  <!-- Mechaniczne Strumienie (The Valve - Dwie Bramy) -->
+  <div id="platformy" class="w-full border-t-2 border-kh-black flex flex-col">
+    
+    <!-- PASMO 01: AGRO / RURAPE.PL -->
+    <a 
+      href="https://rurape.pl" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="group block w-full px-6 md:px-12 py-16 md:py-20 border-b border-kh-border hover:bg-kh-agro hover:text-white kh-transition"
+    >
+      <div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+        
+        <div class="max-w-xl">
+          <span class="font-mono text-xs font-bold tracking-widest uppercase opacity-60 mb-2 block">
+            [ 01 / Magistrale Rolnicze ]
+          </span>
+          <h2 class="font-display font-extrabold text-4xl sm:text-6xl tracking-tight uppercase">
+            RURAPE.PL
+          </h2>
+        </div>
+
+        <div class="flex-1 max-w-md font-mono text-xs opacity-80 leading-relaxed hidden md:block">
+          Atestowane rury PE100 i PE100-RC. Kompleksowe zaopatrzenie w systemy irygacyjne dla sadów i plantacji.
+        </div>
+
+        <div class="flex items-center justify-between lg:justify-end gap-6">
+          <span class="font-mono text-xs uppercase tracking-widest font-bold">Przejdź do katalogu</span>
+          <div class="w-12 h-12 border border-current rounded-full flex items-center justify-center group-hover:rotate-45 kh-transition">
+            <span>&nearr;</span>
+          </div>
+        </div>
+
+      </div>
+    </a>
+
+    <!-- PASMO 02: MYJNIE / SERCEMYJNI.PL -->
+    <a 
+      href="https://sercemyjni.pl" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="group block w-full px-6 md:px-12 py-16 md:py-20 hover:bg-kh-wash hover:text-white kh-transition"
+    >
+      <div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+        
+        <div class="max-w-xl">
+          <span class="font-mono text-xs font-bold tracking-widest uppercase opacity-60 mb-2 block">
+            [ 02 / Wysokie Ciśnienie 200 Bar ]
+          </span>
+          <h2 class="font-display font-extrabold text-4xl sm:text-6xl tracking-tight uppercase">
+            SERCEMYJNI.PL
+          </h2>
+        </div>
+
+        <div class="flex-1 max-w-md font-mono text-xs opacity-80 leading-relaxed hidden md:block">
+          Przemysłowe pompy nurnikowe Udor, komponenty ceramiczne i armatura do ciągłej pracy 24/7.
+        </div>
+
+        <div class="flex items-center justify-between lg:justify-end gap-6">
+          <span class="font-mono text-xs uppercase tracking-widest font-bold">Otwórz ofertę pomp</span>
+          <div class="w-12 h-12 border border-current rounded-full flex items-center justify-center group-hover:rotate-45 kh-transition">
+            <span>&nearr;</span>
+          </div>
+        </div>
+
+      </div>
+    </a>
+
   </div>
 
 </section>

@@ -1,20 +1,23 @@
 ---
-// Header.astro — Floating Minimalist Header (Mix Blend Difference)
+// Header.astro — Floating Frame Header
 ---
 
 <header class="fixed top-0 inset-x-0 z-50 p-6 md:p-12 flex justify-between items-start pointer-events-none mix-blend-difference text-white">
   
   <div class="pointer-events-auto">
-    <a href="/" class="block font-extrabold text-2xl md:text-3xl uppercase tracking-tighter hover:opacity-70 kh-transition leading-none">
+    <a href="/" class="block font-display font-extrabold text-2xl md:text-3xl uppercase tracking-tight hover:opacity-70 kh-transition leading-none">
       TK Flow
     </a>
+    <span class="block text-[9px] tracking-widest uppercase opacity-60 mt-1 font-mono">
+      Centrala Inżynieryjna
+    </span>
   </div>
 
   <div class="pointer-events-auto text-right">
-    <span class="block text-[10px] uppercase tracking-widest font-bold mb-1 opacity-70">
-      Terminal Doradczy
+    <span class="block text-[9px] uppercase tracking-widest font-bold mb-1 opacity-60 font-mono">
+      Infolinia Doradcza
     </span>
-    <a href="tel:+48000000000" class="block font-bold text-xl md:text-2xl tracking-tighter hover:opacity-70 kh-transition">
+    <a href="tel:+48000000000" class="block font-display font-bold text-lg md:text-2xl tracking-tight hover:opacity-70 kh-transition">
       +48 000 000 000
     </a>
   </div>

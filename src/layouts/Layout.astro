@@ -9,10 +9,10 @@ const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="pl" class="scroll-smooth bg-white text-black">
+<html lang="pl" class="scroll-smooth bg-white text-[#050505]">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="TK Flow — Technologie Przesyłu Cieczy." />
+    <meta name="description" content="TK Flow — Technologie Przesyłu Cieczy. Inżynieria doboru, magistrale rolnicze rurape.pl oraz pompy wysokociśnieniowe sercemyjni.pl." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon-tk-flow.svg" />
     <meta name="generator" content={Astro.generator} />
@@ -21,10 +21,14 @@ const { title } = Astro.props
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Plus Jakarta Sans - w grubych odmianach wygląda niezwykle potężnie i nowocześnie -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <!-- Plus Jakarta Sans oraz Inter dla najwyższej czytelności maszynowej i edytorialowej -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-white font-sans antialiased text-black selection:bg-black selection:text-white">
+  <body class="bg-white font-sans antialiased text-[#050505] selection:bg-[#050505] selection:text-white overflow-x-hidden">
+    <!-- Podział strukturalny inspirowany siatką skandynawską -->
+    <div class="fixed top-0 bottom-0 left-6 md:left-12 w-[1px] bg-[#EBEBEB] z-[-1] pointer-events-none"></div>
+    <div class="fixed top-0 bottom-0 right-6 md:right-12 w-[1px] bg-[#EBEBEB] z-[-1] pointer-events-none"></div>
+
     <Header />
     <slot />
   </body>
@@ -32,17 +36,26 @@ const { title } = Astro.props
 
 <style is:global>
   ::selection {
-    background-color: #000000;
+    background-color: #050505;
     color: #ffffff;
   }
   body {
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, .font-display {
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
-  /* Płynne, potężne przejścia */
   .kh-transition {
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   ::-webkit-scrollbar {
-    width: 0px; /* Całkowite ukrycie paska przewijania dla efektu plakatu */
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-left: 1px solid #EBEBEB;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #050505;
   }
 </style>

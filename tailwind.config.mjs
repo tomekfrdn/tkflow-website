@@ -4,20 +4,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        'kh-black': '#000000',
+        'kh-black': '#050505',
         'kh-white': '#FFFFFF',
-        'kh-gray': '#F2F2F2',
-        'kh-muted': '#888888',
-        // Brutalne akcenty dla brandów
-        'kh-agro': '#022C22', // Ekstremalnie ciemna zieleń
-        'kh-wash': '#4C0519', // Ekstremalnie ciemna czerwień
+        'kh-gray': '#F4F5F7',
+        'kh-border': '#EBEBEB',
+        'kh-muted': '#6B7280',
+        // Brutalne akcenty marek
+        'kh-agro': '#022C22',
+        'kh-wash': '#4C0519',
+        // Zgodność wsteczna
+        'dark-blue': '#050505',
+        'light-blue': '#F4F5F7',
+        'steel-blue': '#6B7280',
+        'light-gray': '#FFFFFF',
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['"Inter"', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       letterSpacing: {
-        tighter: '-0.05em',
-        widest: '0.25em',
+        tightest: '-0.04em',
+        widest: '0.2em',
       },
     },
   },
