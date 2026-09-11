@@ -1,5 +1,5 @@
 ---
-// Hero.astro — The Masterclass Statement (Pełny slogan bez błędu i świetna responsywność)
+// Hero.astro — The Masterclass Statement z wbudowanymi artefaktami inżynieryjnymi
 ---
 
 <section class="w-full min-h-[90svh] flex flex-col justify-between pt-32 md:pt-40 pb-0 bg-tk-base">
@@ -13,7 +13,6 @@
       </span>
     </div>
 
-    <!-- Nienaruszony slogan w pełnym brzmieniu, dopasowany skalą do każdego ekranu -->
     <h1 class="font-display font-extrabold text-[11vw] sm:text-[9vw] lg:text-[7.5rem] leading-[0.95] tracking-tightest text-tk-dark uppercase select-none mb-8">
       Technologie przesyłu cieczy.
     </h1>
@@ -23,32 +22,43 @@
     </p>
   </div>
 
-  <!-- Bramy marek z widocznymi akcentami kolorystycznymi -->
+  <!-- Bramy marek zintegrowane z technicznymi rycinami fotograficznymi -->
   <div id="platformy" class="w-full border-t-2 border-tk-dark flex flex-col">
     
-    <!-- BRAMA 01: AGRO (rurape.pl) -->
+    <!-- BRAMA 01: AGRO (rurape.pl) + ZDJĘCIE RUR -->
     <a 
       href="https://rurape.pl" 
       target="_blank" 
       rel="noopener noreferrer"
       class="group block w-full px-6 md:px-12 py-14 md:py-20 border-b border-tk-border bg-[#F4F3EE] hover:bg-tk-agro hover:text-white kh-transition relative overflow-hidden"
     >
-      <!-- Subtelny pasek rozpoznawczy marki stale obecny po lewej -->
       <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#134E39] group-hover:bg-emerald-400 kh-transition"></div>
 
-      <div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-6 md:gap-8 pl-4">
+      <div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-8 pl-4">
         
-        <div class="max-w-xl">
+        <div class="max-w-md">
           <span class="font-mono text-xs font-bold tracking-widest uppercase text-[#134E39] group-hover:text-emerald-300 transition-colors mb-2 block">
             [ 01 / Magistrale Rolnicze ]
           </span>
-          <h2 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-tk-dark group-hover:text-white kh-transition">
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-tk-dark group-hover:text-white kh-transition mb-4">
             RURAPE.PL
           </h2>
+          <p class="font-mono text-xs text-tk-muted group-hover:text-white/80 kh-transition leading-relaxed">
+            Atestowane rury PE100 i PE100-RC. Kompleksowe zaopatrzenie w systemy irygacyjne dla sadów i plantacji.
+          </p>
         </div>
 
-        <div class="flex-1 max-w-md font-mono text-xs text-tk-muted group-hover:text-white/80 kh-transition leading-relaxed hidden md:block">
-          Atestowane rury PE100 i PE100-RC. Kompleksowe zaopatrzenie w systemy irygacyjne dla sadów i plantacji bez ryzyka przestoju.
+        <!-- Inżynieryjna rycina fotograficzna: Rury -->
+        <div class="w-full lg:w-72 h-36 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
+          <img 
+            src="/images/rury-przekroj.jpg" 
+            alt="Przekrój rur PE" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
+          <div class="absolute top-2 left-2 bg-black/60 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
+            Ryc. 01 // Rury PE
+          </div>
         </div>
 
         <div class="flex items-center justify-between lg:justify-end gap-6">
@@ -61,29 +71,40 @@
       </div>
     </a>
 
-    <!-- BRAMA 02: MYJNIE (sercemyjni.pl) -->
+    <!-- BRAMA 02: MYJNIE (sercemyjni.pl) + ZDJĘCIE POMPY -->
     <a 
       href="https://sercemyjni.pl" 
       target="_blank" 
       rel="noopener noreferrer"
       class="group block w-full px-6 md:px-12 py-14 md:py-20 bg-[#F4F3EE] hover:bg-tk-wash hover:text-white kh-transition relative overflow-hidden"
     >
-      <!-- Subtelny pasek rozpoznawczy marki stale obecny po lewej -->
       <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#651C32] group-hover:bg-rose-300 kh-transition"></div>
 
-      <div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-6 md:gap-8 pl-4">
+      <div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-8 pl-4">
         
-        <div class="max-w-xl">
+        <div class="max-w-md">
           <span class="font-mono text-xs font-bold tracking-widest uppercase text-[#651C32] group-hover:text-rose-300 transition-colors mb-2 block">
             [ 02 / Wysokie Ciśnienie 200 Bar ]
           </span>
-          <h2 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-tk-dark group-hover:text-white kh-transition">
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-tk-dark group-hover:text-white kh-transition mb-4">
             SERCEMYJNI.PL
           </h2>
+          <p class="font-mono text-xs text-tk-muted group-hover:text-white/80 kh-transition leading-relaxed">
+            Przemysłowe pompy nurnikowe Udor, komponenty ceramiczne i armatura stworzona do pracy ciągłej 24/7.
+          </p>
         </div>
 
-        <div class="flex-1 max-w-md font-mono text-xs text-tk-muted group-hover:text-white/80 kh-transition leading-relaxed hidden md:block">
-          Przemysłowe pompy nurnikowe Udor, komponenty ceramiczne i armatura stworzona do pracy ciągłej 24/7 w myjniach bezdotykowych.
+        <!-- Inżynieryjna rycina fotograficzna: Przekrój pompy -->
+        <div class="w-full lg:w-72 h-36 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
+          <img 
+            src="/images/pompa-przekroj.jpg" 
+            alt="Przekrój pompy Udor" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="lazy"
+          />
+          <div class="absolute top-2 left-2 bg-black/60 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest">
+            Ryc. 02 // Pompa Udor
+          </div>
         </div>
 
         <div class="flex items-center justify-between lg:justify-end gap-6">
