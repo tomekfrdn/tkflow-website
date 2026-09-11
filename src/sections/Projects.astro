@@ -1,43 +1,63 @@
 ---
-// Projects.astro — The Technical Specification Matrix
+// Projects.astro — The Massive Bifurcation Rows
 ---
 
-<section class="relative w-full py-24 sm:py-32 bg-white border-b border-nv-border max-w-[1600px] mx-auto px-6 md:px-12">
-  <div class="mb-16">
-    <span class="block font-sans text-[10px] uppercase tracking-widest text-nv-muted font-bold mb-4">
-      Specyfikacja Architektury
-    </span>
-    <h2 class="font-display font-extrabold text-3xl sm:text-5xl uppercase tracking-tighter text-nv-black">
-      Parametryzacja Systemów
-    </h2>
-  </div>
+<section id="platformy" class="w-full bg-white flex flex-col">
+  
+  <!-- BRAMA 01: AGRO -->
+  <a 
+    href="https://rurape.pl" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="group block w-full border-t-2 border-kh-black px-6 md:px-12 py-16 md:py-24 hover:bg-kh-agro hover:text-white kh-transition"
+  >
+    <div class="max-w-[1800px] mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-8 md:mb-16">
+        <span class="font-bold text-sm md:text-lg uppercase tracking-widest opacity-60">01 &mdash; Nawadnianie Rolnicze</span>
+        <div class="text-right">
+          <span class="block font-bold text-xl md:text-3xl tracking-tighter">Rury PE100 / PE100-RC</span>
+          <span class="block text-sm md:text-lg opacity-60 mt-2">DN 16 – 110 mm</span>
+        </div>
+      </div>
+      
+      <div class="flex items-center justify-between">
+        <h2 class="font-extrabold text-[10vw] md:text-[8vw] leading-none tracking-tighter uppercase">
+          RURAPE.PL
+        </h2>
+        <!-- Potężna strzałka -->
+        <svg class="w-[8vw] h-[8vw] md:w-[6vw] md:h-[6vw] transform group-hover:rotate-45 kh-transition" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </div>
+    </div>
+  </a>
 
-  <div class="w-full overflow-x-auto">
-    <table class="w-full text-left font-sans text-sm border-collapse min-w-[800px]">
-      <thead>
-        <tr class="text-nv-black text-xs uppercase tracking-widest bg-nv-gray">
-          <th class="py-5 px-6 border border-nv-border font-bold w-1/3">Kryterium Techniczne</th>
-          <th class="py-5 px-6 border border-nv-border font-bold w-1/3 text-[#059669]">Strumień Agro (rurape.pl)</th>
-          <th class="py-5 px-6 border border-nv-border font-bold w-1/3 text-[#DC2626]">Siła Kinetyczna (sercemyjni.pl)</th>
-        </tr>
-      </thead>
-      <tbody class="text-nv-black font-medium">
-        <tr class="hover:bg-nv-gray/50 transition-colors">
-          <td class="py-6 px-6 border border-nv-border">Główny Komponent</td>
-          <td class="py-6 px-6 border border-nv-border text-nv-muted">Rury polietylenowe wysokiej gęstości</td>
-          <td class="py-6 px-6 border border-nv-border text-nv-muted">Przemysłowe pompy nurnikowe</td>
-        </tr>
-        <tr class="hover:bg-nv-gray/50 transition-colors">
-          <td class="py-6 px-6 border border-nv-border">Charakterystyka Pracy</td>
-          <td class="py-6 px-6 border border-nv-border text-nv-muted">Woda czysta / magistrale i irygacja podziemna</td>
-          <td class="py-6 px-6 border border-nv-border text-nv-muted">Ekstremalne obciążenie 200+ Bar / Agresywna chemia</td>
-        </tr>
-        <tr class="hover:bg-nv-gray/50 transition-colors">
-          <td class="py-6 px-6 border border-nv-border">Zastosowane Materiały</td>
-          <td class="py-6 px-6 border border-nv-border text-nv-muted">Polietylen PE100, PE100-RC (Odporność na pęknięcia)</td>
-          <td class="py-6 px-6 border border-nv-border text-nv-muted">Mosiądz kuty, stal nierdzewna, pełna ceramika</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <!-- BRAMA 02: MYJNIE -->
+  <a 
+    href="https://sercemyjni.pl" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="group block w-full border-t-2 border-kh-black px-6 md:px-12 py-16 md:py-24 hover:bg-kh-wash hover:text-white kh-transition"
+  >
+    <div class="max-w-[1800px] mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-8 md:mb-16">
+        <span class="font-bold text-sm md:text-lg uppercase tracking-widest opacity-60">02 &mdash; Wysokie Ciśnienie 200 Bar</span>
+        <div class="text-right">
+          <span class="block font-bold text-xl md:text-3xl tracking-tighter">Pompy Nurnikowe Udor</span>
+          <span class="block text-sm md:text-lg opacity-60 mt-2">Pełna ceramika &middot; Praca 24/7</span>
+        </div>
+      </div>
+      
+      <div class="flex items-center justify-between">
+        <h2 class="font-extrabold text-[10vw] md:text-[8vw] leading-none tracking-tighter uppercase">
+          SERCEMYJNI.PL
+        </h2>
+        <!-- Potężna strzałka -->
+        <svg class="w-[8vw] h-[8vw] md:w-[6vw] md:h-[6vw] transform group-hover:rotate-45 kh-transition" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </div>
+    </div>
+  </a>
+
 </section>

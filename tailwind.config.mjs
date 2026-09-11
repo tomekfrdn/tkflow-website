@@ -4,23 +4,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        'nv-black': '#0A0A0A',
-        'nv-white': '#FFFFFF',
-        'nv-border': '#EBEBEB',
-        'nv-muted': '#737373',
-        'nv-blue': '#0055FF',
-        'nv-gray': '#F5F5F5',
-        // Akcenty delikatne dla kart hover
-        'nv-agro-bg': '#F0FDF4',
-        'nv-wash-bg': '#FFF1F2',
+        'kh-black': '#000000',
+        'kh-white': '#FFFFFF',
+        'kh-gray': '#F2F2F2',
+        'kh-muted': '#888888',
+        // Brutalne akcenty dla brandów
+        'kh-agro': '#022C22', // Ekstremalnie ciemna zieleń
+        'kh-wash': '#4C0519', // Ekstremalnie ciemna czerwień
       },
       fontFamily: {
-        sans: ['"Inter"', 'sans-serif'],
-        display: ['"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       letterSpacing: {
-        tightest: '-0.04em',
-        widest: '0.2em',
+        tighter: '-0.05em',
+        widest: '0.25em',
       },
     },
   },

@@ -1,99 +1,18 @@
 ---
-// Hero.astro — Typograficzny Terminal Rozdzielczy
+// Hero.astro — Typographic Hero
 ---
 
-<section class="relative w-full pt-32 pb-0 flex flex-col min-h-[100svh] max-w-[1600px] mx-auto px-6 md:px-12">
+<section class="w-full min-h-[90svh] flex flex-col justify-end px-6 md:px-12 pb-12 md:pb-24 bg-white">
   
-  <!-- GÓRNA STREFA: DEKLARACJA MISJI -->
-  <div class="relative z-10 w-full max-w-5xl pt-10 pb-20">
-    <div class="flex items-center gap-3 mb-8">
-      <span class="w-2 h-2 bg-nv-blue animate-pulse"></span>
-      <span class="font-sans text-[10px] uppercase tracking-widest text-nv-muted font-bold">
-        Centrala Dystrybucji i Doradztwa
-      </span>
-    </div>
-
-    <h1 class="font-display font-extrabold text-5xl sm:text-7xl lg:text-[6rem] uppercase tracking-tightest text-nv-black leading-[0.95] mb-8">
-      Technologie<br/>Przesyłu Wody.
-    </h1>
-
-    <p class="font-sans text-lg sm:text-2xl text-nv-muted max-w-3xl leading-relaxed font-light">
-      Inżynieria doboru i dystrybucja armatury. Zabezpieczamy ciągłość pracy dla wielkoobszarowego rolnictwa oraz przemysłowych myjni bezdotykowych.
+  <div class="max-w-[1800px] w-full mx-auto">
+    <p class="text-sm md:text-xl font-medium text-kh-muted uppercase tracking-widest mb-6 md:mb-12 max-w-2xl">
+      Inżynieria doboru i dystrybucja armatury dla rolnictwa wielkoobszarowego oraz przemysłowych myjni.
     </p>
+
+    <!-- Gigantyczny, responsywny nagłówek rozciągający się na ekranie -->
+    <h1 class="font-extrabold text-[15vw] leading-[0.85] tracking-tighter text-kh-black uppercase select-none">
+      Przesył<br/>Cieczy.
+    </h1>
   </div>
 
-  <!-- DOLNA STREFA: BIFURKACJA (DWIE MARKI) -->
-  <div id="ekosystem" class="relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 mt-auto border-t border-nv-border border-x bg-white">
-    
-    <!-- PLATFORMA 01: RURAPE.PL -->
-    <a href="https://rurape.pl" target="_blank" rel="noopener noreferrer" class="group flex flex-col border-b lg:border-b-0 lg:border-r border-nv-border p-8 md:p-14 hover:bg-nv-agro-bg transition-colors duration-500">
-      
-      <div class="flex items-start justify-between mb-24">
-        <span class="font-sans text-[10px] font-bold tracking-widest uppercase text-nv-muted group-hover:text-[#059669] transition-colors">
-          [ 01 / Magistrale Agro ]
-        </span>
-        <div class="w-10 h-10 border border-nv-border rounded-full flex items-center justify-center group-hover:bg-[#059669] group-hover:border-[#059669] group-hover:text-white transition-all">
-          <span class="text-lg leading-none">&nearr;</span>
-        </div>
-      </div>
-
-      <div class="mt-auto">
-        <h2 class="font-display font-extrabold text-4xl sm:text-5xl uppercase tracking-tighter text-nv-black mb-6">
-          rurape.pl
-        </h2>
-        
-        <!-- Pół-techniczna specyfikacja zamiast lania wody -->
-        <div class="border-t border-nv-border pt-6 mt-6 font-sans text-sm text-nv-black">
-          <div class="flex justify-between py-2 border-b border-nv-border/50">
-            <span class="text-nv-muted">Standard rur:</span>
-            <strong class="font-medium">PE100 / PE100-RC</strong>
-          </div>
-          <div class="flex justify-between py-2 border-b border-nv-border/50">
-            <span class="text-nv-muted">Średnice:</span>
-            <strong class="font-medium">DN 16 – 110 mm</strong>
-          </div>
-          <div class="flex justify-between py-2">
-            <span class="text-nv-muted">Przeznaczenie:</span>
-            <strong class="font-medium">Irygacja, Plantacje, Sady</strong>
-          </div>
-        </div>
-      </div>
-    </a>
-
-    <!-- PLATFORMA 02: SERCEMYJNI.PL -->
-    <a href="https://sercemyjni.pl" target="_blank" rel="noopener noreferrer" class="group flex flex-col p-8 md:p-14 hover:bg-nv-wash-bg transition-colors duration-500">
-      
-      <div class="flex items-start justify-between mb-24">
-        <span class="font-sans text-[10px] font-bold tracking-widest uppercase text-nv-muted group-hover:text-[#DC2626] transition-colors">
-          [ 02 / Wysokie Ciśnienie ]
-        </span>
-        <div class="w-10 h-10 border border-nv-border rounded-full flex items-center justify-center group-hover:bg-[#DC2626] group-hover:border-[#DC2626] group-hover:text-white transition-all">
-          <span class="text-lg leading-none">&nearr;</span>
-        </div>
-      </div>
-
-      <div class="mt-auto">
-        <h2 class="font-display font-extrabold text-4xl sm:text-5xl uppercase tracking-tighter text-nv-black mb-6">
-          sercemyjni.pl
-        </h2>
-        
-        <!-- Pół-techniczna specyfikacja -->
-        <div class="border-t border-nv-border pt-6 mt-6 font-sans text-sm text-nv-black">
-          <div class="flex justify-between py-2 border-b border-nv-border/50">
-            <span class="text-nv-muted">Główny Asortyment:</span>
-            <strong class="font-medium">Pompy nurnikowe Udor</strong>
-          </div>
-          <div class="flex justify-between py-2 border-b border-nv-border/50">
-            <span class="text-nv-muted">Ciśnienie Robocze:</span>
-            <strong class="font-medium">Do 200+ Barów</strong>
-          </div>
-          <div class="flex justify-between py-2">
-            <span class="text-nv-muted">Konstrukcja:</span>
-            <strong class="font-medium">Nurniki w pełni ceramiczne</strong>
-          </div>
-        </div>
-      </div>
-    </a>
-
-  </div>
 </section>
