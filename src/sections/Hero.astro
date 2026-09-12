@@ -1,5 +1,5 @@
 ---
-// Hero.astro — Zoptymalizowane zdjęcia (Efekt Atramentu / Mix-Blend-Multiply)
+// Hero.astro
 import { Image } from 'astro:assets';
 import ruryImage from '../images/rury-pe.webp';
 import pompaImage from '../images/pompy-do-myjni.webp';
@@ -8,7 +8,7 @@ import pompaImage from '../images/pompy-do-myjni.webp';
 <section class="w-full min-h-[90svh] flex flex-col justify-between pt-32 md:pt-40 pb-0 bg-tk-base">
   
   <div class="max-w-[1600px] w-full mx-auto px-6 md:px-12 mb-16 md:mb-24">
-   <div class="flex flex-wrap items-center gap-3 mb-6">
+    <div class="flex flex-wrap items-center gap-3 mb-6">
       <span class="w-2 h-2 bg-tk-dark"></span>
       <span class="font-mono text-xs uppercase tracking-widest text-tk-muted font-bold">
         TK Flow &middot; Komponenty wodne i ciśnieniowe
@@ -21,13 +21,14 @@ import pompaImage from '../images/pompy-do-myjni.webp';
     </h1>
 
     <p class="font-sans text-lg sm:text-xl md:text-2xl text-tk-muted max-w-4xl leading-relaxed mb-12">
-      Dwa pozornie odległe rynki połączone jednym warunkiem: przepływ wody w trakcie pracy nie ma prawa zawieść. Jako TK Flow dostarczamy komponenty do wymagających środowisk – od instalacji nawadniających w gospodarstwach rolnych i na plantacjach, po systemy wysokiego ciśnienia (200 barów) w myjniach bezdotykowych.
+      Dwa pozornie odległe rynki połączone jednym warunkiem: <strong class="font-medium text-tk-dark">przepływ wody w trakcie pracy nie ma prawa zawieść.</strong> Jako TK Flow (Tomasz Kulpa) dostarczamy komponenty do wymagających środowisk – od instalacji nawadniających w gospodarstwach i na plantacjach, po systemy wysokiego ciśnienia 200 barów w myjniach bezdotykowych.
     </p>
 
-    <!-- Mikro-hasło -->
+    <!-- Mikro-hasło ze złamaniem linii na ekranach od szerokości "sm" (desktop/tablet) -->
     <div class="mb-12 border-l-[3px] border-tk-dark pl-4 md:pl-6 max-w-2xl">
       <p class="font-mono text-sm font-bold text-tk-dark uppercase tracking-widest leading-relaxed">
-        Od nawadniania upraw po ciśnienie 200 barów na myjniach. Dostarczamy komponenty tam, gdzie liczy się pewny przepływ.
+        <span>Od nawadniania upraw po ciśnienie 200 barów na myjniach.</span>
+        <span class="sm:block">Dostarczamy komponenty tam, gdzie liczy się pewny przepływ.</span>
       </p>
     </div>
   </div>
@@ -56,16 +57,14 @@ import pompaImage from '../images/pompy-do-myjni.webp';
           </p>
         </div>
         
-        <!-- Nowy, dopracowany kontener zdjęcia Rur -->
+        <!-- Zdjęcie z efektem Atramentu -->
         <div class="w-full lg:w-72 h-40 bg-[#E0DDD4] border border-tk-border overflow-hidden relative group-hover:border-tk-dark kh-transition">
-          <!-- Zastosowany efekt: grayscale + mix-blend-multiply + opacity-80 -->
           <Image 
             src={ruryImage} 
             alt="Zwoje rur PE" 
             class="w-full h-full object-cover grayscale mix-blend-multiply opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out" 
             loading="lazy" 
           />
-          <!-- Badge wyjęty spod wpływu filtra, by zawsze był ostry i czytelny -->
           <div class="absolute top-2 left-2 bg-tk-dark text-white px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest z-10 group-hover:bg-black kh-transition">
             Ryc. 01 // Rury PE
           </div>
@@ -103,9 +102,8 @@ import pompaImage from '../images/pompy-do-myjni.webp';
           </p>
         </div>
         
-        <!-- Nowy, dopracowany kontener zdjęcia Pompy -->
+        <!-- Zdjęcie z efektem Atramentu -->
         <div class="w-full lg:w-72 h-40 bg-[#E0DDD4] border border-tk-border overflow-hidden relative group-hover:border-tk-dark kh-transition">
-          <!-- Zastosowany efekt: grayscale + mix-blend-multiply + opacity-80 -->
           <Image 
             src={pompaImage} 
             alt="Przekrój pompy do myjni" 
