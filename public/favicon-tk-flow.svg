@@ -1,6 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="150" height="150">
-  <path 
-    d="M75 14 C75 14 26 76 26 104 C26 131 48 142 75 142 C102 142 124 131 124 104 C124 76 75 14 75 14 Z" 
-    fill="#022859" 
-  />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Architektoniczne tło w kolorze Twojej marki (tk-dark) -->
+  <rect width="256" height="256" fill="#121416" />
+  
+  <!-- Inżynieryjny monogram, wycentrowany matematycznie, gruby i ostry -->
+  <text 
+    x="50%" 
+    y="54%" 
+    font-family="system-ui, -apple-system, sans-serif" 
+    font-weight="900" 
+    font-size="140" 
+    letter-spacing="-6" 
+    fill="#FFFFFF" 
+    text-anchor="middle" 
+    dominant-baseline="middle"
+  >
+    TK
+  </text>
 </svg>

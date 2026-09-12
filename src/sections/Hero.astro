@@ -1,5 +1,5 @@
 ---
-// Hero.astro
+// Hero.astro — Zoptymalizowane zdjęcia (Efekt Atramentu / Mix-Blend-Multiply)
 import { Image } from 'astro:assets';
 import ruryImage from '../images/rury-pe.webp';
 import pompaImage from '../images/pompy-do-myjni.webp';
@@ -56,9 +56,19 @@ import pompaImage from '../images/pompy-do-myjni.webp';
           </p>
         </div>
         
-        <div class="w-full lg:w-72 h-40 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
-          <Image src={ruryImage} alt="Zwoje rur PE" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest z-10">Ryc. 01 // Rury PE</div>
+        <!-- Nowy, dopracowany kontener zdjęcia Rur -->
+        <div class="w-full lg:w-72 h-40 bg-[#E0DDD4] border border-tk-border overflow-hidden relative group-hover:border-tk-dark kh-transition">
+          <!-- Zastosowany efekt: grayscale + mix-blend-multiply + opacity-80 -->
+          <Image 
+            src={ruryImage} 
+            alt="Zwoje rur PE" 
+            class="w-full h-full object-cover grayscale mix-blend-multiply opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out" 
+            loading="lazy" 
+          />
+          <!-- Badge wyjęty spod wpływu filtra, by zawsze był ostry i czytelny -->
+          <div class="absolute top-2 left-2 bg-tk-dark text-white px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest z-10 group-hover:bg-black kh-transition">
+            Ryc. 01 // Rury PE
+          </div>
         </div>
         
         <div class="flex items-center justify-between gap-4 mt-2 lg:mt-0 lg:justify-end">
@@ -93,9 +103,18 @@ import pompaImage from '../images/pompy-do-myjni.webp';
           </p>
         </div>
         
-        <div class="w-full lg:w-72 h-40 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
-          <Image src={pompaImage} alt="Przekrój pompy do myjni" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest z-10">Ryc. 02 // Pompa Udor</div>
+        <!-- Nowy, dopracowany kontener zdjęcia Pompy -->
+        <div class="w-full lg:w-72 h-40 bg-[#E0DDD4] border border-tk-border overflow-hidden relative group-hover:border-tk-dark kh-transition">
+          <!-- Zastosowany efekt: grayscale + mix-blend-multiply + opacity-80 -->
+          <Image 
+            src={pompaImage} 
+            alt="Przekrój pompy do myjni" 
+            class="w-full h-full object-cover grayscale mix-blend-multiply opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-in-out" 
+            loading="lazy" 
+          />
+          <div class="absolute top-2 left-2 bg-tk-dark text-white px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest z-10 group-hover:bg-black kh-transition">
+            Ryc. 02 // Pompa Udor
+          </div>
         </div>
         
         <div class="flex items-center justify-between gap-4 mt-2 lg:mt-0 lg:justify-end">
