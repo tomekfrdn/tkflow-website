@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        'tk-base': '#F4F3EE',
-        'tk-dark': '#1A1D20',
-        'tk-border': '#E2E0D8',
-        'tk-muted': '#656A70',
+        'tk-base': '#EFECE5',   
+        'tk-dark': '#121416',   
+        'tk-border': '#CCC9BC', 
+        'tk-muted': '#484D54',  
         'tk-agro': '#134E39', 
         'tk-wash': '#651C32',
       },

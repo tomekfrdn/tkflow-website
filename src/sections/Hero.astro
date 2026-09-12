@@ -20,9 +20,16 @@ import pompaImage from '../images/pompy-do-myjni.webp';
       <span class="block">przesyłu cieczy.</span>
     </h1>
 
-    <p class="font-sans text-base sm:text-xl md:text-2xl text-tk-muted max-w-3xl leading-relaxed font-light">
-      Centrala dystrybucji i doradztwa technicznego pod marką <strong>TK Flow (Tomasz Kulpa)</strong>. Dostarczamy certyfikowane systemy rurowe dla rolnictwa oraz niezawodne pompy wysokociśnieniowe dla myjni bezdotykowych.
+    <p class="font-sans text-base sm:text-xl md:text-2xl text-tk-muted max-w-4xl leading-relaxed mb-12">
+      Dwa pozornie odległe światy, które łączy jeden bezwzględny warunek: przepływ wody nie może się zatrzymać. Jako TK Flow (Tomasz Kulpa) specjalizujemy się w skrajnych środowiskach – od rolniczych magistrali na setkach hektarów, po inżynierię ekstremalnego ciśnienia 200 barów w myjniach.
     </p>
+
+    <!-- Mikro-hasło brutalne -->
+    <div class="mb-12 border-l-[3px] border-tk-dark pl-4 md:pl-6 max-w-2xl">
+      <p class="font-mono text-xs sm:text-sm font-bold text-tk-dark uppercase tracking-widest leading-relaxed">
+        Od skali hektarów po ciśnienie 200 barów. Opanowaliśmy przesył cieczy tam, gdzie inni nie dają gwarancji.
+      </p>
+    </div>
   </div>
 
   <div id="platformy" class="w-full border-t-2 border-tk-dark flex flex-col">
@@ -31,12 +38,10 @@ import pompaImage from '../images/pompy-do-myjni.webp';
       href="https://rurape.pl" 
       target="_blank" 
       rel="noopener noreferrer"
-      class="group block w-full px-6 md:px-12 py-14 md:py-20 border-b border-tk-border bg-[#F4F3EE] hover:bg-tk-agro hover:text-white kh-transition relative overflow-hidden"
+      class="group block w-full px-6 md:px-12 py-14 md:py-20 border-b border-tk-border bg-[#EFECE5] hover:bg-tk-agro hover:text-white kh-transition relative overflow-hidden"
     >
       <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#134E39] group-hover:bg-emerald-400 kh-transition"></div>
-
       <div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-8 pl-4">
-        
         <div class="max-w-md">
           <span class="font-mono text-xs font-bold tracking-widest uppercase text-[#134E39] group-hover:text-emerald-300 transition-colors mb-2 block">
             [ 01 / Magistrale Rolnicze ]
@@ -48,26 +53,16 @@ import pompaImage from '../images/pompy-do-myjni.webp';
             Atestowane rury PE100 i PE100-RC. Kompleksowe zaopatrzenie w systemy irygacyjne dla sadów i plantacji.
           </p>
         </div>
-
         <div class="w-full lg:w-72 h-36 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
-          <Image 
-            src={ruryImage} 
-            alt="Zwoje rur PE" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          />
-          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest z-10">
-            Ryc. 01 // Rury PE
-          </div>
+          <Image src={ruryImage} alt="Zwoje rur PE" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest z-10">Ryc. 01 // Rury PE</div>
         </div>
-
         <div class="flex items-center justify-between lg:justify-end gap-6">
           <span class="font-mono text-xs uppercase tracking-widest font-bold">Przejdź do katalogu</span>
           <div class="w-12 h-12 border border-tk-dark group-hover:border-white rounded-full flex items-center justify-center group-hover:rotate-45 kh-transition shrink-0">
             <span>&nearr;</span>
           </div>
         </div>
-
       </div>
     </a>
 
@@ -75,12 +70,10 @@ import pompaImage from '../images/pompy-do-myjni.webp';
       href="https://sercemyjni.pl" 
       target="_blank" 
       rel="noopener noreferrer"
-      class="group block w-full px-6 md:px-12 py-14 md:py-20 bg-[#F4F3EE] hover:bg-tk-wash hover:text-white kh-transition relative overflow-hidden"
+      class="group block w-full px-6 md:px-12 py-14 md:py-20 bg-[#EFECE5] hover:bg-tk-wash hover:text-white kh-transition relative overflow-hidden"
     >
       <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#651C32] group-hover:bg-rose-300 kh-transition"></div>
-
       <div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-8 pl-4">
-        
         <div class="max-w-md">
           <span class="font-mono text-xs font-bold tracking-widest uppercase text-[#651C32] group-hover:text-rose-300 transition-colors mb-2 block">
             [ 02 / Wysokie Ciśnienie 200 Bar ]
@@ -92,29 +85,18 @@ import pompaImage from '../images/pompy-do-myjni.webp';
             Przemysłowe pompy nurnikowe Udor, komponenty ceramiczne i armatura stworzona do pracy ciągłej 24/7.
           </p>
         </div>
-
         <div class="w-full lg:w-72 h-36 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
-          <Image 
-            src={pompaImage} 
-            alt="Przekrój pompy do myjni" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            loading="lazy"
-          />
-          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest z-10">
-            Ryc. 02 // Pompa Udor
-          </div>
+          <Image src={pompaImage} alt="Przekrój pompy do myjni" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest z-10">Ryc. 02 // Pompa Udor</div>
         </div>
-
         <div class="flex items-center justify-between lg:justify-end gap-6">
           <span class="font-mono text-xs uppercase tracking-widest font-bold">Otwórz ofertę pomp</span>
           <div class="w-12 h-12 border border-tk-dark group-hover:border-white rounded-full flex items-center justify-center group-hover:rotate-45 kh-transition shrink-0">
             <span>&nearr;</span>
           </div>
         </div>
-
       </div>
     </a>
 
   </div>
-
 </section>

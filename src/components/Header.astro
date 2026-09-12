@@ -1,40 +1,29 @@
 ---
-// Header.astro — Optycznie zlicowany, brutalny logotyp i precyzyjne odstępy
+// Header.astro — Oczyszczony, precyzyjny header z zaszyfrowanym numerem tel.
 ---
 
-<header class="fixed top-0 inset-x-0 z-50 bg-[#F4F3EE]/95 backdrop-blur-md border-b border-tk-border h-20 flex items-center px-6 md:px-12 transition-all duration-300">
+<header class="fixed top-0 inset-x-0 z-50 bg-[#EFECE5]/95 backdrop-blur-md border-b border-tk-border h-20 flex items-center px-6 md:px-12 transition-all duration-300">
   <div class="w-full max-w-[1600px] mx-auto flex items-center justify-between">
     
-    <!-- Identyfikator: Zbita, solidna bryła (Logo Lockup) -->
+    <!-- Lockup TK Flow -->
     <a href="/" class="flex items-center gap-4 group outline-none">
-      <!-- Minimalnie powiększony kwadrat (w-10 h-10), by zrównoważyć dwie linie tekstu -->
       <div class="w-10 h-10 bg-tk-dark text-white flex items-center justify-center font-display font-bold text-[15px] tracking-tighter transition-transform group-hover:scale-105 shrink-0">
         TK
       </div>
-      <!-- Zassane wiersze (-space-y-[0.15rem]) i ciaśniejszy tracking -->
       <div class="flex flex-col items-start justify-center -space-y-[0.15rem]">
-        <span class="font-display font-extrabold text-[19px] md:text-[21px] tracking-tighter text-tk-dark uppercase leading-none block">
+        <span class="font-display font-extrabold text-[19px] md:text-[21px] tracking-tighter text-tk-dark uppercase leading-none block -ml-[1px]">
           TK Flow
         </span>
-        <span class="font-display font-extrabold text-[19px] md:text-[21px] tracking-tighter text-tk-dark uppercase leading-none block">
+        <span class="font-display font-extrabold text-[19px] md:text-[21px] tracking-tighter text-tk-dark uppercase leading-none block -ml-[1px]">
           Tomasz Kulpa
         </span>
       </div>
     </a>
 
-    <!-- Status: Zmniejszona dioda dla lepszego, technicznego efektu -->
-    <div class="hidden lg:flex items-center gap-3 font-mono text-[11px] font-bold text-tk-muted uppercase tracking-wider">
-      <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-      <span>Dostawy Cała Polska</span>
-    </div>
-
-    <!-- Infolinia: Odsunięte podkreślenie (offset-8) -->
-    <a href="tel:+48000000000" class="group flex items-center gap-2 md:gap-3">
-      <span class="hidden sm:inline-block text-[10px] uppercase tracking-widest text-tk-muted font-bold font-mono group-hover:text-tk-dark transition-colors">
-        Bezpośrednio z Tomaszem:
-      </span>
-      <span class="font-display font-bold text-sm sm:text-base md:text-xl text-tk-dark tracking-tight underline underline-offset-8 decoration-tk-border group-hover:decoration-tk-dark transition-colors">
-        +48 000 000 000
+    <!-- Bezpośredni kontakt (Anty-Spam) -->
+    <a href="&#116;&#101;&#108;&#58;&#43;&#52;&#56;&#52;&#53;&#53;&#53;&#56;&#48;&#56;&#49;&#49;" class="group flex items-center outline-none">
+      <span class="font-display font-bold text-base sm:text-lg md:text-xl text-tk-dark tracking-tight underline underline-offset-8 decoration-tk-border group-hover:decoration-tk-dark transition-colors">
+        &#43;&#52;&#56;&#32;&#52;&#53;&#53;&#32;&#53;&#56;&#48;&#32;&#56;&#49;&#49;
       </span>
     </a>
 
