@@ -10,7 +10,7 @@ import pompaImage from '../images/pompy-do-myjni.webp';
   <div class="max-w-[1600px] w-full mx-auto px-6 md:px-12 mb-16 md:mb-24">
     <div class="flex flex-wrap items-center gap-3 mb-6">
       <span class="w-2 h-2 bg-tk-dark"></span>
-      <span class="font-mono text-[10px] uppercase tracking-widest text-tk-muted font-bold">
+      <span class="font-mono text-xs uppercase tracking-widest text-tk-muted font-bold">
         TK (Tomasz Kulpa) &middot; Inżynieria Przesyłu Cieczy &middot; Bydgoszcz
       </span>
     </div>
@@ -20,13 +20,13 @@ import pompaImage from '../images/pompy-do-myjni.webp';
       <span class="block">przesyłu cieczy.</span>
     </h1>
 
-    <p class="font-sans text-base sm:text-xl md:text-2xl text-tk-muted max-w-4xl leading-relaxed mb-12">
+    <p class="font-sans text-lg sm:text-xl md:text-2xl text-tk-muted max-w-4xl leading-relaxed mb-12">
       Dwa pozornie odległe światy, które łączy jeden bezwzględny warunek: przepływ wody nie może się zatrzymać. Jako TK Flow (Tomasz Kulpa) specjalizujemy się w skrajnych środowiskach – od rolniczych magistrali na setkach hektarów, po inżynierię ekstremalnego ciśnienia 200 barów w myjniach.
     </p>
 
-    <!-- Mikro-hasło brutalne -->
+    <!-- Mikro-hasło -->
     <div class="mb-12 border-l-[3px] border-tk-dark pl-4 md:pl-6 max-w-2xl">
-      <p class="font-mono text-xs sm:text-sm font-bold text-tk-dark uppercase tracking-widest leading-relaxed">
+      <p class="font-mono text-sm font-bold text-tk-dark uppercase tracking-widest leading-relaxed">
         Od skali hektarów po ciśnienie 200 barów. Opanowaliśmy przesył cieczy tam, gdzie inni nie dają gwarancji.
       </p>
     </div>
@@ -34,67 +34,77 @@ import pompaImage from '../images/pompy-do-myjni.webp';
 
   <div id="platformy" class="w-full border-t-2 border-tk-dark flex flex-col">
     
+    <!-- BRAMA 01: AGRO -->
     <a 
       href="https://rurape.pl" 
       target="_blank" 
       rel="noopener noreferrer"
-      class="group block w-full px-6 md:px-12 py-14 md:py-20 border-b border-tk-border bg-[#EFECE5] hover:bg-tk-agro hover:text-white kh-transition relative overflow-hidden"
+      class="group block w-full px-6 md:px-12 py-12 md:py-20 border-b border-tk-border bg-[#E0DDD4] hover:bg-tk-agro hover:text-white kh-transition relative overflow-hidden"
     >
       <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#134E39] group-hover:bg-emerald-400 kh-transition"></div>
       <div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-8 pl-4">
+        
         <div class="max-w-md">
-          <span class="font-mono text-xs font-bold tracking-widest uppercase text-[#134E39] group-hover:text-emerald-300 transition-colors mb-2 block">
+          <span class="font-mono text-xs font-bold tracking-widest uppercase text-[#134E39] group-hover:text-emerald-300 transition-colors mb-3 block">
             [ 01 / Magistrale Rolnicze ]
           </span>
-          <h2 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-tk-dark group-hover:text-white kh-transition mb-4">
+          <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-tk-dark group-hover:text-white kh-transition mb-4">
             RURAPE.PL
           </h2>
-          <p class="font-mono text-xs text-tk-muted group-hover:text-white/80 kh-transition leading-relaxed">
+          <p class="font-mono text-sm text-tk-muted group-hover:text-white/80 kh-transition leading-relaxed">
             Atestowane rury PE100 i PE100-RC. Kompleksowe zaopatrzenie w systemy irygacyjne dla sadów i plantacji.
           </p>
         </div>
-        <div class="w-full lg:w-72 h-36 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
+        
+        <div class="w-full lg:w-72 h-40 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
           <Image src={ruryImage} alt="Zwoje rur PE" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest z-10">Ryc. 01 // Rury PE</div>
+          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest z-10">Ryc. 01 // Rury PE</div>
         </div>
-        <div class="flex items-center justify-between lg:justify-end gap-6">
-          <span class="font-mono text-xs uppercase tracking-widest font-bold">Przejdź do katalogu</span>
-          <div class="w-12 h-12 border border-tk-dark group-hover:border-white rounded-full flex items-center justify-center group-hover:rotate-45 kh-transition shrink-0">
-            <span>&nearr;</span>
+        
+        <div class="flex items-center justify-between gap-4 mt-2 lg:mt-0 lg:justify-end">
+          <span class="font-mono text-sm uppercase tracking-widest font-bold text-tk-dark group-hover:text-white kh-transition">Przejdź do katalogu</span>
+          <div class="w-12 h-12 md:w-14 md:h-14 border-2 border-tk-dark group-hover:border-white rounded-full flex items-center justify-center group-hover:rotate-45 kh-transition shrink-0 text-tk-dark group-hover:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="md:w-6 md:h-6"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
           </div>
         </div>
+
       </div>
     </a>
 
+    <!-- BRAMA 02: MYJNIE -->
     <a 
       href="https://sercemyjni.pl" 
       target="_blank" 
       rel="noopener noreferrer"
-      class="group block w-full px-6 md:px-12 py-14 md:py-20 bg-[#EFECE5] hover:bg-tk-wash hover:text-white kh-transition relative overflow-hidden"
+      class="group block w-full px-6 md:px-12 py-12 md:py-20 bg-[#E0DDD4] hover:bg-tk-wash hover:text-white kh-transition relative overflow-hidden"
     >
       <div class="absolute left-0 top-0 bottom-0 w-2 bg-[#651C32] group-hover:bg-rose-300 kh-transition"></div>
       <div class="max-w-[1600px] mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-8 pl-4">
+        
         <div class="max-w-md">
-          <span class="font-mono text-xs font-bold tracking-widest uppercase text-[#651C32] group-hover:text-rose-300 transition-colors mb-2 block">
+          <span class="font-mono text-xs font-bold tracking-widest uppercase text-[#651C32] group-hover:text-rose-300 transition-colors mb-3 block">
             [ 02 / Wysokie Ciśnienie 200 Bar ]
           </span>
-          <h2 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-tk-dark group-hover:text-white kh-transition mb-4">
+          <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight uppercase text-tk-dark group-hover:text-white kh-transition mb-4">
             SERCEMYJNI.PL
           </h2>
-          <p class="font-mono text-xs text-tk-muted group-hover:text-white/80 kh-transition leading-relaxed">
+          <p class="font-mono text-sm text-tk-muted group-hover:text-white/80 kh-transition leading-relaxed">
             Przemysłowe pompy nurnikowe Udor, komponenty ceramiczne i armatura stworzona do pracy ciągłej 24/7.
           </p>
         </div>
-        <div class="w-full lg:w-72 h-36 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
+        
+        <div class="w-full lg:w-72 h-40 bg-tk-border border border-tk-border overflow-hidden relative shadow-inner filter grayscale contrast-125 brightness-90 group-hover:brightness-100 kh-transition">
           <Image src={pompaImage} alt="Przekrój pompy do myjni" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest z-10">Ryc. 02 // Pompa Udor</div>
+          <div class="absolute top-2 left-2 bg-black/65 text-white px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest z-10">Ryc. 02 // Pompa Udor</div>
         </div>
-        <div class="flex items-center justify-between lg:justify-end gap-6">
-          <span class="font-mono text-xs uppercase tracking-widest font-bold">Otwórz ofertę pomp</span>
-          <div class="w-12 h-12 border border-tk-dark group-hover:border-white rounded-full flex items-center justify-center group-hover:rotate-45 kh-transition shrink-0">
-            <span>&nearr;</span>
+        
+        <div class="flex items-center justify-between gap-4 mt-2 lg:mt-0 lg:justify-end">
+          <span class="font-mono text-sm uppercase tracking-widest font-bold text-tk-dark group-hover:text-white kh-transition">Otwórz ofertę pomp</span>
+          <div class="w-12 h-12 md:w-14 md:h-14 border-2 border-tk-dark group-hover:border-white rounded-full flex items-center justify-center group-hover:rotate-45 kh-transition shrink-0 text-tk-dark group-hover:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="md:w-6 md:h-6"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
           </div>
         </div>
+
       </div>
     </a>
 
