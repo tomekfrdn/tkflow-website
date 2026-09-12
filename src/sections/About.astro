@@ -8,8 +8,13 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
       
       <div class="lg:col-span-3 flex flex-col items-start text-left">
-        <div class="w-32 h-32 sm:w-40 sm:h-40 bg-tk-base border border-tk-border overflow-hidden mb-4 filter grayscale contrast-125 shadow-sm">
-          <img src="/images/tomasz-kulpa-tk-flow.jpg" alt="Tomasz Kulpa" class="w-full h-full object-cover" loading="lazy" />
+        <div class="w-32 h-32 sm:w-40 sm:h-40 bg-tk-base border border-tk-border overflow-hidden mb-4 relative group">
+          <img 
+            src="/images/tomasz-kulpa-tk-flow.jpg" 
+            alt="Tomasz Kulpa" 
+            class="w-full h-full object-cover grayscale mix-blend-multiply opacity-85 group-hover:grayscale-0 group-hover:mix-blend-normal group-hover:opacity-100 transition-all duration-700 ease-in-out" 
+            loading="lazy" 
+          />
         </div>
         <h3 class="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-tk-dark uppercase">
           Tomasz Kulpa
