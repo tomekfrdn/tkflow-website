@@ -59,17 +59,19 @@ const { title } = Astro.props
   .kh-transition {
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  ::-webkit-scrollbar {
-    width: 6px;
+::-webkit-scrollbar {
+    width: 12px; /* ZMIENIONE: Szersza belka (Google najczęściej używa 10px - 12px) */
   }
+  
   ::-webkit-scrollbar-track {
-    background: #F3F4F6;
-    border-left: 1px solid #e5e7eb;
+    background: #F3F4F6; /* Tło pod suwakiem dopasowane do tła strony */
   }
-::-webkit-scrollbar-thumb {
+  
+  ::-webkit-scrollbar-thumb {
     background: #606060;
+    border-radius: 10px; /* Zaokrąglenie paska w stylu Material Design Google */
   }
-
+  
   ::-webkit-scrollbar-thumb:hover {
     background: #8a8a8a;
   }
